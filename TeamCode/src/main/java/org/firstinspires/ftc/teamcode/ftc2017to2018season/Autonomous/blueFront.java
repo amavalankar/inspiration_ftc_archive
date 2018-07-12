@@ -1,13 +1,15 @@
 package org.firstinspires.ftc.teamcode.ftc2017to2018season.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 //10-28-17
 @Autonomous(group = "Blue Front No Gyro")
-public class blueFront extends Autonomous_General {
+@Disabled
+public class blueFront extends Autonomous_General_George_ {
 
     public double rsBuffer = 20.00;
     private ElapsedTime runtime = new ElapsedTime();
@@ -20,7 +22,7 @@ public class blueFront extends Autonomous_General {
         vuforiaInit(true, true);
         telemetry.addData("","Vuforia Initiated");
         telemetry.update();
-        initiate();
+        initiate(false);
         sleep(500);
         telemetry.addData("","GOOD TO GO! :)");
         telemetry.update();
@@ -29,7 +31,6 @@ public class blueFront extends Autonomous_General {
 //reseting gyro sensor
 
         //toggleLight(false);
-        light.setPower(0.5);
         startTracking();
         telemetry.addData("","READY TO TRACK");
         telemetry.update();
@@ -58,7 +59,7 @@ public class blueFront extends Autonomous_General {
         telemetry.addData("jewelServo Position", jewelServo.getPosition());
         telemetry.update();
         sleep(1000);
-        readColor();
+        readColorRev();
         sleep(1500);
         telemetry.addData("right jewel color", ballColor);
         telemetry.update();
@@ -83,7 +84,7 @@ public class blueFront extends Autonomous_General {
             sleep(1500);
             jewelServo.setPosition(1);
             sleep(500);
-            readColor();
+            readColorRev();
             sleep(1000);
             if(ballColor.equals("blue")){
                 encoderMecanumDrive(0.9, -10,-10,5000,0);
@@ -103,8 +104,6 @@ public class blueFront extends Autonomous_General {
                 encoderMecanumDrive(0.9, 25, 25, 5000, 0);
             }
         }
-
-        light.setPower(0);
 
         //encoderMecanumDrive(0.4, 55, 55, 1000, 0);
         sleep(100);

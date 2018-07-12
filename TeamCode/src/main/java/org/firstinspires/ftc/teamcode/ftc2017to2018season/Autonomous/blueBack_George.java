@@ -23,19 +23,21 @@ package org.firstinspires.ftc.teamcode.ftc2017to2018season.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_for_blueBack_George;
-
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
+import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_for_blueBack_George;
 
 
 //10-28-17
 @Autonomous(name = "Blue Back George Worlds")
 //@Disabled
-//3/2/18 edit by Steven Chen: trying to see if going a slower speed off the platform makes it go more straight
-//3/25/18 edit by Steven Chen: adding second block autonomous
 public class blueBack_George extends Autonomous_General_George_ {
     Constants_for_blueBack_George constants = new Constants_for_blueBack_George();
 
+    /*-------------------------------------------------------
+    Aditya (3/31/18) - Fix basic errors,like the jewel not moved down and the moving glyph manipulator
+    Steven (4/6/18) - By looking at test programs, fix CV to recognize jewel order. OpenCVInit has to be put before waitForStart and after initiate
+    -------------------------------------------------------*/
     public double rsBuffer = constants.rsBuffer;
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -51,8 +53,8 @@ public class blueBack_George extends Autonomous_General_George_ {
 
         sleep(constants.initTimeMill);
         vuforiaInit(constants.vuforiaInitCameraView, constants.vuforiaInitRearCamera);// in order to get both openCVInit and vuforiaInit working, I initialized openCVInit first before waitForStart,
-                                                                                        // did the jewel manipulator stuff stuff first, disabled jewel detector, then did vuforia stuff last
-                                                                                        //need to do more testing to see exactly why CV stuff stops working when Vuforia stuff is done first
+        // did the jewel manipulator stuff stuff first, disabled jewel detector, then did vuforia stuff last
+        //need to do more testing to see exactly why CV stuff stops working when Vuforia stuff is done first
         //intiates the vuforia sdk and camera
         telemetry.addData("", "Vuforia Initiated");
         telemetry.update();
@@ -73,43 +75,45 @@ public class blueBack_George extends Autonomous_General_George_ {
         toggleLight(constants.toogleLightVuforiaRead);
         //light.setPower(0.5);
 
+        jewelServo.setPosition(0.6);
+
         moveUpGlyph(0.7);//change distances once we lower the stress of the glyph manipulator
-        sleep(250);
+        sleep(150);
         middleGlyphManipulator();
-        sleep(250);
-        moveDownGlyph(1.0);
-        sleep(250);
+        sleep(150);
+        moveDownGlyph(1.25);
+        sleep(150);
         closeGlyphManipulator();
-        sleep(250);
+        sleep(150);
         moveUpGlyph(1.50);
         sleep(250);
 
         switch (jewelDetector.getCurrentOrder()) {
             case BLUE_RED:
                 jewelServo.setPosition(0.2);
-                sleep(750);
+                sleep(1400);
                 //move the jewel manipulator to the right to knock off the ball
                 jewelServoRotate.setPosition(1);
-                sleep(300);
+                sleep(250);
                 jewelServoRotate.setPosition(0.79);
                 jewelServo.setPosition(0.8);
-                sleep(750);
+                sleep(400);
                 //move the jewel manipulator to the original position
                 //      sleep(500);
                 break;
 
             case RED_BLUE:
                 jewelServo.setPosition(0.2);
-                sleep(750);
+                sleep(1400);
                 //move the jewel manipulator to the left to knock off the ball
                 telemetry.addLine("Jewels Seen Red Blue");
                 telemetry.update();
 
                 jewelServoRotate.setPosition(0.5);
-                sleep(300);
+                sleep(250);
                 jewelServoRotate.setPosition(0.79);
                 jewelServo.setPosition(0.8);
-                sleep(750);
+                sleep(400);
                 //move it back to the original posititon
                 break;
             case UNKNOWN:
@@ -123,6 +127,7 @@ public class blueBack_George extends Autonomous_General_George_ {
                 break;
         }
         //Used to make sure the jewels are recognized
+        jewelServo.setPosition(0.8);
         telemetry.addData("Jewel order is ", jewelDetector.getCurrentOrder());
         telemetry.update();
         jewelServo.setPosition(1);
@@ -142,9 +147,8 @@ public class blueBack_George extends Autonomous_General_George_ {
 
         telemetry.addData("Vumark", vuMark);
         telemetry.update();
-        sleep(200);
+        sleep(75);
         toggleLight(false);
-
 
         sleep(500);
         encoderMecanumDrive(0.5, 25, 25, 5000, 0);
@@ -176,7 +180,7 @@ public class blueBack_George extends Autonomous_General_George_ {
 
         sleep(75);
 
-        encoderMecanumDrive(0.3, 8, 8, 1000, 0);
+        encoderMecanumDrive(0.5, 17, 17, 1000, 0);
         sleep(75);
 
         moveDownGlyph(1.05);
@@ -193,7 +197,7 @@ public class blueBack_George extends Autonomous_General_George_ {
         encoderMecanumDrive(0.65,-10,-10,1000,0);
         sleep(75);
         if(System.currentTimeMillis() - opModeStart > 5000) {
-            gyroTurnREV(0.6, -91, 2);
+            gyroTurnREV(0.7, -91, 2);
             moreGlyphsBlue(vuMark);
         }
 

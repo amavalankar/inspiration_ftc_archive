@@ -1380,15 +1380,18 @@ public void openCVInit(){
 
         moveUpGlyph(1.9);
 
-        if(column == RelicRecoveryVuMark.LEFT || column == RelicRecoveryVuMark.CENTER || column == RelicRecoveryVuMark.UNKNOWN) {
-            gyroTurnREV(0.5, 91, 3.25);
-        }else if(column == RelicRecoveryVuMark.RIGHT){
-            gyroTurnREV(0.5, 100, 3.25);
-        }
+//        if(column == RelicRecoveryVuMark.LEFT || column == RelicRecoveryVuMark.CENTER || column == RelicRecoveryVuMark.UNKNOWN) {
+//            gyroTurnREV(0.7, 80, 3.25);
+//        }else if(column == RelicRecoveryVuMark.RIGHT){
+//            gyroTurnREV(0.7, 80, 3.25);
+//        }
+
+        gyroTurnREV(0.65,80,2.85);
+        
         encoderMecanumDrive(0.6,39,39,1000,0);
         sleep(100);
-        glyphOuttakeRolly(1.0);
-        encoderMecanumDrive(0.4,-5,-5,1000,0);
+        glyphOuttakeRolly(0.75);
+        encoderMecanumDrive(0.4,-7,-7,1000,0);
         openGlyphManipulator();
 
     }
