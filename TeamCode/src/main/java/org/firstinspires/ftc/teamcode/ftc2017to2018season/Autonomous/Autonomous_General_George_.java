@@ -1387,7 +1387,7 @@ public void openCVInit(){
 //        }
 
         gyroTurnREV(0.65,80,2.85);
-        
+
         encoderMecanumDrive(0.6,39,39,1000,0);
         sleep(100);
         glyphOuttakeRolly(0.75);
@@ -1400,16 +1400,16 @@ public void openCVInit(){
         middleGlyphManipulator();//INCREASE LEFT VALUE TO CLOSE MORE, DECREASE RIGHT VALUE TO CLOSE MORE
         intakeLeft.setPower(1);
         intakeRight.setPower(-1);
-        encoderMecanumDrive(0.7, 25, 25, 1000, 0);
+        encoderMecanumDrive(0.8, 25, 25, 1000, 0);
         sleep(100);
 
         ElapsedTime runtime = new ElapsedTime();
         double begintime= runtime.seconds();
-        straightDrive(0.3);
-        while (runtime.seconds() - begintime < 2 && opModeIsActive()) {
+        straightDrive(0.4);
+        while (runtime.seconds() - begintime < 1.2 && opModeIsActive()) {
             intakeLeft.setPower(1);
             intakeRight.setPower(-1);
-            if(runtime.seconds() - begintime > 2) { //stop driving after 2 seconds, but keep intaking
+            if(runtime.seconds() - begintime > 1.2) { //stop driving after 2 seconds, but keep intaking
                 stopMotors();
             }
         }
@@ -1417,7 +1417,7 @@ public void openCVInit(){
 
         closeGlyphManipulator();
         sleep(900);
-        encoderMecanumDrive(0.7,-15,-15,1000,0);
+        encoderMecanumDrive(0.8,-15,-15,1000,0);
         intakeLeft.setPower(0);
         intakeRight.setPower(0);
         sleep(50);
@@ -1425,14 +1425,14 @@ public void openCVInit(){
         moveUpGlyph(1.9);
 
         if(column == RelicRecoveryVuMark.RIGHT || column == RelicRecoveryVuMark.CENTER || column == RelicRecoveryVuMark.UNKNOWN) {
-            gyroTurnREV(0.5, 110, 4);
+            gyroTurnREV(0.6, 102, 2.3);
         }else if(column == RelicRecoveryVuMark.LEFT){
-            gyroTurnREV(0.5, 80, 4);
+            gyroTurnREV(0.6, 90, 2.3);
         }
-        encoderMecanumDrive(0.6,39,39,1000,0);
+        encoderMecanumDrive(0.9,50,50,1000,0);
         sleep(100);
         glyphOuttakeRolly(1.0);
-        encoderMecanumDrive(0.4,-5,-5,1000,0);
+        encoderMecanumDrive(0.8,-7,-7,1000,0);
         openGlyphManipulator();
 
     }

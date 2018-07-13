@@ -17,7 +17,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_for_blueBack_George;
 
 //10-28-17
-@Autonomous(name = "Red Front George Worlds")
+@Autonomous(name = "Red Front Havana Worlds")
 //@Disabled
 public class redFront_George extends Autonomous_General_George_ {
     Constants_for_blueBack_George constants = new Constants_for_blueBack_George();
@@ -146,14 +146,14 @@ public class redFront_George extends Autonomous_General_George_ {
         //wallAlign(0.3,28, 1);//since the columns of the cryptobox are protruding,
                                                     // the range sensor is actually using the distance from the protruding columns
                                                     //the last value is 0 for the blue auto and 1 for the red auto
-        wallAlign(0.5, 28, 1);
+        //wallAlign(0.5, 28, 1);
         sleep(75);
         gyroTurnREV(0.5, -90,1.5);
 
         if (vuMark == RelicRecoveryVuMark.RIGHT){//should be 20 cm away from wall for left
             //goes to given distance away from the wall
             //wallAlign(0.3, 35, 1);
-            encoderMecanumDrive(0.3, -15, -15, 5000, 0);
+            encoderMecanumDrive(0.3, -13, -13, 5000, 0);
         }
         else if (vuMark == RelicRecoveryVuMark.CENTER || vuMark == RelicRecoveryVuMark.UNKNOWN){
             encoderMecanumDrive(0.3,-3,-3,5000,0);
@@ -161,13 +161,13 @@ public class redFront_George extends Autonomous_General_George_ {
             //encoderMecanumDrive(0.5, 33, 33, 5000, 0);
         }
         else if(vuMark == RelicRecoveryVuMark.LEFT){
-            encoderMecanumDrive(0.3,6,6,5000,0);
+            encoderMecanumDrive(0.3,7.5,7.5,5000,0);
             //wallAlign(0.4, 50, 1);
             //encoderMecanumDrive(0.5, 48, 48, 5000, 0);
 
         }
 
-        gyroTurnREV(0.5, -135,1.2);//turn 135 degrees to the right of origin (actually turning left to reach it, be 32 cm away from wall
+        gyroTurnREV(0.5, -137,1.2);//turn 135 degrees to the right of origin (actually turning left to reach it, be 32 cm away from wall
 
         sleep(200);
 
@@ -190,7 +190,7 @@ public class redFront_George extends Autonomous_General_George_ {
 
         if(System.currentTimeMillis() - opModeStart > 5000) {
             //two block auto from here:
-            gyroTurnREV(0.5, -90, 1);
+            gyroTurnREV(0.5, -90, 2);
             sleep(250);
 
             if (vuMark == RelicRecoveryVuMark.RIGHT) {
@@ -210,9 +210,7 @@ public class redFront_George extends Autonomous_General_George_ {
             sleep(75);
             intakeLeft.setPower(1);
             intakeRight.setPower(-1);
-            encoderMecanumDrive(0.7, 23, 23, 1000, 0);
-            sleep(150);
-            encoderMecanumDrive(0.4, 15, 15, 1000, 0);
+            encoderMecanumDrive(0.7, 70, 70, 3000, 0);
             sleep(75);
             closeGlyphManipulator();
             intakeLeft.setPower(0);
@@ -220,15 +218,24 @@ public class redFront_George extends Autonomous_General_George_ {
             sleep(75);
             moveUpGlyph(3.2);
             sleep(75);
-            encoderMecanumDrive(0.7, -40, -40, 1000, 0);
+            encoderMecanumDrive(0.7, -50, -50, 1000, 0);
             sleep(75);
-            gyroTurnREV(0.5, 170, 2.15);
+
+//            if(vuMark == RelicRecoveryVuMark.LEFT){
+//                gyroTurnREV(0.5, 165, 2.5);
+//            }else {
+//                gyroTurnREV(0.5, 173, 2.5);
+//            }
+
+            gyroTurnREV(0.5, 155, 3);
+
             sleep(75);
-            encoderMecanumDrive(0.7, 21, 21, 1000, 0);
+            encoderMecanumDrive(0.8, 27, 277, 1000, 0);
             sleep(75);
             glyphOuttakeRolly(0.5);
             sleep(75);
             encoderMecanumDrive(0.7, -5, -5, 1000, 0);
+            openGlyphManipulator();
         }
     }
 

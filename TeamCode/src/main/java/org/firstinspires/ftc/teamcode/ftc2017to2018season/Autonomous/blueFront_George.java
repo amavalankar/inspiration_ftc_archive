@@ -18,7 +18,7 @@ import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_fo
 
 
 //10-28-17
-@Autonomous(name = "Blue Front George Worlds")
+@Autonomous(name = "Blue Front Havana Worlds")
 //@Disabled
 public class blueFront_George extends Autonomous_General_George_ {
     Constants_for_blueBack_George constants = new Constants_for_blueBack_George();

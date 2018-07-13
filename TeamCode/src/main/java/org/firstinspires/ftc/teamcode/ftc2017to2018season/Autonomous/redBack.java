@@ -113,42 +113,21 @@ public class redBack extends Autonomous_General_George_ {
         sleep(100);
         encoderMecanumDrive(0.3,-26,-25,5000,0);
 
-        if(wallAlignBack.getDistance(DistanceUnit.CM)< 90 || wallAlignBack.getDistance(DistanceUnit.CM)> 200){
-            telemetry.addData("", "rangeSensor malfunctioned");
-            telemetry.update();
-            sleep(250);
-            //robot should end up 94 cm away from the wall
-            if (vuMark == RelicRecoveryVuMark.CENTER) {
-                encoderMecanumDrive(0.7,-30,-30,500,0);
-            } else if (vuMark == RelicRecoveryVuMark.LEFT) {
-                encoderMecanumDrive(0.7,-50,-50,500,0);
-            } else if (vuMark == RelicRecoveryVuMark.RIGHT) {
-                encoderMecanumDrive(0.7,-10,-10,500,0);
-            }
-            else{
-                encoderMecanumDrive(0.7,-30,-30,500,0);
-            }
-        }else {
-            //encoderMecanumDrive(0.4, 55, 55, 1000, 0);
-
-            gyroTurnREV(0.3, -180,2);
-
-            sleep(250);
-
-            if (vuMark == RelicRecoveryVuMark.CENTER) {
-                wallAlign(112, 0.35, 0);
-            } else if (vuMark == RelicRecoveryVuMark.LEFT) {
-                wallAlign(123, 0.35, 0);
-            } else if (vuMark == RelicRecoveryVuMark.RIGHT) {
-                wallAlign(104, 0.35, 0);
-            }
-            else{
-                wallAlign(112,0.35,0);
-            }
+        if (vuMark == RelicRecoveryVuMark.CENTER) {
+            encoderMecanumDrive(0.7,-40,-40,500,0);
+        } else if (vuMark == RelicRecoveryVuMark.LEFT) {
+            encoderMecanumDrive(0.7,-50,-50,500,0);
+        } else if (vuMark == RelicRecoveryVuMark.RIGHT) {
+            encoderMecanumDrive(0.7,-10,-10,500,0);
         }
+        else{
+            encoderMecanumDrive(0.7,-40,-40,500,0);
+        }
+
+
         sleep(1000);
 
-        gyroTurnREV(0.3,85,2);
+        gyroTurnREV(0.5,85,2);
 
         sleep(750);
         moveDownGlyph(0.4);

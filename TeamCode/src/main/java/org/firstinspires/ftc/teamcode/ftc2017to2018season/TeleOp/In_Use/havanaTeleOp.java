@@ -28,19 +28,10 @@ import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_Fo
 /**
  * Created by Team Inspiration on 1/21/18.
  */
-@TeleOp(name = "1 George Roll-y RUN FOR COMPETITION")
-public class curious_georgeROLLI_teleop extends OpMode{
+@TeleOp(name = "Havana TeleOP")
+public class havanaTeleOp extends OpMode{
 Constants_For_TeleOp_Rolly constants = new Constants_For_TeleOp_Rolly();
 
-    /*Delta_TeleOp is designed for and tested with the Tile Runner robot. If this program is used with another robot it may not worked.
-* This is specificly made for the Tile Runner and not another pushbot or competiotion robot. However, this program is the basic design for
-* simple program and could work on a different robot with simple debugging and configuration.*/
-
-    /*
-        ---------------------------------------------------------------------------------------------
-
-       Define the actuators we use in the robot here
-    */
     DcMotor leftWheelMotorFront;
     DcMotor leftWheelMotorBack;
     DcMotor rightWheelMotorFront;

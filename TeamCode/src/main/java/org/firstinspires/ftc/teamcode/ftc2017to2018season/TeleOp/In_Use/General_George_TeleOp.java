@@ -11,6 +11,7 @@ when                                      who                       Purpose/Chan
 package org.firstinspires.ftc.teamcode.ftc2017to2018season.TeleOp.In_Use;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -22,6 +23,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Created by Rohan on 2/23/18.
  * Created for testing purposes in slide increment
  */
+@Disabled
 @TeleOp(name = "General George TeleOp")
 public class
 General_George_TeleOp extends OpMode {

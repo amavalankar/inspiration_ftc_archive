@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 //10-28-17
-@Autonomous(name="Red Back George Worlds")
+@Autonomous(name="Red Back Havana Worlds")
 //3/2/18 edit by Steven Chen: getting rid of unnecessary turns (this is new version of the regional code)
 public class redBack_George extends Autonomous_General_George_ {
 
@@ -58,7 +58,7 @@ public class redBack_George extends Autonomous_General_George_ {
         sleep(250);
         closeGlyphManipulator();
         sleep(250);
-        moveUpGlyph(1.50);
+        moveUpGlyph(1.0);
         sleep(250);
 
         switch (jewelDetector.getCurrentOrder()) {
@@ -124,7 +124,7 @@ public class redBack_George extends Autonomous_General_George_ {
 
 
         sleep(500);
-        encoderMecanumDrive(0.5, -25, -25, 5000, 0);
+        encoderMecanumDrive(0.5, -30, -30, 5000, 0);
         sleep(100);
 
 
@@ -133,38 +133,38 @@ public class redBack_George extends Autonomous_General_George_ {
 
         if (vuMark == RelicRecoveryVuMark.RIGHT) {
             //if the right image was read we move back 4.25 cm
-            encoderMecanumDrive(0.4, -20, -20, 5000, 0);
+            encoderMecanumDrive(0.5, -19, -19, 5000, 0);
         } else if (vuMark == RelicRecoveryVuMark.CENTER || vuMark == RelicRecoveryVuMark.UNKNOWN) {
             //if the center or unkown image was read we move forward 4 cm
-            encoderMecanumDrive(0.4, -12, -12, 5000, 0);
+            encoderMecanumDrive(0.5, -30, -30, 5000, 0);
 
         } else if (vuMark == RelicRecoveryVuMark.LEFT) {
             //if the left image was read we move back 9.25 cm
-            encoderMecanumDrive(0.4, -15, -15, 5000, 0);
+            encoderMecanumDrive(0.5, -16.5, -16.5, 5000, 0);
         }
 
 
         sleep(75);
 
-        if (vuMark == RelicRecoveryVuMark.RIGHT) {
+        if (vuMark == RelicRecoveryVuMark.LEFT) {
             //if the image was right we turn to 60º counterclockwise from origin angle to push block in angled
-            gyroTurnREV(0.5, 70,2.5);
+            gyroTurnREV(0.5, 120,2.5);
 
         } else {
             //if the image was right we turn to 102º counterclockwise from origin angle to push block in angled
-            gyroTurnREV(0.5, 117,1.5);
+            gyroTurnREV(0.5, 70,1.5);
         }
 
 
         sleep(75);
 
-        encoderMecanumDrive(0.3, 8, 8, 1000, 0);
+        encoderMecanumDrive(0.6, 12, 12, 1000, 0);
         sleep(75);
 
         moveDownGlyph(1.05);
         glyphOuttakeRolly(0.5);
 
-        if (vuMark == RelicRecoveryVuMark.RIGHT) {
+        if (vuMark == RelicRecoveryVuMark.LEFT) {
             //to push the block in more, we turn left while pushing in forward
             encoderMecanumDrive(0.3, 10, -10, 1000, 0);
 
@@ -177,10 +177,10 @@ public class redBack_George extends Autonomous_General_George_ {
         //we back up 10 cm to park
 
         //code to get second glyph
-        encoderMecanumDrive(0.65, -10, -10, 1000, 0);
+        encoderMecanumDrive(0.65, -15, -15, 1000, 0);
         sleep(75);
         if(System.currentTimeMillis() - opModeStart > 5000) {
-            gyroTurnREV(0.6, -100, 2);//this will cause it to face the pile of glyphs at a 90 degree angle
+            gyroTurnREV(0.7, -85, 1.8);//this will cause it to face the pile of glyphs at a 90 degree angle
             moreGlyphsRed(vuMark);
         }
 

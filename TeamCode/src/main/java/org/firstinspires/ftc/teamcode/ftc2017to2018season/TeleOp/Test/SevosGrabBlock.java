@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.ftc2017to2018season.TeleOp.Test;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -11,6 +12,7 @@ import com.qualcomm.robotcore.hardware.ServoController;
  * Created by Inspiration Team on 4/8/2018.
  */
 @TeleOp(name = "Servo Grab Block")
+@Disabled
 public class SevosGrabBlock extends OpMode {
 
     Servo leftServo;

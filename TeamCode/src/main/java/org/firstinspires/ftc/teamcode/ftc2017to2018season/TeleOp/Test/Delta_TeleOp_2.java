@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import android.graphics.Camera;
+import android.hardware.camera2.*;
 
 /**
  * Created by Pahel and Rohan on 11/18/17.
@@ -81,7 +83,6 @@ public class Delta_TeleOp_2 extends OpMode {
         glyphServoLeft = hardwareMap.servo.get("glyphServoLeft");
         slideMotor = hardwareMap.dcMotor.get("slideMotor");
         IVFSM = slideMotor.getCurrentPosition();
-
 
         rightWheelMotorFront.setDirection(DcMotor.Direction.REVERSE);
         rightWheelMotorBack.setDirection(DcMotor.Direction.REVERSE);
