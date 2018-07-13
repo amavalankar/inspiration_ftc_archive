@@ -80,7 +80,7 @@ public class blueFront_George extends Autonomous_General_George_ {
         switch (jewelDetector.getCurrentOrder()) {
             case BLUE_RED:
                 jewelServo.setPosition(0.2);
-                sleep(1400);
+                sleep(500);
                 //move the jewel manipulator to the right to knock off the ball
                 jewelServoRotate.setPosition(1);
                 sleep(250);
@@ -93,7 +93,7 @@ public class blueFront_George extends Autonomous_General_George_ {
 
             case RED_BLUE:
                 jewelServo.setPosition(0.2);
-                sleep(1400);
+                sleep(500);
                 //move the jewel manipulator to the left to knock off the ball
                 telemetry.addLine("Jewels Seen Red Blue");
                 telemetry.update();
@@ -155,15 +155,15 @@ public class blueFront_George extends Autonomous_General_George_ {
         if (vuMark == RelicRecoveryVuMark.LEFT){//should be 20 cm away from wall for left
             //goes to given distance away from the wall
             //wallAlign(0.3, 35, 1);
-            encoderMecanumDrive(0.4, -11, -11, 5000, 0);
+            encoderMecanumDrive(0.4, -12, -12, 5000, 0);
         }
         else if (vuMark == RelicRecoveryVuMark.CENTER || vuMark == RelicRecoveryVuMark.UNKNOWN){
-            encoderMecanumDrive(0.4,-1.4,-1.4,5000,0);
+            encoderMecanumDrive(0.4,-2,-2,5000,0);
             //wallAlign(0.4, 35, 1);
             //encoderMecanumDrive(0.5, 33, 33, 5000, 0);
         }
         else if(vuMark == RelicRecoveryVuMark.RIGHT){
-            encoderMecanumDrive(0.4,6.5,6.5,5000,0);
+            encoderMecanumDrive(0.4,5,5,5000,0);
             //wallAlign(0.4, 50, 1);
             //encoderMecanumDrive(0.5, 48, 48, 5000, 0);
         }
@@ -173,7 +173,7 @@ public class blueFront_George extends Autonomous_General_George_ {
 
         sleep(75);
 
-        encoderMecanumDrive(0.3, 16, 16, 1000, 0);
+        encoderMecanumDrive(0.3, 20, 20, 1000, 0);
         sleep(75);
 
         moveDownGlyph(1.35);
@@ -212,7 +212,7 @@ public class blueFront_George extends Autonomous_General_George_ {
             intakeLeft.setPower(0);
             intakeRight.setPower(0);
             sleep(75);
-            moveUpGlyph(2.5);
+            moveUpGlyph(3);
             sleep(75);
             encoderMecanumDrive(0.8, -60, -60, 1000, 0);
             sleep(75);
@@ -222,7 +222,8 @@ public class blueFront_George extends Autonomous_General_George_ {
             sleep(75);
             glyphOuttakeRolly(0.5);
             sleep(75);
-            encoderMecanumDrive(0.65, -5, -5, 1000, 0);
+            encoderMecanumDrive(0.65, -7, -7, 1000, 0);
+            openGlyphManipulator();
 
         }
 
