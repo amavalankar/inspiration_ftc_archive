@@ -21,17 +21,17 @@ when                                      who                       Purpose/Chan
 package org.firstinspires.ftc.teamcode.ftc2017to2018season.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 import org.firstinspires.ftc.teamcode.ftc2017to2018season.Constants.Constants_for_blueBack_George;
 
 
 //10-28-17
-@Autonomous(name = "Blue Back Havana Worlds")
-//@Disabled
-public class blueBack_George extends Autonomous_General_George_ {
+@Autonomous(name = "Blue Back ARCHIVE Havana Worlds")
+@Disabled
+public class blueBack_GeorgeArchive extends Autonomous_General_George_ {
     Constants_for_blueBack_George constants = new Constants_for_blueBack_George();
 
     /*-------------------------------------------------------
@@ -48,7 +48,7 @@ public class blueBack_George extends Autonomous_General_George_ {
         initiate(false);
         //intiate hardware
 
-//        openCVInit();
+        openCVInit();
         //initiate dogeCV
 
         sleep(constants.initTimeMill);
@@ -66,23 +66,9 @@ public class blueBack_George extends Autonomous_General_George_ {
         waitForStart();
 
         opModeStart = System.currentTimeMillis();
-
-        startTracking();
-        telemetry.addData("", "READY TO TRACK");
-        telemetry.update();
-
-        double begintime = runtime.seconds();
-        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
-
-
-        }
-        relicTrackables.deactivate();
-
-        openCVInit();
-
-        jewelDetector.enable();
-
 //reseting gyro sensor
+
+
 
         jewelServoRotate.setPosition(constants.jewelServoRotateInitValue);
         //sleep(100);
@@ -147,16 +133,16 @@ public class blueBack_George extends Autonomous_General_George_ {
         jewelServo.setPosition(1);
         jewelDetector.disable();
 
-//        startTracking();
-//        telemetry.addData("", "READY TO TRACK");
-//        telemetry.update();
-//
-//        double begintime = runtime.seconds();
-//        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
-//
-//
-//        }
-//        relicTrackables.deactivate();
+        startTracking();
+        telemetry.addData("", "READY TO TRACK");
+        telemetry.update();
+
+        double begintime = runtime.seconds();
+        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
+
+
+        }
+        relicTrackables.deactivate();
         //toggleLight(true);
 
         telemetry.addData("Vumark", vuMark);

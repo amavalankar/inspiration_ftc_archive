@@ -26,6 +26,9 @@ public class redBack_George extends Autonomous_General_George_ {
     @Override
     public void runOpMode() {
 
+        //THE FIXED JEWEL CODE IS NOT ON THE RED SIDES!!!!!!!!
+
+
         initiate(false);
         //intiate hardware
 

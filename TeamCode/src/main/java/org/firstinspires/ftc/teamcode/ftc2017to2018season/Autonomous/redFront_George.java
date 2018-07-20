@@ -36,7 +36,7 @@ public class redFront_George extends Autonomous_General_George_ {
         initiate(false);
         //intiate hardware
 
-        openCVInit();
+//        openCVInit();
         //initiate dogeCV
 
         sleep(constants.initTimeMill);
@@ -54,9 +54,23 @@ public class redFront_George extends Autonomous_General_George_ {
         waitForStart();
 
         opModeStart = System.currentTimeMillis();
+
+        startTracking();
+        telemetry.addData("", "READY TO TRACK");
+        telemetry.update();
+
+        double begintime = runtime.seconds();
+        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
+
+
+        }
+        relicTrackables.deactivate();
+
+        openCVInit();
+
+        jewelDetector.enable();
+
 //reseting gyro sensor
-
-
 
         jewelServoRotate.setPosition(constants.jewelServoRotateInitValue);
         //sleep(100);
@@ -119,17 +133,17 @@ public class redFront_George extends Autonomous_General_George_ {
         telemetry.update();
         jewelServo.setPosition(1);
         jewelDetector.disable();
-
-        startTracking();
-        telemetry.addData("", "READY TO TRACK");
-        telemetry.update();
-
-        double begintime = runtime.seconds();
-        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
-
-
-        }
-        relicTrackables.deactivate();
+//
+//        startTracking();
+//        telemetry.addData("", "READY TO TRACK");
+//        telemetry.update();
+//
+//        double begintime = runtime.seconds();
+//        while (!vuMarkFound() && runtime.seconds() - begintime <= waitTime) {
+//
+//
+//        }
+//        relicTrackables.deactivate();
         //toggleLight(true);
 
         telemetry.addData("Vumark", vuMark);
