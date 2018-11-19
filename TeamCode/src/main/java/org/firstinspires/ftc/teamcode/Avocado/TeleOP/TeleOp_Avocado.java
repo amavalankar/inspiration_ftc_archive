@@ -18,7 +18,7 @@ public class TeleOp_Avocado extends OpMode {
 
     public void loop() {
 
-        robot.TankDrive(gamepad1.left_stick_y, gamepad1.right_stick_x);
+        robot.TankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
         robot.lift_a(gamepad2.left_stick_y);
         robot.strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
 
