@@ -12,17 +12,19 @@ import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 
+import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
 
 public class SamplingDetector {
 
-    public SamplingOrderDetector samplingDetector = new SamplingOrderDetector();
+    public SamplingOrderDetector
+    detector= new SamplingOrderDetector();
+    public Constants constants = new Constants();
     HardwareMap hwmap;
 
     public void initVision(HardwareMap ahwmap) {
 
-//        samplingDetector = new SamplingOrderDetector();
-        initVision(ahwmap, CameraCropAngle.NO_CROP);
+        initVision(ahwmap, constants.CAMERA_AIM_DIRECTION);
 
     }
 
@@ -30,45 +32,63 @@ public class SamplingDetector {
         hwmap = ahwmap;
 
         if (cropAngle == CameraCropAngle.LEFT) {
-            samplingDetector.positionCamRight = false;
-            samplingDetector.positionCamLeft = true;
+
+            detector.positionCamRight = false;
+
+            detector.positionCamLeft = true;
         }
         else if (cropAngle == CameraCropAngle.RIGHT) {
-            samplingDetector.positionCamRight = true;
-            samplingDetector.positionCamLeft = false;
+
+            detector.positionCamRight = true;
+
+            detector.positionCamLeft = false;
         }
         else if (cropAngle == CameraCropAngle.NO_CROP) {
-            samplingDetector.positionCamRight = false;
-            samplingDetector.positionCamLeft = false;
+
+            detector.positionCamRight = false;
+
+            detector.positionCamLeft = false;
         }
         else {
-            samplingDetector.positionCamRight = false;
-            samplingDetector.positionCamLeft = false;
+
+            detector.positionCamRight = false;
+
+            detector.positionCamLeft = false;
         }
 
-        samplingDetector.init(hwmap.appContext, CameraViewDisplay.getInstance()); // Initialize it with the app context and camera
-        samplingDetector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA;
-        samplingDetector.useDefaults(); // Set detector to use default settings
 
-        samplingDetector.downscale = 0.6; // How much to downscale the input frames
+        detector.init(hwmap.appContext, CameraViewDisplay.getInstance()); // Initialize it with the app context and camera
+
+        detector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA;
+
+        detector.useDefaults(); // Set detector to use default settings
+
+
+        detector.downscale = 0.6; // How much to downscale the input frames
 
         // Optional tuning
-        samplingDetector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA; // Can also be PERFECT_AREA
-        //detector.perfectAreaScorer.perfectArea = 10000; // if using PERFECT_AREA scoring
-        samplingDetector.maxAreaScorer.weight = 0.001;
 
-        samplingDetector.ratioScorer.weight = 10;
-        samplingDetector.ratioScorer.perfectRatio = 1.0;
+        detector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA; // Can also be PERFECT_AREA
+        //detector.perfectAreaScorer.perfectArea = 10000; // if using PERFECT_AREA scoring
+
+        detector.maxAreaScorer.weight = 0.001;
+
+
+        detector.ratioScorer.weight = 10;
+
+        detector.ratioScorer.perfectRatio = 1.0;
     }
 
     public void enableVision() {
-        samplingDetector.enable();
+
+        detector.enable();
     }
 
     public SamplingOrderDetector.GoldLocation getSamplingOrder() {
 
         SamplingOrderDetector.GoldLocation order;
-        order = samplingDetector.getCurrentOrder();
+        order =
+        detector.getCurrentOrder();
 
         return order;
     }
@@ -76,12 +96,54 @@ public class SamplingDetector {
     public SamplingOrderDetector.GoldLocation getLastOrder() {
 
         SamplingOrderDetector.GoldLocation lastOrder;
-        lastOrder = samplingDetector.getLastOrder();
+        lastOrder =
+        detector.getLastOrder();
 
         return lastOrder;
     }
 
     public void disableVision() {
-        samplingDetector.disable();
+
+        detector.disable();
+    }
+
+    public SamplingOrderDetector.GoldLocation getSamplingOrderSmart() {
+
+        int leftCount = 0;
+        int centerCount = 0;
+        int rightCound = 0;
+        int unknownCount = 0;
+
+        SamplingOrderDetector.GoldLocation finalOrder = SamplingOrderDetector.GoldLocation.UNKNOWN;
+
+        for(int i = 0; i < 20; i++) {
+            SamplingOrderDetector.GoldLocation tempOrder = detector.getCurrentOrder();
+
+            if(tempOrder == SamplingOrderDetector.GoldLocation.LEFT) {
+                leftCount = leftCount + 1;
+            } else if(tempOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
+                rightCound = rightCound + 1;
+            } else if(tempOrder == SamplingOrderDetector.GoldLocation.CENTER) {
+                centerCount = centerCount + 1;
+            } else if(tempOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
+                unknownCount = unknownCount + 1;
+            }
+        }
+
+
+        if(leftCount > rightCound && leftCount > centerCount) {
+            finalOrder =  SamplingOrderDetector.GoldLocation.LEFT;
+        }
+        else if(centerCount > rightCound && leftCount < centerCount) {
+            finalOrder = SamplingOrderDetector.GoldLocation.CENTER;
+        }
+        else if(leftCount < rightCound && rightCound > centerCount) {
+            finalOrder = SamplingOrderDetector.GoldLocation.RIGHT;
+        }
+        else {
+            finalOrder = SamplingOrderDetector.GoldLocation.UNKNOWN;
+        }
+
+        return finalOrder;
     }
 }

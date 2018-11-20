@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp.Old;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -10,6 +11,7 @@ import org.firstinspires.ftc.teamcode.Salsa.Robots.Asteroid;
  * Created by adityamavalankar on 11/15/18.
  */
 
+@Disabled
 @TeleOp(name = "test Actuator")
 public class TestActuator extends OpMode {
 

@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp.Old;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Salsa.Robots.Asteroid;
@@ -8,6 +9,7 @@ import org.firstinspires.ftc.teamcode.Salsa.Robots.Asteroid;
  * Created by adityamavalankar on 11/4/18.
  */
 
+@Disabled
 @TeleOp(name = "mecanum Drive", group = "Avocado")
 public class MecanumDrive extends OpMode {
 
