@@ -60,9 +60,6 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      */
 
     public void encoderDriveCM(double left_cm, double right_cm, double speed) {
-        int timeSec_left = calculateDriveTimeCM(left_cm, speed);
-        int timeSec_right = calculateDriveTimeCM(left_cm, speed);
-
 
         int left_distanceEnc = (int)(constants.TICKS_PER_CM * left_cm);
         int right_distanceEnc = (int)(constants.TICKS_PER_CM * right_cm);
@@ -73,16 +70,34 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && (runtime.seconds() < timeSec_left) && (runtime.seconds() < timeSec_right) &&
-                robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while(this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance (cm)", left_cm);
             telemetry.update();
         }
 
-        if(runtime.seconds() > timeSec_left || runtime.seconds() > timeSec_right) {
-            telemetry.addLine("Encoder Drive Timeout!");
+        setPower(0);
+
+        setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+    }
+
+    public void encoderDriveIN(double left_in, double right_in, double speed) {
+
+        int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
+        int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
+
+        setTargetPosition(left_distanceEnc, right_distanceEnc);
+        setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        setPower(Math.abs(speed));
+        runtime.reset();
+
+        while(this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            telemetry.addLine("Robot in Encoder Drive");
+            telemetry.addData("Target Distance (in)", left_in);
             telemetry.update();
+            //just one more test...
         }
 
         setPower(0);

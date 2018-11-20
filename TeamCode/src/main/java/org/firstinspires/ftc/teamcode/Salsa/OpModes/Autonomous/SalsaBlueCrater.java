@@ -37,7 +37,32 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
         telemetry.addData("Gold Location", samplingOrder);
         telemetry.update();
 
-        sleep(5000);
+        sleep(1000);
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
+            samplingOrder = robot.getSamplingOrderSmart();
+        }
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.LEFT) {
+            encoderDriveIN(-7, 7, 0.6);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.CENTER) {
+            encoderDriveIN(30, 30, 0.6);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
+            encoderDriveIN(7, -7, 0.6);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6);
+            sleep(150);
+        }
+
+        sleep(500);
+
+        robot.disableVision();
 
 
     }
