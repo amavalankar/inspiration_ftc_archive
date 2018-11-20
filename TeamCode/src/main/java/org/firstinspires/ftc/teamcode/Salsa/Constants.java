@@ -48,7 +48,8 @@ public class Constants {
             "M/IkFOgeAZ4ML+JcrjTqfZb2Yh3JNx1me524cK";
     public final CameraCropAngle CAMERA_AIM_DIRECTION = CameraCropAngle.RIGHT;
 
-
+    public final double P_TURN_COEFF = 0.06;
+    public final double TURN_THRESHOLD = 1.5;
 
     //constant numbers meant for autonomous with encoders
     public final double TICKS_PER_ROTATION = 1120;
@@ -61,7 +62,7 @@ public class Constants {
     public final double TICKS_PER_CM = (TICKS_PER_ROTATION)/(WHEEL_CIRCUMFERENCE_CM);
     public final double TICKS_PER_IN = (TICKS_PER_ROTATION)/(WHEEL_CIRCUMFERENCE_IN);
 
-    public final double ENC_DRIVE_TIME_MULTIPLIER = 1.5;
+    public final double ENC_DRIVE_TIME_MULTIPLIER = 2;
     public final int NEVEREST_40_RPM = 160;
 
     public final int LIFT_SLIDES_REVERSE_CONSTANT = 1;

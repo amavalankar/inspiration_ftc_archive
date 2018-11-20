@@ -14,6 +14,10 @@ import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
 @Autonomous(name = "Salsa Blue Crater BETA", group = "Salsa")
 public class SalsaBlueCrater extends SalsaLinearOpMode {
 
+    /**
+     * This is Salsa Blue Crater! As of now, we are currently sampling, and then turning and going
+     * forward to knock off the correct gold cube
+     */
     SamplingDetector detector = new SamplingDetector();
 
     @Override

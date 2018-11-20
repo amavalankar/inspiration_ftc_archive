@@ -5,12 +5,15 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
 import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
+import com.qualcomm.robotcore.util.Range;
+
 
 /**
  * Created by adityamavalankar on 11/19/18.
@@ -72,7 +75,8 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
         while(this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
-            telemetry.addData("Target Distance (cm)", left_cm);
+            telemetry.addData("Target Distance Left (cm)", left_cm);
+            telemetry.addData("Target Distance Right (cm)", right_cm);
             telemetry.update();
         }
 
@@ -84,6 +88,16 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
     public void encoderDriveIN(double left_in, double right_in, double speed) {
 
+        int greatestSideDist;
+        if(left_in >= right_in) {
+            greatestSideDist = (int)left_in;
+        }
+        else {
+            greatestSideDist = (int)right_in;
+        }
+
+        int driveTime = calculateDriveTimeIN(greatestSideDist, speed);
+
         int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
         int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
 
@@ -93,9 +107,10 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while(this.opModeIsActive() && (driveTime > runtime.seconds()) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
-            telemetry.addData("Target Distance (in)", left_in);
+            telemetry.addData("Target Distance Left (in)", left_in);
+            telemetry.addData("Target Distance Right (in)", right_in);
             telemetry.update();
             //just one more test...
         }
@@ -123,15 +138,124 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      */
 
     public int calculateDriveTimeCM(double cm, double speed) {
-        double abs_speed = Math.abs(speed * constants.NEVEREST_40_RPM);
-        double abs_distCM = Math.abs(cm);
 
-        double circ = constants.WHEEL_CIRCUMFERENCE_CM;
-        double dist_perMin = (abs_speed * circ);
-        double timeMin = (abs_distCM/dist_perMin);
-        double timeSec = (timeMin*60);
+        if(cm == 0) {
+            return 0;
+        }
 
-        return (int)(timeSec*constants.ENC_DRIVE_TIME_MULTIPLIER);
+        else {
+            double abs_speed_unc = Math.abs(constants.NEVEREST_40_RPM);
+            double abs_distCM = Math.abs(cm);
+
+            double circ = constants.WHEEL_CIRCUMFERENCE_CM;
+            double dist_perMin = (abs_speed_unc * circ);
+            double timeMin = (dist_perMin / abs_distCM);
+            double timeSec = (timeMin * 60);
+
+            return (int) (timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
+        }
+    }
+
+    public int calculateDriveTimeIN(double in, double speed) {
+
+        if(in == 0) {
+            return 0;
+        }
+
+        else {
+            double abs_speed_unc = Math.abs(constants.NEVEREST_40_RPM);
+            double abs_distCM = Math.abs(in);
+
+            double circ = constants.WHEEL_CIRCUMFERENCE_IN;
+            double dist_perMin = (abs_speed_unc * circ);
+            double timeMin = (dist_perMin / abs_distCM);
+            double timeSec = (timeMin * 60);
+
+            return (int) (timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
+        }
+    }
+
+    public void gyroTurn(double speed, double angle, double seconds) {
+
+        runtime.reset();
+        telemetry.addLine("Beginning Gyro Turn");
+        telemetry.update();
+
+        while(opModeIsActive() && !onTargetAngle(speed, angle, constants.P_TURN_COEFF) && (runtime.seconds() < seconds)) {
+            telemetry.update();
+            idle();
+        }
+
+        setPower(0);
+        telemetry.addLine("Gyro Turn complete");
+        telemetry.update();
+
+    }
+
+    public boolean onTargetAngle(double speed, double angle, double PCoeff) {
+        double error;
+        double steer;
+        boolean onTarget = false;
+        double leftSpeed;
+        double rightSpeed;
+
+        error = getGyroError(angle);
+
+        if (Math.abs(error) <= constants.TURN_THRESHOLD) {
+
+            steer = 0.0;
+            leftSpeed = 0.0;
+            rightSpeed = 0.0;
+            onTarget = true;
+        }
+
+        else {
+
+            steer = getGyroSteer(error, PCoeff);
+            rightSpeed = speed * steer;
+            leftSpeed = -rightSpeed;
+        }
+
+        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        double weightConstant = 1;
+
+        robot.leftFront.setPower(weightConstant*leftSpeed);
+        robot.leftBack.setPower(weightConstant*leftSpeed);
+        robot.rightFront.setPower(weightConstant*rightSpeed);
+        robot.rightBack.setPower(weightConstant*rightSpeed);
+
+        telemetry.addData("Target angle","%5.2f",angle);
+        telemetry.addData("Error/Steer", "%5.2f/%5.2f", error, steer);
+        telemetry.addData("speed", "%5.2f/%5.2f", leftSpeed, rightSpeed);
+
+        return onTarget;
+    }
+
+    public double getGyroError(double targetAngle) {
+
+        double robotError;
+        robotError = targetAngle - robot.angles.firstAngle;
+
+        while(robotError > 180) robotError -= 360;
+
+        while(robotError <= -180) robotError += 360;
+
+        telemetry.addData("Robot Error","%5.2f",robotError);
+        telemetry.update();
+
+        return robotError;
+    }
+
+    public double getGyroSteer(double error , double PCoeff){
+        if((error*PCoeff) > 0) {
+            return Range.clip(error * PCoeff, 0.2, 1);
+        }
+        else if(error*PCoeff< 0){
+            return Range.clip(error * PCoeff, -1, -0.2);
+        }
+        else{
+            return 0;
+        }
     }
 
 
