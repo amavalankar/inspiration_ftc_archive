@@ -1,34 +1,35 @@
 package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaOpMode;
+import org.firstinspires.ftc.teamcode.Salsa.Vision.CameraCropAngle;
+import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
 
 /**
  * Created by adityamavalankar on 11/12/18.
  */
 
-@TeleOp(name="Sampling Test DogeCV")
-public class TestSampling extends SalsaOpMode {
+@TeleOp(name="Sampling Test Doge CV")
+public class TestSampling extends OpMode {
 
-    /**
-     * Here is an implementation of the SalsaOpMode being used in vision. If you'd like to know how
-     * it works @see SalsaLinearOpMode, and @SamplingDetector in the Vision folder of the Team Salsa code
-     */
+    SamplingDetector detector = null;
 
     @Override
     public void init() {
-        robot.samplingDetector.initVision(hardwareMap);
+        detector = new SamplingDetector();
+        detector.initVision(hardwareMap, CameraCropAngle.RIGHT);
+        detector.enableVision();
     }
 
     @Override
     public void loop() {
-        telemetry.addData("Order", robot.samplingDetector.getSamplingOrder());
+        telemetry.addData("Order", detector.getSamplingOrder());
         telemetry.update();
     }
 
     @Override
     public void stop() {
-        robot.samplingDetector.disableVision();
+        detector.disableVision();
     }
 }

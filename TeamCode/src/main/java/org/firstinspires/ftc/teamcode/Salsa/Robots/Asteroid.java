@@ -1,33 +1,23 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes;
-
-import android.graphics.Path;
-
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+package org.firstinspires.ftc.teamcode.Salsa.Robots;
 
 import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
+import org.opencv.core.Mat;
+
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 
 /**
- * Created by adityamavalankar on 11/19/18.
+ * Created by adityamavalankar on 11/5/18.
  */
 
-public abstract class SalsaOpMode extends OpMode {
-
-    /**
-     * This is a modified version of the {OpMode} class, with all of the functions
-     * meant for TeleOp, without having extra work to make them, and the remote-controlled OpMode
-     * to both work
-     */
-
-    public Robot robot = new Robot();
+public class Asteroid {
 
     public Constants constants;
+    public Robot robot = new Robot();
 
-    /**
-     *
-     * @param leftJoystick
-     * @param rightJoystick
-     */
+
     public void drive(double leftJoystick, double rightJoystick) {
 
         robot.leftBack.setPower(leftJoystick);
@@ -36,12 +26,6 @@ public abstract class SalsaOpMode extends OpMode {
         robot.rightBack.setPower(rightJoystick);
 
     }
-
-    /**
-     * For mecanumDrive(), we use the dpad to go left/right. We move the alternate motors forward/reverse.
-     * @param dpad_left
-     * @param dpad_right
-     */
 
     public void mecanumDrive(boolean dpad_left, boolean dpad_right) {
 
@@ -57,6 +41,24 @@ public abstract class SalsaOpMode extends OpMode {
             robot.rightFront.setPower(1);
             robot.rightBack.setPower(-1);
         }
+    }
+
+    public void encoderDriveCM(double cm, double speed) {
+        int timeSec = driveTimeCM(cm, speed);
+        int timeSec_spaced = (int)(timeSec*1.7);
+
+    }
+
+    public int driveTimeCM(double cm, double speed) {
+        double abs_speed = Math.abs(speed * constants.NEVEREST_40_RPM);
+        double abs_distCM = Math.abs(cm);
+
+        double circ = constants.WHEEL_CIRCUMFERENCE_CM;
+        double dist_perMin = (abs_speed * circ);
+        double timeMin = (abs_distCM/dist_perMin);
+        double timeSec = (timeMin*60);
+
+        return (int)timeSec;
     }
 
 }

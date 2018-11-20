@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.Salsa.Vision.CameraCropAngle;
  * Created by adityamavalankar on 11/4/18.
  */
 
-public abstract class Constants {
+public class Constants {
 
     /**
      * The constants program is meant to make things consistent throughout our programs, without much fiddling with the code.

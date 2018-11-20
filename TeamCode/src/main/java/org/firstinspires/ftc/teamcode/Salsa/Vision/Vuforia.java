@@ -20,7 +20,7 @@ public class Vuforia {
 
     public HardwareMap hwmap = null;
     public Constants constants;
-    public Robot robot = new Robot();
+    public Robot robot;
     public OpenGLMatrix lastLocation = null;
     public VuforiaLocalizer vuforia = null;
     public int cameraMonitorViewId = hwmap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hwmap.appContext.getPackageName());

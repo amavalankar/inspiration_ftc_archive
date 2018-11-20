@@ -14,16 +14,15 @@ import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
 
-public class SamplingDetector extends SamplingOrderDetector {
+public class SamplingDetector {
 
-    private SamplingOrderDetector samplingDetector = new SamplingOrderDetector();
+    public SamplingOrderDetector samplingDetector = new SamplingOrderDetector();
     HardwareMap hwmap;
-    Robot robot = new Robot();
 
     public void initVision(HardwareMap ahwmap) {
 
 //        samplingDetector = new SamplingOrderDetector();
-        initVision(ahwmap, robot.constants.CAMERA_AIM_DIRECTION);
+        initVision(ahwmap, CameraCropAngle.NO_CROP);
 
     }
 

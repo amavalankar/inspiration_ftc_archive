@@ -1,34 +1,33 @@
 package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Subcomponents.Motor;
-import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaOpMode;
+import org.firstinspires.ftc.teamcode.Salsa.Robots.Asteroid;
 
 /**
  * Created by adityamavalankar on 11/15/18.
  */
 
-@TeleOp(name = "Test Actuator")
-public class TestActuator extends SalsaOpMode {
+@TeleOp(name = "test Actuator")
+public class TestActuator extends OpMode {
 
+    Asteroid robot = new Asteroid();
     Motor actuator;
-
-    /**
-     * An example class which demonstrates the actuator. It also shows how we can add a single object
-     * like the Motor actuator
-     */
 
     @Override
     public void init() {
-        robot.initDrivetrain(hardwareMap);
+
+        robot.robot.initDrivetrain();
         actuator.init("actuator", hardwareMap);
+
     }
 
     @Override
     public void loop() {
 
-        drive();
+        robot.drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
         actuatorMove();
 
     }

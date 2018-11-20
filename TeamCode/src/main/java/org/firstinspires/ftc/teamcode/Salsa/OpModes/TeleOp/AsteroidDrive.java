@@ -1,28 +1,26 @@
 package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaOpMode;
+import org.firstinspires.ftc.teamcode.Salsa.Robots.Asteroid;
 
 /**
  * Created by adityamavalankar on 11/4/18.
  */
 
-@TeleOp(name = "Four Wheel Drive Salsa", group = "Salsa")
-public class AsteroidDrive extends SalsaOpMode {
+@TeleOp(name = "Four Wheel Drive salsa", group = "Salsa")
+public class AsteroidDrive extends OpMode {
 
-    /**
-     * All of this is an implementation of the SalsaOpMode class made before. The benefit of something
-     * made like this is that we reqire no objects to be created, or any imports, aside from the SalsaOpMode
-     * objects
-     */
+    public Asteroid asteroid = new Asteroid();
+
     @Override
     public void init() {
-        robot.initDrivetrain(hardwareMap);
+        asteroid.robot.initDrivetrain();
     }
 
     @Override
     public void loop() {
-        drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        asteroid.drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
     }
 }
