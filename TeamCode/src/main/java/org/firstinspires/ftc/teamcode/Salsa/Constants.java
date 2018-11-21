@@ -64,7 +64,9 @@ public class Constants {
 
     public final double ENC_DRIVE_TIME_MULTIPLIER = 2;
     public final int NEVEREST_40_RPM = 160;
+    public final int LIFT_MOTOR_LOWER_CONSTANT = -1;
 
-    public final int LIFT_SLIDES_REVERSE_CONSTANT = 1;
+    public final int LIFT_SLIDES_REVERSE_CONSTANT = -1;
 
+    public final double ON_GROUND_DISTANCE_CM = 2;
 }

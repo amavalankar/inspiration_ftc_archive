@@ -9,9 +9,12 @@ import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
 import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
+import org.opencv.core.Mat;
+
 import com.qualcomm.robotcore.util.Range;
 
 
@@ -62,7 +65,8 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      * @param speed
      */
 
-    public void encoderDriveCM(double left_cm, double right_cm, double speed) {
+    public void encoderDriveCM(double left_cm, double right_cm, double speed, double timeoutS) {
+
 
         int left_distanceEnc = (int)(constants.TICKS_PER_CM * left_cm);
         int right_distanceEnc = (int)(constants.TICKS_PER_CM * right_cm);
@@ -73,7 +77,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while(this.opModeIsActive() && robot.leftFront.isBusy() && (runtime.seconds() < timeoutS) && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (cm)", left_cm);
             telemetry.addData("Target Distance Right (cm)", right_cm);
@@ -86,17 +90,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
     }
 
-    public void encoderDriveIN(double left_in, double right_in, double speed) {
-
-        int greatestSideDist;
-        if(left_in >= right_in) {
-            greatestSideDist = (int)left_in;
-        }
-        else {
-            greatestSideDist = (int)right_in;
-        }
-
-        int driveTime = calculateDriveTimeIN(greatestSideDist, speed);
+    public void encoderDriveIN(double left_in, double right_in, double speed, double timeoutS) {
 
         int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
         int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
@@ -107,7 +101,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && (driveTime > runtime.seconds()) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while(this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (in)", left_in);
             telemetry.addData("Target Distance Right (in)", right_in);
@@ -137,7 +131,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      * @return The total distance that movement should take, multiplied by 1.5 for padding
      */
 
-    public int calculateDriveTimeCM(double cm, double speed) {
+    public double calculateDriveTimeCM(double cm, double speed) {
 
         if(cm == 0) {
             return 0;
@@ -152,11 +146,11 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
             double timeMin = (dist_perMin / abs_distCM);
             double timeSec = (timeMin * 60);
 
-            return (int) (timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
+            return Math.abs(timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
         }
     }
 
-    public int calculateDriveTimeIN(double in, double speed) {
+    public double calculateDriveTimeIN(double in, double speed) {
 
         if(in == 0) {
             return 0;
@@ -164,14 +158,14 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
         else {
             double abs_speed_unc = Math.abs(constants.NEVEREST_40_RPM);
-            double abs_distCM = Math.abs(in);
+            double abs_distIN = Math.abs(in);
 
             double circ = constants.WHEEL_CIRCUMFERENCE_IN;
             double dist_perMin = (abs_speed_unc * circ);
-            double timeMin = (dist_perMin / abs_distCM);
+            double timeMin = (dist_perMin / abs_distIN);
             double timeSec = (timeMin * 60);
 
-            return (int) (timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
+            return Math.abs(timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
         }
     }
 
@@ -258,5 +252,86 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         }
     }
 
+    public void doSampling() {
+        SamplingOrderDetector.GoldLocation samplingOrder = robot.getSamplingOrderSmart();
+
+        sleep(500);
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
+            samplingOrder = robot.getSamplingOrderSmart();
+        }
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.LEFT) {
+            encoderDriveIN(-4.5, 4.5, 0.6, 2);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.CENTER || samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
+            encoderDriveIN(4.5, -4.5, 0.6, 2);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+
+        sleep(500);
+    }
+
+    public void doSamplingGyro() {
+        SamplingOrderDetector.GoldLocation samplingOrder = robot.getSamplingOrderSmart();
+
+        sleep(500);
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
+            samplingOrder = robot.getSamplingOrderSmart();
+        }
+
+        if(samplingOrder == SamplingOrderDetector.GoldLocation.LEFT) {
+            gyroTurn(0.6, 60, 2);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.CENTER) {
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+        else if (samplingOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
+            gyroTurn(0.6, -60, 2);
+            sleep(150);
+            encoderDriveIN(30, 30, 0.6, 3);
+            sleep(150);
+        }
+
+        sleep(500);
+    }
+
+    public void deHang() {
+        robot.liftSlides.setPower(1 * constants.LIFT_MOTOR_LOWER_CONSTANT);
+
+        while(!onGround()) {
+            idle();
+        }
+        sleep(250);
+        robot.liftSlides.setPower(0);
+
+
+    }
+
+    public boolean onGround() {
+        boolean onGround = false;
+
+        if (robot.groundDistance.getDistance(DistanceUnit.CM) > constants.ON_GROUND_DISTANCE_CM) {
+            onGround = false;
+        }
+        else {
+            onGround = true;
+        }
+        return onGround;
+    }
 
 }
