@@ -27,7 +27,6 @@ public class Robot extends Autonomous_Avocado {
 
     // Hardware controlled by Gamepad 2
     public DcMotor hanger;
-    public DcMotor claw;
     public DcMotor tiltMotor;
     public DcMotor extension;
 
