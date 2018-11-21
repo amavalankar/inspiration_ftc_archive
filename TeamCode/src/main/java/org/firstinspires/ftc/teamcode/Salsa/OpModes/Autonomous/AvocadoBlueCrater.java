@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaLinearOpMode;
  */
 
 public class AvocadoBlueCrater extends SalsaLinearOpMode {
-
+//andrew gao learns how to use source tree
     @Override
     public void runOpMode() throws InterruptedException {
         robot.setHardwareMap(hardwareMap);
@@ -27,4 +27,7 @@ public class AvocadoBlueCrater extends SalsaLinearOpMode {
         robot.disableVision();
 
     }
+
+    //hello
+    //andrew was here
 }
