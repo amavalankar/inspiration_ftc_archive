@@ -59,4 +59,13 @@ public abstract class SalsaOpMode extends OpMode {
         }
     }
 
+
+    public void extend(double gp2_leftY) {
+        robot.extension.setPower(gp2_leftY);
+    }
+
+    public void tilt(double gp2_rightY) {
+        robot.tiltMotor.setPower(gp2_rightY);
+    }
+
 }

@@ -29,6 +29,9 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
         robot.initVision();
 
         robot.enableVision();
+        robot.initGyro();
+        robot.resetGyro();
+
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 
@@ -36,37 +39,12 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
 
         sleep(50);
 
-        SamplingOrderDetector.GoldLocation samplingOrder = robot.getSamplingOrderSmart();
-        sleep(500);
-        telemetry.addData("Gold Location", samplingOrder);
-        telemetry.update();
-
-        sleep(1000);
-
-        if(samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
-            samplingOrder = robot.getSamplingOrderSmart();
-        }
-
-        if(samplingOrder == SamplingOrderDetector.GoldLocation.LEFT) {
-            encoderDriveIN(-7, 7, 0.6);
-            sleep(150);
-            encoderDriveIN(30, 30, 0.6);
-            sleep(150);
-        }
-        else if (samplingOrder == SamplingOrderDetector.GoldLocation.CENTER) {
-            encoderDriveIN(30, 30, 0.6);
-            sleep(150);
-        }
-        else if (samplingOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
-            encoderDriveIN(7, -7, 0.6);
-            sleep(150);
-            encoderDriveIN(30, 30, 0.6);
-            sleep(150);
-        }
-
-        sleep(500);
-
+        doSampling();
         robot.disableVision();
+
+        encoderDriveIN(-10, -10, 0.8, 2);
+        sleep(100);
+        gyroTurn(0.6, 90, 4);
 
 
     }

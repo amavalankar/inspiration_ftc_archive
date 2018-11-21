@@ -4,6 +4,7 @@ import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.*;
@@ -34,6 +35,8 @@ public class Robot {
     public DcMotor leftBack;
     public DcMotor rightFront;
     public DcMotor rightBack;
+    public DcMotor extension;
+    public DcMotor tiltMotor;
     public BNO055IMU imu;
     public ColorSensor leftLine;
     public ColorSensor rightLine;
@@ -56,6 +59,8 @@ public class Robot {
 
     public HardwareMap ahwmap;
     public SamplingOrderDetector detector = new SamplingOrderDetector();
+    BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+
 
     public void setHardwareMap(HardwareMap hwMap) {
         ahwmap = hwMap;
@@ -81,6 +86,31 @@ public class Robot {
 
     }
 
+    public void initDrivetrainAvocado() {
+
+        //Drivetrain
+        leftFront = ahwmap.dcMotor.get("topLeftMotor");
+        leftBack = ahwmap.dcMotor.get("bottomLeftMotor");
+        rightFront = ahwmap.dcMotor.get("topRightMotor");
+        rightBack = ahwmap.dcMotor.get("bottomRightMotor");
+
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
+
+    public void initTiltingMechanism() {
+
+        extension = ahwmap.dcMotor.get("extension");
+        tiltMotor = ahwmap.dcMotor.get("tiltMotor");
+    }
+
     public void initMotors() {
 
         mineralShooter = ahwmap.dcMotor.get(constants.MINERAL_SHOOTER_NAME);
@@ -93,12 +123,31 @@ public class Robot {
     public void initSensors() {
 
         //Sensors
-        imu = ahwmap.get(BNO055IMU.class, constants.GYRO_NAME);
         leftLine = ahwmap.get(ColorSensor.class, constants.LEFT_COLOR_NAME);
         rightLine = ahwmap.get(ColorSensor.class, constants.RIGHT_COLOR_NAME);
         groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
 
         angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+    }
+
+    public void initGyro() {
+
+        imu = ahwmap.get(BNO055IMU.class, constants.GYRO_NAME);
+
+        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
+        parameters.loggingEnabled      = true;
+        parameters.loggingTag          = "IMU";
+        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+
+        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
+    }
+
+    public void resetGyro() {
+
+        imu.initialize(parameters);
     }
 
     public void initWebcam() {
