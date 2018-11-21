@@ -1,14 +1,13 @@
-package org.firstinspires.ftc.teamcode.Avocado.Autonomous;
+package org.firstinspires.ftc.teamcode.Avocado.OpModes.Autonomous;
 
 // Imports
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import org.firstinspires.ftc.teamcode.Avocado.Robot.Robot;
+import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import org.firstinspires.ftc.teamcode.Avocado.Robot.Constants;
+import org.firstinspires.ftc.teamcode.Avocado.Hardware.Constants;
 
 @Autonomous(name="Avocado Autonomous")
 @Disabled

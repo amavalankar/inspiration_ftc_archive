@@ -1,7 +1,8 @@
-package org.firstinspires.ftc.teamcode.Avocado.TeleOP;
+package org.firstinspires.ftc.teamcode.Avocado.OpModes.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.Avocado.Robot.Robot;
+import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Avocado.OpModes.AvocadoOpMode;
 
 /* ----------------------------------------------------------------------------------------------- */
 
@@ -12,15 +13,16 @@ import org.firstinspires.ftc.teamcode.Avocado.Robot.Robot;
 @TeleOp(name = "Avacado TeleOp")
 
 
-public class TeleOp_Avocado extends OpMode {
+public class TeleOp_Avocado extends AvocadoOpMode {
 
     Robot robot = new Robot();
 
+
     public void loop() {
 
-        robot.TankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
-        robot.lift_a(gamepad2.left_stick_y);
-        robot.strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
+        TankDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        lift_a(gamepad2.left_stick_y);
+        strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
 
     }
 
