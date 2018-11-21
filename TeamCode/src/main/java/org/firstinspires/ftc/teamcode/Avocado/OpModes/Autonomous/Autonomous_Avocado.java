@@ -5,13 +5,16 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 
 import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Avocado.Hardware.Constants;
+import org.firstinspires.ftc.teamcode.Avocado.OpModes.AvocadoLinearOpMode;
+import org.firstinspires.ftc.teamcode.Avocado.OpModes.AvocadoOpMode;
 
 @Autonomous(name="Avocado Autonomous")
 @Disabled
-public class Autonomous_Avocado extends LinearOpMode {
+public class Autonomous_Avocado extends AvocadoLinearOpMode {
 
     Robot robot = new Robot();
     Constants constants;
@@ -21,7 +24,7 @@ public class Autonomous_Avocado extends LinearOpMode {
 
     public void runOpMode() {
 
-
+        lower();
 
     }
 }

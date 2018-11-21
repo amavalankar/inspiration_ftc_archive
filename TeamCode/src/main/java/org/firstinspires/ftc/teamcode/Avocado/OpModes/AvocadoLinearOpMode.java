@@ -3,17 +3,22 @@ package org.firstinspires.ftc.teamcode.Avocado.OpModes;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Avocado.Hardware.Constants;
 import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 
 public abstract class AvocadoLinearOpMode extends LinearOpMode {
 
     ElapsedTime runtime = new ElapsedTime();
     Robot robot = new Robot();
     Constants constants;
+
 
     public void encoderDrive(double speed, double leftCM, double rightCM, double timeoutS) {
 
@@ -75,4 +80,36 @@ public abstract class AvocadoLinearOpMode extends LinearOpMode {
 
         }
     }
-}
+
+        /**
+         * The REV Robotics Touch Sensor
+         * is treated as a digital channel.  It is HIGH if the button is unpressed.
+         * It pulls LOW if the button is pressed.
+         *
+         * Also, when you connect a REV Robotics Touch Sensor to the digital I/O port on the
+         * Expansion Hub using a 4-wire JST cable, the second pin gets connected to the Touch Sensor.
+         * The lower (first) pin stays unconnected.*
+         */
+
+
+
+        public void lower() {
+            Rev2mDistanceSensor sensorTimeOfFlight = (Rev2mDistanceSensor)robot.sensorRange;
+
+            waitForStart();
+            while(opModeIsActive()) {
+                // generic DistanceSensor methods.
+                telemetry.addData("deviceName",robot.sensorRange.getDeviceName() );
+                telemetry.addData("range", String.format("%.01f mm", robot.sensorRange.getDistance(DistanceUnit.MM)));
+                telemetry.addData("range", String.format("%.01f cm", robot.sensorRange.getDistance(DistanceUnit.CM)));
+                telemetry.addData("range", String.format("%.01f m", robot.sensorRange.getDistance(DistanceUnit.METER)));
+                telemetry.addData("range", String.format("%.01f in", robot.sensorRange.getDistance(DistanceUnit.INCH)));
+
+                // Rev2mDistanceSensor specific methods.
+                telemetry.addData("ID", String.format("%x", sensorTimeOfFlight.getModelID()));
+                telemetry.addData("did time out", Boolean.toString(sensorTimeOfFlight.didTimeoutOccur()));
+
+                telemetry.update();
+            }
+        }
+    }
