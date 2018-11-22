@@ -59,6 +59,15 @@ public abstract class SalsaOpMode extends OpMode {
         }
     }
 
+    public void collect(boolean right_bumper, boolean left_bumper) {
+        if (right_bumper) {
+            robot.collector.setPower(1);
+        }
+        
+        else if (left_bumper) {
+            robot.collector.setPower(-1);
+        }
+    }
 
     public void extend(double gp2_leftY) {
         robot.extension.setPower(gp2_leftY);

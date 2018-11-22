@@ -54,6 +54,7 @@ public class Robot {
     public DcMotor intakeMotor;
     public DcMotor liftSlides;
 
+    public DcMotor collector;
     public Servo intakeLifter;
     public Servo markerDepositer;
 
@@ -109,6 +110,7 @@ public class Robot {
 
         extension = ahwmap.dcMotor.get("extension");
         tiltMotor = ahwmap.dcMotor.get("tiltMotor");
+        collector = ahwmap.dcMotor.get("collector");
     }
 
     public void initMotors() {
@@ -127,12 +129,11 @@ public class Robot {
         rightLine = ahwmap.get(ColorSensor.class, constants.RIGHT_COLOR_NAME);
         groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
 
-        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
     }
 
     public void initGyro() {
 
-        imu = ahwmap.get(BNO055IMU.class, constants.GYRO_NAME);
+        parameters = new BNO055IMU.Parameters();
 
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -141,13 +142,20 @@ public class Robot {
         parameters.loggingTag          = "IMU";
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
 
-        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
+        // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
+        // and named "imu".
+
+        imu = ahwmap.get(BNO055IMU.class, "imu");
+        imu.initialize(parameters);
 
     }
 
     public void resetGyro() {
 
         imu.initialize(parameters);
+        angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+
     }
 
     public void initWebcam() {

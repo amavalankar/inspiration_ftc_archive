@@ -30,12 +30,12 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
 
         robot.enableVision();
         robot.initGyro();
-        robot.resetGyro();
 
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 
         waitForStart();
+        robot.resetGyro();
 
         sleep(50);
 
@@ -44,7 +44,7 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
 
         encoderDriveIN(-10, -10, 0.8, 2);
         sleep(100);
-        gyroTurn(0.6, 90, 4);
+        gyroTurn(0.3, 90, 4);
 
 
     }

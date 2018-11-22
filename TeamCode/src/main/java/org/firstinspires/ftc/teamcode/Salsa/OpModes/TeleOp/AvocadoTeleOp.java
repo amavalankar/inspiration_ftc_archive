@@ -23,8 +23,8 @@ public class AvocadoTeleOp extends SalsaOpMode {
     @Override
     public void loop() {
         drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
-        robot.extension.setPower(gamepad2.left_stick_y);
-        robot.tiltMotor.setPower(gamepad2.right_stick_y);
-
+        collect(gamepad1.right_bumper, gamepad1.left_bumper);
+        extend(gamepad2.left_stick_y);
+        tilt(gamepad2.right_stick_y);
     }
 }

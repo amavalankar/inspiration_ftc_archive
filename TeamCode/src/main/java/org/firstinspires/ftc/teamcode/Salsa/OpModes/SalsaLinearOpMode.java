@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
 import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
@@ -33,6 +34,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
     public Robot robot = new Robot();
     public Constants constants;
     private ElapsedTime runtime = new ElapsedTime();
+    public Orientation angles;
 
     /**
      *
@@ -175,6 +177,8 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         telemetry.addLine("Beginning Gyro Turn");
         telemetry.update();
 
+        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         while(opModeIsActive() && !onTargetAngle(speed, angle, constants.P_TURN_COEFF) && (runtime.seconds() < seconds)) {
             telemetry.update();
             idle();
@@ -210,7 +214,6 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
             leftSpeed = -rightSpeed;
         }
 
-        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         double weightConstant = 1;
 
         robot.leftFront.setPower(weightConstant*leftSpeed);
