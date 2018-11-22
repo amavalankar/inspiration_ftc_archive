@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode.Avocado.Hardware;
 
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -15,6 +18,7 @@ public class Robot extends Autonomous_Avocado {
 
     Constants constants;
     private ElapsedTime runtime = new ElapsedTime();
+
     /* Hardware ------------------------------------------------------------------------------------ */
 
     // Hardware controlled by Gamepad 1
@@ -27,6 +31,9 @@ public class Robot extends Autonomous_Avocado {
     public DcMotor hanger;
     public DcMotor tiltMotor;
     public DcMotor extension;
+
+    public DistanceSensor sensorRange;
+
 
     HardwareMap hwmap = null;
 
@@ -41,6 +48,7 @@ public class Robot extends Autonomous_Avocado {
         topRightMotor = hwmap.dcMotor.get("topRightMotor");
         bottomRightMotor = hwmap.dcMotor.get("bottomRightMotor");
         hanger = hwmap.dcMotor.get("hanger");
+        sensorRange = hardwareMap.get(DistanceSensor.class, "sensor_range");
 
 
     }
