@@ -1,8 +1,7 @@
-package org.firstinspires.ftc.teamcode.Avocado.OpModes.TeleOp;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+package org.firstinspires.ftc.teamcode.Old.OpModes.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
-import org.firstinspires.ftc.teamcode.Avocado.OpModes.AvocadoOpMode;
+import org.firstinspires.ftc.teamcode.Old.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Old.OpModes.AvocadoOpMode;
 
 /* ----------------------------------------------------------------------------------------------- */
 

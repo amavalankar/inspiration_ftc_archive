@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode.Avocado.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.Old.OpModes.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Avocado.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Old.Hardware.Robot;
 
 @TeleOp(name = "Avacado TeleOp_Avocado", group = "Test")
 

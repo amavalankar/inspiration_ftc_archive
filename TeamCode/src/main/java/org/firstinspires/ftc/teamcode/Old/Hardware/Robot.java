@@ -1,13 +1,11 @@
-package org.firstinspires.ftc.teamcode.Avocado.Hardware;
+package org.firstinspires.ftc.teamcode.Old.Hardware;
 
-import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Avocado.OpModes.Autonomous.Autonomous_Avocado;
+import org.firstinspires.ftc.teamcode.Old.OpModes.Autonomous.Autonomous_Avocado;
 
 
 /**
