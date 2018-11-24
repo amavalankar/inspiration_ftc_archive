@@ -29,8 +29,8 @@ public class PracticeRobotTeleOp extends OpMode{
     }
 
     public void FourWheelDrive (){
-        float leftY_gp1 = (-gamepad1.left_stick_y);
-        float rightY_gp1 = (gamepad1.right_stick_y);
+        double leftY_gp1 = (-gamepad1.left_stick_y);
+        double rightY_gp1 = (gamepad1.right_stick_y);
 
         leftWheelFront.setPower(leftY_gp1);
         leftWheelBack.setPower(leftY_gp1);
@@ -70,7 +70,7 @@ public class PracticeRobotTeleOp extends OpMode{
 
 
     public void hanger (){
-        float leftY_gp2 = (-gamepad2.left_stick_y);
+        double leftY_gp2 = (-gamepad2.left_stick_y);
 
         hanger.setPower(leftY_gp2);
     }
