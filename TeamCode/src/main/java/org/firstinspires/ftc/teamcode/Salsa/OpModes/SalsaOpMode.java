@@ -66,6 +66,10 @@ public abstract class SalsaOpMode extends OpMode {
         
         else if (left_bumper) {
             robot.collector.setPower(-1);
+        } else {
+
+            robot.collector.setPower(0);
+
         }
     }
 
@@ -75,6 +79,41 @@ public abstract class SalsaOpMode extends OpMode {
 
     public void tilt(double gp2_rightY) {
         robot.tiltMotor.setPower(gp2_rightY);
+    }
+
+    public void strafe(boolean left, boolean right, boolean up, boolean down, double speed) {
+        // Move robot in the direction corresponding to the DPad
+        if (left) {
+
+            robot.leftFront.setPower(1);
+            robot.leftBack.setPower(-1);
+            robot.rightFront.setPower(-1);
+            robot.rightBack.setPower(1);
+
+        } else if (right) {
+
+            robot.leftFront.setPower(-1);
+            robot.leftBack.setPower(1);
+            robot.rightFront.setPower(1);
+            robot.rightBack.setPower(-1);
+
+        } else if (up) {
+
+            robot.leftFront.setPower(-speed);
+            robot.leftBack.setPower(-speed);
+            robot.rightFront.setPower(-speed);
+            robot.rightBack.setPower(-speed);
+
+
+        } else if (down) {
+
+            robot.leftFront.setPower(speed);
+            robot.leftBack.setPower(speed);
+            robot.rightFront.setPower(speed);
+            robot.rightBack.setPower(speed);
+
+        }
+
     }
 
 }

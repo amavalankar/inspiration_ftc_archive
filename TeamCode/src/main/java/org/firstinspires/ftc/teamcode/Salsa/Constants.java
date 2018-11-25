@@ -18,10 +18,10 @@ public class Constants {
     public final String RIGHT_FRONT_NAME = "rightFront";
     public final String LEFT_BACK_NAME = "leftBack";
     public final String RIGHT_BACK_NAME = "rightBack";
-    public final String MINERAL_SHOOTER_NAME = "mineralShooter";
-    public final String CRATER_SLIDES_NAME = "craterSlides";
-    public final String INTAKE_MOTOR_NAME = "intakeMotor";
-    public final String LIFT_SLIDES_NAME = "liftSlides";
+    public final String COLLECTOR_NAME = "collector";
+    public final String LIFT_SLIDES_NAME = "hanger";
+    public final String EXTENSION_NAME = "extension";
+    public final String TILT_MOTOR_NAME = "tiltMotor";
 
 
     //names for the sensors

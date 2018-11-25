@@ -11,7 +11,7 @@ public class AvocadoBlueCrater extends SalsaLinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.setHardwareMap(hardwareMap);
-        robot.initDrivetrainAvocado();
+        robot.initDrivetrain();
         robot.initTiltingMechanism();
 
         robot.enableVision();

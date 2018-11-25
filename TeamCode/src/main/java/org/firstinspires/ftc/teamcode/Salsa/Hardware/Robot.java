@@ -75,10 +75,10 @@ public class Robot {
         rightFront = ahwmap.dcMotor.get(constants.RIGHT_FRONT_NAME);
         rightBack = ahwmap.dcMotor.get(constants.RIGHT_BACK_NAME);
 
-        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
 
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -87,6 +87,7 @@ public class Robot {
 
     }
 
+    /*
     public void initDrivetrainAvocado() {
 
         //Drivetrain
@@ -105,19 +106,18 @@ public class Robot {
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
+    */
 
     public void initTiltingMechanism() {
 
-        extension = ahwmap.dcMotor.get("extension");
-        tiltMotor = ahwmap.dcMotor.get("tiltMotor");
-        collector = ahwmap.dcMotor.get("collector");
+        extension = ahwmap.dcMotor.get(constants.EXTENSION_NAME);
+        tiltMotor = ahwmap.dcMotor.get(constants.TILT_MOTOR_NAME);
+        collector = ahwmap.dcMotor.get(constants.COLLECTOR_NAME);
+
     }
 
-    public void initMotors() {
+    public void initHanger() {
 
-        mineralShooter = ahwmap.dcMotor.get(constants.MINERAL_SHOOTER_NAME);
-        craterSlides = ahwmap.dcMotor.get(constants.CRATER_SLIDES_NAME);
-        intakeMotor = ahwmap.dcMotor.get(constants.INTAKE_MOTOR_NAME);
         liftSlides = ahwmap.dcMotor.get(constants.LIFT_SLIDES_NAME);
 
     }
