@@ -15,22 +15,16 @@ public class AvocadoBlueCrater extends SalsaLinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
+        // INIT
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
-//        robot.initTiltingMechanism();
-
-
+        robot.initTiltingMechanism();
         robot.initVision();
         robot.enableVision();
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
-
-
         waitForStart();
-
-
         resetEncoderAngle();
-
 
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
         telemetry.addLine("Sample");

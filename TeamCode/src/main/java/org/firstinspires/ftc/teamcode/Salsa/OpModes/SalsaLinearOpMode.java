@@ -480,4 +480,22 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         return onGround;
     }
 
+    public void alignTape() {
+
+        // Aligns with tape
+        while(robot.leftLine.blue() > robot.leftLine.red() + robot.leftLine.green()) {
+            robot.leftFront.setPower(-0.2);
+        }
+        while(robot.rightLine.blue() > robot.rightLine.red() + robot.rightLine.green()) {
+            robot.rightFront.setPower(-0.2);
+        }
+
+        if(robot.wallAlignFront.getDistance(DistanceUnit.CM) > constants.HORIZONTAL_POS_LANDER) {
+
+                // Strafe
+
+        }
+
+    }
+
 }

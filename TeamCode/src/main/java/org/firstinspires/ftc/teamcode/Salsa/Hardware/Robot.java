@@ -146,9 +146,24 @@ public class Robot {
 
     public void initSensors() {
 
-        //Sensors
+        // Initiates all sensors
+        initColorSensors();
+        initDistanceSensors();
+
+    }
+
+    public void initColorSensors() {
+
+        // Initiates color sensors
         leftLine = ahwmap.get(ColorSensor.class, constants.LEFT_COLOR_NAME);
         rightLine = ahwmap.get(ColorSensor.class, constants.RIGHT_COLOR_NAME);
+
+
+    }
+
+    public void initDistanceSensors() {
+
+        // Initiates distance sensors
         groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
         wallAlignFront = ahwmap.get(DistanceSensor.class, constants.WALL_ALIGN_FRONT_NAME);
 

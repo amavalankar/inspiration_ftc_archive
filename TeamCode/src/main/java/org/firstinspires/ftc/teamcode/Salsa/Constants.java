@@ -83,4 +83,7 @@ public class Constants {
 
     public final double ENCODERS_PER_360 = (ROBOT_CIRCUMFERENCE*TICKS_PER_IN);
     public final double ENCODERS_PER_DEGREE = (ENCODERS_PER_360/360);
+
+    // figure this out at the lab - horizontal position on the tape relative to the lander.
+    public final double HORIZONTAL_POS_LANDER = 0;
 }
