@@ -26,6 +26,7 @@ public class AvocadoPracticeTeleOp extends SalsaOpMode {
         // Run TeleOP methods
         drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
         hang(gamepad2.dpad_up, gamepad2.dpad_down);
+        strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
 
     }
 }
