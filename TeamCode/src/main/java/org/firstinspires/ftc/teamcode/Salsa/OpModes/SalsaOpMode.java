@@ -116,4 +116,21 @@ public abstract class SalsaOpMode extends OpMode {
 
     }
 
+    public void hang(boolean up, boolean down) {
+
+        if (up) {
+
+            robot.liftSlides.setPower(1);
+
+        } else if (down) {
+
+            robot.liftSlides.setPower(-1);
+
+        } else {
+
+            robot.liftSlides.setPower(0);
+
+        }
+    }
+
 }

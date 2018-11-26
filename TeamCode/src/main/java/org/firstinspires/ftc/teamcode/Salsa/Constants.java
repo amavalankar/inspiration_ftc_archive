@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Salsa;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.Salsa.Vision.CameraCropAngle;
+import org.opencv.core.Mat;
 
 /**
  * Created by adityamavalankar on 11/4/18.
@@ -13,6 +14,9 @@ public class Constants {
     /**
      * The constants program is meant to make things consistent throughout our programs, without much fiddling with the code.
      * The benefit of having constant names is that one configuration file works with everything!
+     *
+     * Again, modifying ANYTHING here is getting into the DANGER ZONE! Please talk to someone else before producing any changes
+     * to these values. In the time being until that, you may create a new variable.
      */
     public final String LEFT_FRONT_NAME = "leftFront";
     public final String RIGHT_FRONT_NAME = "rightFront";
@@ -30,6 +34,7 @@ public class Constants {
     public final String LEFT_COLOR_NAME = "left_line";
     public final String RIGHT_COLOR_NAME = "right_line";
     public final String GROUND_DISTANCE_SENSOR_NAME = "groundDistance";
+    public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
 
     //names for servos
     public final String LEFT_MINERAL_NAME = "leftMineral";
@@ -49,7 +54,10 @@ public class Constants {
     public final CameraCropAngle CAMERA_AIM_DIRECTION = CameraCropAngle.RIGHT;
 
     public final double P_TURN_COEFF = 0.06;
-    public final double TURN_THRESHOLD = 1.5;
+    public final double P_WALL_COEFF = 0.08;
+
+    public final double DISTANCE_THRESHOLD = 2;
+    public final double TURN_THRESHOLD = 2.5;
 
     //constant numbers meant for autonomous with encoders
     public final double TICKS_PER_ROTATION = 1120;
@@ -69,4 +77,10 @@ public class Constants {
     public final int LIFT_SLIDES_REVERSE_CONSTANT = -1;
 
     public final double ON_GROUND_DISTANCE_CM = 2;
+
+    public final double ROBOT_WIDTH_IN = 17;
+    public final double ROBOT_CIRCUMFERENCE = (ROBOT_WIDTH_IN * Math.PI);
+
+    public final double ENCODERS_PER_360 = (ROBOT_CIRCUMFERENCE*TICKS_PER_IN);
+    public final double ENCODERS_PER_DEGREE = (ENCODERS_PER_360/360);
 }

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Salsa.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.Salsa.Constants;
 import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaLinearOpMode;
@@ -12,6 +13,7 @@ import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
  */
 
 @Autonomous(name = "Salsa Blue Crater BETA", group = "Salsa")
+@Disabled
 public class SalsaBlueCrater extends SalsaLinearOpMode {
 
     /**
@@ -39,7 +41,7 @@ public class SalsaBlueCrater extends SalsaLinearOpMode {
 
         sleep(50);
 
-        doSampling();
+        doSampling(robot.getSamplingOrderSmart());
         robot.disableVision();
 
         encoderDriveIN(-10, -10, 0.8, 2);

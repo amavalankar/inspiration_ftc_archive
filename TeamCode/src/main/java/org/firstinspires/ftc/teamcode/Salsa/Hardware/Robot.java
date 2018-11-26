@@ -28,8 +28,13 @@ import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
 
 public class Robot {
 
-    public OpMode opMode;
+    /**
+     * Here is the part where we declare all of the hardware
+     * It is essential that access to each variable remains public so that other opmodes can use them
+     * The hardware will be instantiated throughout the rest of the code.
+     */
     private Constants constants = new Constants();
+    public int encoderTurnAngle = 0;
 
     public DcMotor leftFront;
     public DcMotor leftBack;
@@ -40,6 +45,7 @@ public class Robot {
     public BNO055IMU imu;
     public ColorSensor leftLine;
     public ColorSensor rightLine;
+    public DistanceSensor wallAlignFront;
     public WebcamName webcamFront;
     public Orientation angles;
     public Servo leftMineral;
@@ -63,10 +69,17 @@ public class Robot {
     BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
 
+    /**
+     * This is an essential part to the code. You MUST call this line in the running OpMode, or else it will not work
+     * @param hwMap When calling this function as the first line of the init() method, or runOpMode() method, input "hardwareMap"
+     */
     public void setHardwareMap(HardwareMap hwMap) {
         ahwmap = hwMap;
     }
 
+    /**
+     * For every hardware you want to use, call their respective initHardware() function
+     */
     public void initDrivetrain() {
 
         //Drivetrain
@@ -85,6 +98,7 @@ public class Robot {
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        resetEncoderTurnStart();
     }
 
     /*
@@ -108,6 +122,14 @@ public class Robot {
     }
     */
 
+    /**
+     * If you want to "zero" out the relative encoder drive, call this function. This could be ideal when you align your robot
+     * and you want that value to be the "zero" value. It is by default called by the {initDrivetrain()} function
+     */
+    public void resetEncoderTurnStart() {
+        encoderTurnAngle = 0;
+    }
+
     public void initTiltingMechanism() {
 
         extension = ahwmap.dcMotor.get(constants.EXTENSION_NAME);
@@ -128,6 +150,7 @@ public class Robot {
         leftLine = ahwmap.get(ColorSensor.class, constants.LEFT_COLOR_NAME);
         rightLine = ahwmap.get(ColorSensor.class, constants.RIGHT_COLOR_NAME);
         groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
+        wallAlignFront = ahwmap.get(DistanceSensor.class, constants.WALL_ALIGN_FRONT_NAME);
 
     }
 
@@ -178,12 +201,20 @@ public class Robot {
 
     }
 
+    /**
+     * Here is the functions for the vision. We start with init. The defualt has no constructors, as it is meant to work by default
+     * with the way the robot's phone camera is oriented. If you want to change the crop orientation, use the other {initVision()} method
+     */
     public void initVision() {
 
         initVision(constants.CAMERA_AIM_DIRECTION);
 
     }
 
+    /**
+     * Refer to JavaDoc above for more information
+     * @param cropAngle
+     */
     public void initVision(CameraCropAngle cropAngle) {
 
         if (cropAngle == CameraCropAngle.LEFT) {
@@ -230,6 +261,9 @@ public class Robot {
         detector.ratioScorer.perfectRatio = 1.0;
     }
 
+    /**
+     * Call this function when it is time to run the vision. I would practically run it right after the {initVision()} method.
+     */
     public void enableVision() {
 
         detector.enable();
@@ -238,8 +272,7 @@ public class Robot {
     public SamplingOrderDetector.GoldLocation getSamplingOrder() {
 
         SamplingOrderDetector.GoldLocation order;
-        order =
-                detector.getCurrentOrder();
+        order = detector.getCurrentOrder();
 
         return order;
     }
@@ -258,6 +291,10 @@ public class Robot {
         detector.disable();
     }
 
+    /**
+     * This function reads the sampling twenty times, and returns the most commin value.
+     * @return The order that was most read when the sampling was read many times.
+     */
     public SamplingOrderDetector.GoldLocation getSamplingOrderSmart() {
 
         int leftCount = 0;
@@ -296,5 +333,17 @@ public class Robot {
         }
 
         return finalOrder;
+    }
+
+    /**
+     * This is a void where we are able to "pause" the current task
+     * @param milliseconds
+     */
+    public final void sleep(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }

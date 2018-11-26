@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -32,7 +33,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      */
 
     public Robot robot = new Robot();
-    public Constants constants;
+    public Constants constants = new Constants();
     private ElapsedTime runtime = new ElapsedTime();
     public Orientation angles;
 
@@ -41,12 +42,26 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      * @param leftTarget
      * @param rightTarget
      */
-
     public void setTargetPosition(int leftTarget, int rightTarget) {
         robot.leftFront.setTargetPosition(robot.leftFront.getCurrentPosition() + leftTarget);
         robot.rightFront.setTargetPosition(robot.rightFront.getCurrentPosition() + rightTarget);
         robot.leftBack.setTargetPosition(robot.leftBack.getCurrentPosition() + leftTarget);
         robot.rightBack.setTargetPosition(robot.rightBack.getCurrentPosition() + rightTarget);
+    }
+
+    public void setTargetPositionReset(int leftTarget, int rightTarget) {
+        robot.leftFront.setTargetPosition(leftTarget);
+        robot.rightFront.setTargetPosition(rightTarget);
+        robot.leftBack.setTargetPosition(leftTarget);
+        robot.rightBack.setTargetPosition(rightTarget);
+    }
+
+    protected void resetEncoderAngle() {
+        robot.encoderTurnAngle = 0;
+    }
+
+    protected void setEncoderAngle(int angle) {
+        robot.encoderTurnAngle = angle;
     }
 
     public void setPower(double power) {
@@ -55,6 +70,71 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         robot.rightFront.setPower(power);
         robot.rightBack.setPower(power);
 
+    }
+
+    public void setPower(double left_power, double right_power) {
+        robot.leftFront.setPower(left_power);
+        robot.leftBack.setPower(left_power);
+        robot.rightFront.setPower(right_power);
+        robot.rightBack.setPower(right_power);
+
+    }
+
+    public void encoderTurn(double speed, int angle) {
+
+        if(robot.encoderTurnAngle == angle) {
+            idle();
+            telemetry.addLine("Turn Complete!");
+            telemetry.update();
+        }
+        else {
+            int targetAngle = (angle - robot.encoderTurnAngle);
+
+            sleep(10);
+            setEncoderAngle(angle);
+
+
+            doEncoderTurn(speed, targetAngle);
+
+            sleep(10);
+            telemetry.addLine("Turn Complete!");
+            telemetry.update();
+
+        }
+    }
+
+    private void doEncoderTurn(double speed, int angle) {
+
+        int tgAngle = Math.abs(angle);
+        double distance;
+        double leftDistance;
+        double rightDistance;
+
+        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        sleep(200);
+
+        distance = ((constants.ENCODERS_PER_DEGREE*tgAngle)/constants.TICKS_PER_IN);
+
+
+        telemetry.addLine("Target Positions Calculated");
+        telemetry.update();
+        sleep(500);
+
+        if (angle > 0){
+            rightDistance = -distance;
+            leftDistance = distance;
+
+
+            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
+        }
+        else if (angle < 0){
+            leftDistance = -distance;
+            rightDistance = distance;
+
+
+            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
+        }
     }
 
     /**
@@ -66,7 +146,6 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
      * @param left_cm
      * @param speed
      */
-
     public void encoderDriveCM(double left_cm, double right_cm, double speed, double timeoutS) {
 
 
@@ -255,17 +334,78 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         }
     }
 
-    public void doSampling() {
-        SamplingOrderDetector.GoldLocation samplingOrder = robot.getSamplingOrderSmart();
+    public void wallAlign(double speed, double distance) {
+        runtime.reset();
 
-        sleep(500);
-
-        if(samplingOrder == SamplingOrderDetector.GoldLocation.UNKNOWN) {
-            samplingOrder = robot.getSamplingOrderSmart();
+        while(opModeIsActive() && !onTargetDistance(speed, distance, constants.P_WALL_COEFF) && (runtime.seconds() < 3)){
+            telemetry.update();
+            idle();
+            sleep(200);
         }
 
+
+        setPower(0);
+        telemetry.addLine("Wall Align complete");
+        telemetry.update();
+
+    }
+
+
+    boolean onTargetDistance(double speed, double distance, double PCoeff){
+        double errorDistance;
+        double steer;
+        boolean onTarget = false;
+        double finalSpeed;
+
+        //determine turm power based on error
+        errorDistance = getErrorDistance(distance);
+
+        if (Math.abs(errorDistance) <= constants.DISTANCE_THRESHOLD){
+
+            steer = 0.0;
+            finalSpeed = 0.0;
+            onTarget = true;
+        }
+        else{
+
+            steer = getSteerError(errorDistance, PCoeff);
+            finalSpeed = speed * steer;
+        }
+
+        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        setPower(finalSpeed);
+
+        telemetry.addData("Target distance","%5.2f",distance);
+        telemetry.addData("Error/Steer", "%5.2f/%5.2f", errorDistance, steer);
+        telemetry.addData("speed", "%5.2f/%5.2f", finalSpeed, finalSpeed);
+
+        return onTarget;
+    }
+    public double getErrorDistance(double targetDistance){
+
+        double robotError;
+
+        robotError = robot.wallAlignFront.getDistance(DistanceUnit.INCH) - targetDistance;
+
+        telemetry.addData("Robot Error","%5.2f",robotError);
+        telemetry.update();
+
+        return robotError;
+
+    }
+
+    public double getSteerError(double error , double PCoeff){
+        return Range.clip(error * PCoeff, -1 , 1);
+    }
+
+
+
+    public void doSampling(SamplingOrderDetector.GoldLocation samplingOrder) {
+
+
         if(samplingOrder == SamplingOrderDetector.GoldLocation.LEFT) {
-            encoderDriveIN(-4.5, 4.5, 0.6, 2);
+            //encoderDriveIN(-4.5, 4.5, 0.6, 2);
+            encoderTurn(0.2, 50);
             sleep(150);
             encoderDriveIN(30, 30, 0.6, 3);
             sleep(150);
@@ -275,7 +415,8 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
             sleep(150);
         }
         else if (samplingOrder == SamplingOrderDetector.GoldLocation.RIGHT) {
-            encoderDriveIN(4.5, -4.5, 0.6, 2);
+            //encoderDriveIN(-4.5, 4.5, 0.6, 2);
+            encoderTurn(0.2, -50);
             sleep(150);
             encoderDriveIN(30, 30, 0.6, 3);
             sleep(150);
@@ -284,6 +425,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         sleep(500);
     }
 
+    /*
     public void doSamplingGyro() {
         SamplingOrderDetector.GoldLocation samplingOrder = robot.getSamplingOrderSmart();
 
@@ -312,6 +454,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
         sleep(500);
     }
+    */
 
     public void deHang() {
         robot.liftSlides.setPower(1 * constants.LIFT_MOTOR_LOWER_CONSTANT);
