@@ -1,7 +1,10 @@
 package org.firstinspires.ftc.teamcode.Salsa.OpModes.Autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
 import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaLinearOpMode;
 
+@Autonomous(name = "Avocado Blue Crater")
 public class AvocadoBlueCraterSmallbot extends SalsaLinearOpMode {
 
     @Override
