@@ -15,6 +15,7 @@ public class AutonomousDriveBlueCrater extends SalsaLinearOpMode {
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
         robot.initColorSensors();
+        robot.initDistanceSensors();
         // Telemetry confirms successful initialization
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
@@ -23,13 +24,15 @@ public class AutonomousDriveBlueCrater extends SalsaLinearOpMode {
         resetEncoderAngle();
 
         encoderTurn(1, -90);
-        while(robot.groundDistance.getDistance(DistanceUnit.INCH) > 5) {
+        while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 3) {
             encoderDriveCM(1, 1, 1, 3);
         }
         encoderTurn(1, -45);
-        while(robot.groundDistance.getDistance(DistanceUnit.INCH) > 18) {
+        while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 18) {
             encoderDriveCM(1, 1, 1, 3);
         }
-        
+
+        robot.markerDepositer.setPosition(1);
+
     }
 }
