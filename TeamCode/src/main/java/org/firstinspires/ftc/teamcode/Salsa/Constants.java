@@ -45,7 +45,7 @@ public class Constants {
     public final String DEPOSITER_ROTATE_NAME = "depositerRotate";
     public final String DEPOSITER_DUMP_NAME = "depositerDump";
     public final String INTAKE_LIFTER_NAME = "intakeLifter";
-    public final String MARKER_DEPOSITER_NAME = "maerkerDepositer";
+    public final String MARKER_DEPOSITER_NAME = "markerDepositor";
 
     //Vuforia license key, DO NOT TOUCH!
     public final String VUFORIA_KEY = "AffveYv/////AAAAGQ5VbB9zQUgjlHWrneVac2MnNgfMDlq6EwI3tyURgRK6C" +
