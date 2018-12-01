@@ -46,6 +46,8 @@ public class Robot {
     public ColorSensor leftLine;
     public ColorSensor rightLine;
     public DistanceSensor wallAlignFront;
+    public DistanceSensor leftLineDist;
+    public DistanceSensor rightLineDist;
     public WebcamName webcamFront;
     public Orientation angles;
     public Servo leftMineral;
@@ -157,6 +159,8 @@ public class Robot {
         // Initiates color sensors
         leftLine = ahwmap.get(ColorSensor.class, constants.LEFT_COLOR_NAME);
         rightLine = ahwmap.get(ColorSensor.class, constants.RIGHT_COLOR_NAME);
+        leftLineDist = ahwmap.get(DistanceSensor.class, constants.LEFT_DISTANCE_NAME);
+        rightLineDist = ahwmap.get(DistanceSensor.class, constants.RIGHT_DISTANCE_NAME);
 
 
     }

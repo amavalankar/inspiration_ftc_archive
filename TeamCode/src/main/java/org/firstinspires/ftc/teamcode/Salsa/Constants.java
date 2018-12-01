@@ -33,6 +33,8 @@ public class Constants {
     public final String WEBCAM_FRONT_NAME = "webcamFront";
     public final String LEFT_COLOR_NAME = "left_line";
     public final String RIGHT_COLOR_NAME = "right_line";
+    public final String RIGHT_DISTANCE_NAME = "rightLineDist";
+    public final String LEFT_DISTANCE_NAME = "leftLineDist";
     public final String GROUND_DISTANCE_SENSOR_NAME = "groundDistance";
     public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
 
