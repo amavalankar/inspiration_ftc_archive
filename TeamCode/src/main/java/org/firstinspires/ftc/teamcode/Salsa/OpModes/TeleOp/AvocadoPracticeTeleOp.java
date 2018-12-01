@@ -14,7 +14,6 @@ public class AvocadoPracticeTeleOp extends SalsaOpMode {
         // Initiate all the hardwareMap names
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
-        robot.initTiltingMechanism();
         robot.initHanger();
 
 
