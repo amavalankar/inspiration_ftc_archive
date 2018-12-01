@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -54,6 +55,10 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         robot.rightFront.setTargetPosition(rightTarget);
         robot.leftBack.setTargetPosition(leftTarget);
         robot.rightBack.setTargetPosition(rightTarget);
+    }
+
+    public void setHardwareMap(HardwareMap ahwmap) {
+        robot.setHardwareMap(ahwmap);
     }
 
     protected void resetEncoderAngle() {
