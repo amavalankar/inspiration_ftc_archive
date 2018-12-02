@@ -131,4 +131,18 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
+    public void lockServos(boolean d1_x, boolean d1_y) {
+
+        if (d1_x) {
+            //make it closed
+            robot.leftLockServo.setPosition(constants.LEFT_LOCK_SERVO_CLOSED_POS);
+            robot.rightLockServo.setPosition(constants.RIGHT_LOCK_SERVO_CLOSED_POS);
+        }
+        else if (d1_y) {
+            //make it open
+            robot.leftLockServo.setPosition(constants.LEFT_LOCK_SERVO_OPEN_POS);
+            robot.rightLockServo.setPosition(constants.RIGHT_LOCK_SERVO_OPEN_POS);
+        }
+    }
+
 }

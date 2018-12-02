@@ -34,6 +34,8 @@ public class Constants {
     public final String LEFT_DISTANCE_NAME = "leftLineDist";
     public final String GROUND_DISTANCE_SENSOR_NAME = "groundDistance";
     public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
+    public final String RIGHT_LOCK_SERVO_NAME = "rightLockServo";
+    public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
 
     //names for servos
     public final String LEFT_MINERAL_NAME = "leftMineral";
@@ -90,4 +92,10 @@ public class Constants {
 
     // figure this out at the lab - horizontal position on the tape relative to the lander.
     public final double HORIZONTAL_POS_LANDER = 0;
+
+    public final double LEFT_LOCK_SERVO_CLOSED_POS = 0;
+    public final double LEFT_LOCK_SERVO_OPEN_POS = 0;
+    public final double RIGHT_LOCK_SERVO_CLOSED_POS = 0;
+    public final double RIGHT_LOCK_SERVO_OPEN_POS = 0;
+
 }

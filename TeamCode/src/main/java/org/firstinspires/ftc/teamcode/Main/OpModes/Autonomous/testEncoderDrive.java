@@ -24,16 +24,15 @@ public class testEncoderDrive extends ExtendedLinearOpMode {
         waitForStart();
         resetEncoderAngle();
 
-        encoderDriveINdividual(robot.leftBack, 5, 0.6, 4);
+        encoderDriveMotor(robot.leftBack, 5, 0.6, 4);
         sleep(10000);
-        encoderDriveINdividual(robot.leftFront, 5, 0.6, 4);
+        encoderDriveMotor(robot.leftFront, 5, 0.6, 4);
         sleep(10000);
-        encoderDriveINdividual(robot.rightBack, 5, 0.6, 4);
+        encoderDriveMotor(robot.rightBack, 5, 0.6, 4);
         sleep(10000);
-        encoderDriveINdividual(robot.rightFront, 5, 0.6, 4);
+        encoderDriveMotor(robot.rightFront, 5, 0.6, 4);
         sleep(500);
 
-        // encoderDriveIN(5, 5, 1, 10);
     }
 
 }

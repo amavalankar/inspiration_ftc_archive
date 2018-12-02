@@ -51,6 +51,8 @@ public class Robot {
     public CRServo mineralFeeder;
     public Servo depositerRotate;
     public Servo depositerDump;
+    public Servo leftLockServo;
+    public Servo rightLockServo;
     public DistanceSensor groundDistance;
 
     public DcMotor mineralShooter;
@@ -68,7 +70,7 @@ public class Robot {
 
 
     /**
-     * This is an essential part to the code. You MUST call this line in the running OpMode, or else it will not work
+     * This is an essential part to the code. You MUST, MUST, MUST! call this line in the running OpMode, or else it will not work
      * @param hwMap When calling this function as the first line of the init() method, or runOpMode() method, input "hardwareMap"
      */
     public void setHardwareMap(HardwareMap hwMap) {
@@ -99,26 +101,15 @@ public class Robot {
         resetEncoderTurnStart();
     }
 
-    /*
-    public void initDrivetrainAvocado() {
+    /**
+     * Initiating the servos meant for the locking. These servos are meant to hold angle brackets to hold the
+     * tilting mechanism down
+     */
+    public void initServoLock() {
 
-        //Drivetrain
-        leftFront = ahwmap.dcMotor.get("topLeftMotor");
-        leftBack = ahwmap.dcMotor.get("bottomLeftMotor");
-        rightFront = ahwmap.dcMotor.get("topRightMotor");
-        rightBack = ahwmap.dcMotor.get("bottomRightMotor");
-
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
-
-        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftLockServo = ahwmap.servo.get(constants.LEFT_LOCK_SERVO_NAME);
+        rightLockServo = ahwmap.servo.get(constants.RIGHT_LOCK_SERVO_NAME);
     }
-    */
 
     /**
      * If you want to "zero" out the relative encoder drive, call this function. This could be ideal when you align your robot
@@ -128,6 +119,9 @@ public class Robot {
         encoderTurnAngle = 0;
     }
 
+    /**
+     * Initiates the three motors on the tilting mechanism. The extension, tiltMotor, and collector
+     */
     public void initTiltingMechanism() {
 
         extension = ahwmap.dcMotor.get(constants.EXTENSION_NAME);

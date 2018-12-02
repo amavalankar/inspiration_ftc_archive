@@ -204,7 +204,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
-    public void encoderDriveINdividual(DcMotor inputMotor, double in, double speed, double timeoutS) {
+    public void encoderDriveMotor(DcMotor inputMotor, double in, double speed, double timeoutS) {
 
         DcMotor motorToRun = inputMotor;
 
@@ -213,7 +213,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         motorToRun.setTargetPosition(targetDist + motorToRun.getCurrentPosition());
         sleep(250);
 
-        setPower(Math.abs(speed));
+        motorToRun.setPower(Math.abs(speed));
         runtime.reset();
 
         while(this.opModeIsActive() && (runtime.seconds() < timeoutS) && motorToRun.isBusy()) {
@@ -222,6 +222,8 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             telemetry.update();
             idle();
             //just one more test...
+            motorToRun.setPower(Math.abs(speed));
+
         }
 
         motorToRun.setPower(0);
