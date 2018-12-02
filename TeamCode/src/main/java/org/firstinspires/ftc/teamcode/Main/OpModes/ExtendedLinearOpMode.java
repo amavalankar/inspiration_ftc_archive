@@ -204,6 +204,32 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
+    public void encoderDriveINdividual(DcMotor inputMotor, double in, double speed, double timeoutS) {
+
+        DcMotor motorToRun = inputMotor;
+
+        int targetDist = (int)(constants.TICKS_PER_IN*in);
+        motorToRun.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorToRun.setTargetPosition(targetDist + motorToRun.getCurrentPosition());
+        sleep(250);
+
+        setPower(Math.abs(speed));
+        runtime.reset();
+
+        while(this.opModeIsActive() && (runtime.seconds() < timeoutS) && motorToRun.isBusy()) {
+            telemetry.addLine("Motor in Encoder Drive");
+            telemetry.addData("Target Distance (in)", in);
+            telemetry.update();
+            idle();
+            //just one more test...
+        }
+
+        motorToRun.setPower(0);
+
+        motorToRun.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        sleep(250);
+    }
+
     public void moveActuator(double in) {
         //robot.liftSlides.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(100);
