@@ -220,6 +220,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         robot.liftSlides.setPower(0);
         robot.liftSlides.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        sleep(250);
 
     }
 

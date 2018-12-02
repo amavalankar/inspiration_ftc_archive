@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 
-@Autonomous(name = "Blue Common Auto")
+@Autonomous(name = "Blue Common Auto MAIN")
 public class BlueCommonAuto extends ExtendedLinearOpMode {
 
     @Override
@@ -20,7 +20,8 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision();
         robot.enableVision();
-        // Telemetry confirms successful initialization
+        // Telemetry confirms successful initialization. It's delayed to let everything load
+        sleep(3000);
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 
@@ -38,29 +39,30 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
 //
 //        }
 
+        //come down, but still not unhooked
         moveActuator(-6);
         sleep(1500);
-        //come down, but still not unhooked
 
+
+        //drive backwards to unhook
+        resetEncoderAngle();
         encoderDriveIN(-4, -4, 0.3, 3);
         sleep(100);
-        //drive backwards to unhook
 
-        ElapsedTime loopTime = new ElapsedTime();
-        loopTime.reset();
 
-        while (loopTime.seconds() + 3.5 > System.currentTimeMillis()) {
-            robot.liftSlides.setPower(1);
-        }
-        //move actuator down for 3 sec
+        //Bring actuator back down
+        moveActuator(6);
 
-        sleep(100);
-        encoderDriveIN(7, 7, 0.3, 4);
+
         //drive forward to be in view of the right two minerals
+        encoderDriveIN(7, 7, 0.3, 4);
 
+
+        //save sampling order of minerals to this variable
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
         sleep(400);
 
+        //get gold position, and then drive forwards, or reverse, accordingly to be horizontally aligned with the gold
         if (goldLocation == SamplingOrderDetector.GoldLocation.RIGHT) {
 
             encoderDriveIN(1, 1, 0.35, 2);
@@ -74,24 +76,21 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
             encoderDriveIN(-9, -9, 0.35, 6);
 
         }
-        //get gold position, and then drive forwards, or reverse, accordingly to be horozontally aligned with the gold
-
         sleep(250);
 
-        encoderTurn(0.25, 90);
         //turn to face gold
+        encoderTurn(0.25, 90);
 
-        sleep(250);
-
-        encoderDriveIN(20, 20, 0.35, 4);
         //drive forward to push gold off
+        encoderDriveIN(20, 20, 0.35, 4);
 
-        sleep(250);
+
+
 
         //drive backwards to be behind mineral
         encoderDriveIN(-9, -9, 0.35, 4);
 
-        sleep(250);
+
 
         //turn to face wall
         encoderTurn(0.175, -90);
