@@ -64,6 +64,11 @@ public class Constants {
     //constant numbers meant for autonomous with encoders
     public final double TICKS_PER_ROTATION = 1120;
 
+    public final double LIFT_GEAR_DIAMETER_IN = 1.5;
+    public final double LIFT_GEAR_CIRCUMFERENCE_IN = LIFT_GEAR_DIAMETER_IN * Math.PI;
+
+    public final double LIFT_TICKS_PER_IN = TICKS_PER_ROTATION*LIFT_GEAR_CIRCUMFERENCE_IN;
+
     public final double WHEEL_DIAMETER_CM = 10.16;
     public final double WHEEL_DIAMETER_IN = 4;
     public final double WHEEL_CIRCUMFERENCE_CM = (Math.PI * WHEEL_DIAMETER_CM);

@@ -201,6 +201,23 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
     }
 
+    public void moveActuator(double in) {
+        //robot.liftSlides.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        sleep(100);
+        robot.liftSlides.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        int targetPosition = (robot.liftSlides.getCurrentPosition() + (int)(constants.LIFT_TICKS_PER_IN*in));
+        robot.liftSlides.setTargetPosition(targetPosition);
+        sleep(100);
+
+        robot.liftSlides.setPower(Math.abs(1));
+
+        while(opModeIsActive() && robot.liftSlides.isBusy()) {
+
+        }
+
+        robot.liftSlides.setPower(0);
+    }
+
     public void setMotorRunMode(DcMotor.RunMode runmode) {
         robot.leftFront.setMode(runmode);
         robot.rightFront.setMode(runmode);

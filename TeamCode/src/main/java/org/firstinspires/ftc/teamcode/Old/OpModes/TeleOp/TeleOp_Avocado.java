@@ -1,4 +1,5 @@
 package org.firstinspires.ftc.teamcode.Old.OpModes.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Old.Hardware.Robot;
 import org.firstinspires.ftc.teamcode.Old.OpModes.AvocadoOpMode;
@@ -10,7 +11,7 @@ import org.firstinspires.ftc.teamcode.Old.OpModes.AvocadoOpMode;
 /* ----------------------------------------------------------------------------------------------- */
 
 @TeleOp(name = "Avacado TeleOp")
-
+@Disabled
 
 public class TeleOp_Avocado extends AvocadoOpMode {
 

@@ -4,11 +4,10 @@ import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaLinearOpMode;
 
-@Autonomous(name = "DeHang and Sample")
-public class DeHang_and_Sample extends SalsaLinearOpMode {
+@Autonomous(name = "Just Hang")
+public class JustHang extends SalsaLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -20,6 +19,7 @@ public class DeHang_and_Sample extends SalsaLinearOpMode {
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision();
+        robot.enableVision();
         // Telemetry confirms successful initialization
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
@@ -38,8 +38,8 @@ public class DeHang_and_Sample extends SalsaLinearOpMode {
 //
 //        }
 
-        moveActuator(-7);
-        sleep(200);
+        moveActuator(-5.25);
+        sleep(1500);
 
         robot.liftSlides.setPower(0);
         sleep(100);
@@ -105,4 +105,5 @@ public class DeHang_and_Sample extends SalsaLinearOpMode {
 
 
     }
+
 }
