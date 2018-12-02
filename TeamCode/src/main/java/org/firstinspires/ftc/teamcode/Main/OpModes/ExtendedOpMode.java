@@ -1,17 +1,15 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes;
-
-import android.graphics.Path;
+package org.firstinspires.ftc.teamcode.Main.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.Salsa.Constants;
-import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Main.Constants;
+import org.firstinspires.ftc.teamcode.Main.Hardware.Robot;
 
 /**
  * Created by adityamavalankar on 11/19/18.
  */
 
-public abstract class SalsaOpMode extends OpMode {
+public abstract class ExtendedOpMode extends OpMode {
 
     /**
      * This is a modified version of the {OpMode} class, with all of the functions

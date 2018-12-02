@@ -1,6 +1,5 @@
-package org.firstinspires.ftc.teamcode.Salsa.Hardware.Subcomponents;
+package org.firstinspires.ftc.teamcode.Main.Hardware.Subcomponents;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 /**

@@ -1,22 +1,16 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes;
+package org.firstinspires.ftc.teamcode.Main.OpModes;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.Salsa.Constants;
-import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
-import org.firstinspires.ftc.teamcode.Salsa.Vision.SamplingDetector;
-import org.opencv.core.Mat;
+import org.firstinspires.ftc.teamcode.Main.Constants;
+import org.firstinspires.ftc.teamcode.Main.Hardware.Robot;
 
 import com.qualcomm.robotcore.util.Range;
 
@@ -25,7 +19,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created by adityamavalankar on 11/19/18.
  */
 
-public abstract class SalsaLinearOpMode extends LinearOpMode {
+public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     /**
      * This is a modified version of the {LinearOpMode} class, with all of the functions
@@ -106,6 +100,9 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
             telemetry.update();
 
         }
+
+        sleep(250);
+
     }
 
     private void doEncoderTurn(double speed, int angle) {
@@ -178,11 +175,16 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
 
     public void encoderDriveIN(double left_in, double right_in, double speed, double timeoutS) {
 
-        int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
-        int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
+//        int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
+//        int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
 
-        setTargetPosition(left_distanceEnc, right_distanceEnc);
+        int left_distanceEnc = (int)(89 * left_in);
+        int right_distanceEnc = (int)(89 * right_in);
+
+        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        sleep(100);
         setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+        setTargetPosition(left_distanceEnc, right_distanceEnc);
 
         setPower(Math.abs(speed));
         runtime.reset();
@@ -198,6 +200,7 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         setPower(0);
 
         setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        sleep(250);
 
     }
 
@@ -216,6 +219,8 @@ public abstract class SalsaLinearOpMode extends LinearOpMode {
         }
 
         robot.liftSlides.setPower(0);
+        robot.liftSlides.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
     }
 
     public void setMotorRunMode(DcMotor.RunMode runmode) {

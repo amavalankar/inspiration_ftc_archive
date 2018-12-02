@@ -1,9 +1,6 @@
-package org.firstinspires.ftc.teamcode.Salsa;
+package org.firstinspires.ftc.teamcode.Main;
 
-import com.qualcomm.robotcore.hardware.Gamepad;
-
-import org.firstinspires.ftc.teamcode.Salsa.Vision.CameraCropAngle;
-import org.opencv.core.Mat;
+import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
 /**
  * Created by adityamavalankar on 11/4/18.

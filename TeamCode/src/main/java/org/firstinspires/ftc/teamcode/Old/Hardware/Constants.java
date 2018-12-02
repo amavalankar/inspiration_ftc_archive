@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.Old.Hardware;
 
-import org.firstinspires.ftc.teamcode.Salsa.Vision.CameraCropAngle;
+import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
 /**
  * Created by adityamavalankar on 11/4/18.

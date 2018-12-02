@@ -1,12 +1,11 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.Main.OpModes.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Salsa.Hardware.Subcomponents.Motor;
-import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaOpMode;
+import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
 
 @TeleOp(name = "Avocado TeleOp Main", group = "Avocado")
-public class AvocadoTeleOp extends SalsaOpMode {
+public class AvocadoTeleOp extends ExtendedOpMode {
 
 
     @Override

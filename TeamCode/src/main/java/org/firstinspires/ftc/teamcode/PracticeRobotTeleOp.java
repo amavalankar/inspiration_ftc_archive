@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp (name = "Practice Mecanum")
+@Disabled
 public class PracticeRobotTeleOp extends OpMode{
     public DcMotor leftWheelFront;
     public DcMotor leftWheelBack;

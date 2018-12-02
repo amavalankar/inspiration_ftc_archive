@@ -41,7 +41,7 @@ The **_OpModes_** folder is divided into two:
 - TeleOp
 - Autonomous
 
-We also have two files: `SalsaLinearOpMode.java` and `SalsaOpMode.java`
+We also have two files: `ExtendedLinearOpMode.java` and `ExtendedOpMode.java`
 
 These two files are made so that we can have the robot specific functions without needing to instantiate anything. It also looks better :)
 

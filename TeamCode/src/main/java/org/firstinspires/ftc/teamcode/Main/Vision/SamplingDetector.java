@@ -1,19 +1,15 @@
-package org.firstinspires.ftc.teamcode.Salsa.Vision;
+package org.firstinspires.ftc.teamcode.Main.Vision;
 
 /**
  * Created by adityamavalankar on 11/12/18.
  */
 
-import com.disnodeteam.dogecv.*;
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
-import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
-import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 
-import org.firstinspires.ftc.teamcode.Salsa.Constants;
-import org.firstinspires.ftc.teamcode.Salsa.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Main.Constants;
 
 public class SamplingDetector {
 

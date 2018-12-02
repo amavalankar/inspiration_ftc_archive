@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.teamcode.Salsa.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-import org.firstinspires.ftc.teamcode.Salsa.OpModes.SalsaLinearOpMode;
+import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 
 @Autonomous(name = "Avocado Blue Crater Drive")
-public class AutonomousDriveBlueCrater extends SalsaLinearOpMode {
+public class AutonomousDriveBlueCrater extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
