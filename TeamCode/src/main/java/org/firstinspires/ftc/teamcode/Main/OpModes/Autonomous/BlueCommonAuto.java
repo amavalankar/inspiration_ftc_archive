@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
+import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
 @Autonomous(name = "Blue Common Auto MAIN")
 public class BlueCommonAuto extends ExtendedLinearOpMode {
@@ -18,7 +19,7 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
         robot.initDrivetrain();
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
-        robot.initVision();
+        robot.initVision(CameraCropAngle.LEFT);
         robot.enableVision();
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
@@ -46,16 +47,12 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
 
         //drive backwards to unhook
         resetEncoderAngle();
-        encoderDriveIN(-4, -4, 0.3, 3);
+        encoderDriveIN(-5, -5, 0.3, 3);
         sleep(100);
 
 
         //Bring actuator back down
-        moveActuator(6);
-
-
-        //drive forward to be in view of the right two minerals
-        encoderDriveIN(7, 7, 0.3, 4);
+        moveActuator(2);
 
 
         //save sampling order of minerals to this variable
@@ -65,15 +62,15 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
         //get gold position, and then drive forwards, or reverse, accordingly to be horizontally aligned with the gold
         if (goldLocation == SamplingOrderDetector.GoldLocation.RIGHT) {
 
-            encoderDriveIN(1, 1, 0.35, 2);
+            encoderDriveIN(1, 1, 0.35, 10);
 
         } else if (goldLocation == SamplingOrderDetector.GoldLocation.CENTER || goldLocation == SamplingOrderDetector.GoldLocation.UNKNOWN) {
 
-            encoderDriveIN(-5, -5, 0.35, 4);
+            encoderDriveIN(-5, -5, 0.35, 6);
 
         } else if (goldLocation == SamplingOrderDetector.GoldLocation.LEFT) {
 
-            encoderDriveIN(-9, -9, 0.35, 6);
+            encoderDriveIN(-9, -9, 0.35, -1);
 
         }
         sleep(250);

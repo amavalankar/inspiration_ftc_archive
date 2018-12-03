@@ -17,6 +17,9 @@ public abstract class ExtendedOpMode extends OpMode {
      * to both work
      */
 
+    /**
+     * We create a Robot object for the class above to instantiate. This makes it easier on the classes
+     */
     public Robot robot = new Robot();
 
     public Constants constants;
@@ -40,7 +43,6 @@ public abstract class ExtendedOpMode extends OpMode {
      * @param dpad_left
      * @param dpad_right
      */
-
     public void mecanumDrive(boolean dpad_left, boolean dpad_right) {
 
         if (dpad_left) {
@@ -57,6 +59,11 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
+    /**
+     * A void to collect the minerals. We just move one motor forward/backwards
+     * @param right_bumper
+     * @param left_bumper
+     */
     public void collect(boolean right_bumper, boolean left_bumper) {
         if (right_bumper) {
             robot.collector.setPower(1);
@@ -71,6 +78,10 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
+    /**
+     * 
+     * @param gp2_leftY
+     */
     public void extend(double gp2_leftY) {
         robot.extension.setPower(gp2_leftY);
     }
@@ -142,6 +153,20 @@ public abstract class ExtendedOpMode extends OpMode {
             //make it open
             robot.leftLockServo.setPosition(constants.LEFT_LOCK_SERVO_OPEN_POS);
             robot.rightLockServo.setPosition(constants.RIGHT_LOCK_SERVO_OPEN_POS);
+        }
+    }
+
+    /**
+     * This is a void taken from {LinearOpMode} to have a sleep function for x milliseconds
+     * To learn more about it, refer to the original JavaDoc in the original {LinearOpMode} class made by FIRST
+     * This sleep void is special than others because it can get interrupted without crashing
+     * @param milliseconds Is how ling it will sleep for
+     */
+    public final void sleep(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
