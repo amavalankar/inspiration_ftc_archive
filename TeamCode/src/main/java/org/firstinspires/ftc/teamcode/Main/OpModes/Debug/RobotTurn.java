@@ -14,7 +14,22 @@ public class RobotTurn extends ExtendedLinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
+        robot.setHardwareMap(hardwareMap);
+        robot.initDrivetrain();
+        robot.initGyro();
+
+        sleep(500);
+
+        telemetry.addLine("Ready to go!");
+        telemetry.update();
+
         waitForStart();
-        
+        resetGyro();
+
+        sleep(1500);
+
+        gyroTurn(0.2, 90, 4);
+
+
     }
 }

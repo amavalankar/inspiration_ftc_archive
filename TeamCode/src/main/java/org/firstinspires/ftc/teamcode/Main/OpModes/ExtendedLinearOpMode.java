@@ -7,12 +7,18 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Func;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.Main.Constants;
 import org.firstinspires.ftc.teamcode.Main.Hardware.Robot;
 
 import com.qualcomm.robotcore.util.Range;
+
+import java.util.Locale;
 
 
 /**
@@ -306,90 +312,6 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         }
     }
 
-    public void gyroTurn(double speed, double angle, double seconds) {
-
-        runtime.reset();
-        telemetry.addLine("Beginning Gyro Turn");
-        telemetry.update();
-
-        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        while(opModeIsActive() && !onTargetAngle(speed, angle, constants.P_TURN_COEFF) && (runtime.seconds() < seconds)) {
-            telemetry.update();
-            idle();
-        }
-
-        setPower(0);
-        telemetry.addLine("Gyro Turn complete");
-        telemetry.update();
-
-    }
-
-    public boolean onTargetAngle(double speed, double angle, double PCoeff) {
-        double error;
-        double steer;
-        boolean onTarget = false;
-        double leftSpeed;
-        double rightSpeed;
-
-        error = getGyroError(angle);
-
-        if (Math.abs(error) <= constants.TURN_THRESHOLD) {
-
-            steer = 0.0;
-            leftSpeed = 0.0;
-            rightSpeed = 0.0;
-            onTarget = true;
-        }
-
-        else {
-
-            steer = getGyroSteer(error, PCoeff);
-            rightSpeed = speed * steer;
-            leftSpeed = -rightSpeed;
-        }
-
-        double weightConstant = 1;
-
-        robot.leftFront.setPower(weightConstant*leftSpeed);
-        robot.leftBack.setPower(weightConstant*leftSpeed);
-        robot.rightFront.setPower(weightConstant*rightSpeed);
-        robot.rightBack.setPower(weightConstant*rightSpeed);
-
-        telemetry.addData("Target angle","%5.2f",angle);
-        telemetry.addData("Error/Steer", "%5.2f/%5.2f", error, steer);
-        telemetry.addData("speed", "%5.2f/%5.2f", leftSpeed, rightSpeed);
-
-        return onTarget;
-    }
-
-    public double getGyroError(double targetAngle) {
-
-        double robotError;
-        robotError = targetAngle - robot.angles.firstAngle;
-
-        while(robotError > 180) robotError -= 360;
-
-        while(robotError <= -180) robotError += 360;
-
-        telemetry.addData("Robot Error","%5.2f",robotError);
-        telemetry.update();
-
-        return robotError;
-    }
-
-    public double getGyroSteer(double error , double PCoeff){
-        if((error*PCoeff) > 0) {
-            return Range.clip(error * PCoeff, 0.2, 1);
-        }
-        else if(error*PCoeff< 0){
-            return Range.clip(error * PCoeff, -1, -0.2);
-        }
-        else{
-            return 0;
-        }
-    }
-
     public void wallAlign(double speed, double distance) {
         runtime.reset();
 
@@ -556,6 +478,91 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         }
 
+    }
+
+    public void resetGyro() {
+        robot.imu.initialize(robot.parameters);
+        robot.composeTelemetry();
+    }
+
+    public void gyroTurn(double speed, double angle, double seconds){
+
+        telemetry.addLine("starting gyro turn");
+        telemetry.update();
+        ElapsedTime runtime = new ElapsedTime();
+        double begintime= runtime.seconds();
+        while(opModeIsActive() && !onTargetAngle(speed, angle, constants.P_TURN_COEFF) && (runtime.seconds() - begintime) < seconds){
+            telemetry.update();
+            idle();
+            telemetry.addData("-->","inside while loop :-(");
+            telemetry.update();
+        }
+        setPower(0);
+        telemetry.addLine("done with gyro turn");
+        telemetry.update();
+    }
+    boolean onTargetAngle(double speed, double angle, double PCoeff){
+        double error;
+        double steer;
+        boolean onTarget = false;
+        double leftSpeed;
+        double rightSpeed;
+
+        //determine turm power based on error
+        error = getError(angle);
+
+        if (Math.abs(error) <= constants.TURN_THRESHOLD){
+
+            steer = 0.0;
+            leftSpeed = 0.0;
+            rightSpeed = 0.0;
+            onTarget = true;
+        }
+        else{
+
+            steer = getSteer(error, PCoeff);
+            rightSpeed = speed * steer;
+            leftSpeed = -rightSpeed;
+            //leftSpeed = -5;
+        }
+
+        setMotorRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        double weightConstant = 1;//this constant will depend on the robot. you need to test experimentally to see which is best
+
+        setPower(weightConstant*leftSpeed, weightConstant*rightSpeed);
+
+        telemetry.addData("Target angle","%5.2f",angle);
+        telemetry.addData("Error/Steer", "%5.2f/%5.2f", error, steer);
+        telemetry.addData("speed", "%5.2f/%5.2f", leftSpeed, rightSpeed);
+
+        return onTarget;
+    }
+    public double getError(double targetAngle){
+
+        double robotError;
+
+        robotError = targetAngle - angles.firstAngle;
+
+        while(robotError > 180) robotError -= 360;
+
+        while(robotError <= -180) robotError += 360;
+
+        telemetry.addData("Robot Error","%5.2f",robotError);
+        telemetry.update();
+
+        return robotError;
+
+    }
+    public double getSteer(double error , double PCoeff){
+        if((error*PCoeff) > 0) {
+            return Range.clip(error * PCoeff, 0.2, 1);
+        }
+        else if(error*PCoeff< 0){
+            return Range.clip(error * PCoeff, -1, -0.2);
+        }
+        else{
+            return 0;
+        }
     }
 
 }
