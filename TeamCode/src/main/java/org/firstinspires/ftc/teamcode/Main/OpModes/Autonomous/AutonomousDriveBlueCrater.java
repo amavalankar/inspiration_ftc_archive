@@ -23,16 +23,23 @@ public class AutonomousDriveBlueCrater extends ExtendedLinearOpMode {
         waitForStart();
         resetEncoderAngle();
 
-        encoderTurn(1, -90);
-        while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 3) {
+        while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 15) {
             encoderDriveCM(1, 1, 1, 3);
         }
+
         encoderTurn(1, -45);
+
         while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 18) {
             encoderDriveCM(1, 1, 1, 3);
         }
 
         robot.markerDepositer.setPosition(1);
+
+        while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) < 120) {
+
+
+
+        }
 
     }
 }
