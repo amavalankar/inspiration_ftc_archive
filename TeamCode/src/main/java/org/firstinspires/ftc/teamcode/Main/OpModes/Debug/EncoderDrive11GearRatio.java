@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Avocado TeleOp", group = "Avocado")
+@Autonomous(name = "Encoder Drive GR 1:1", group = "Avocado")
 public class EncoderDrive11GearRatio extends ExtendedLinearOpMode {
 
 

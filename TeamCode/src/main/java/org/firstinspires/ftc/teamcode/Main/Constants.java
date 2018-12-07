@@ -68,17 +68,7 @@ public class Constants {
 
     public final double LIFT_TICKS_PER_IN = TICKS_PER_ROTATION*LIFT_GEAR_CIRCUMFERENCE_IN;
 
-    /*
-    The reciprocal of the gear ratio
-    is GEAR_RATIO_CORRECTION (72/48)
-    I would use a gear ratio constant and
-    have this file automatically find the
-    reciprocal but the value resolves to infinity
-    Also now 72/48 resolves to one when called
-    so I'm not even going to bother calling it
-    ~ Beautiful poem, some philosopher
-    */
-    public final double GEAR_RATIO_CORRECTION = 72/48;
+    public final double GEAR_RATIO = 48/72;
     public final double WHEEL_DIAMETER_CM = 10.16;
     public final double WHEEL_DIAMETER_IN = 4;
     public final double WHEEL_CIRCUMFERENCE_CM = (Math.PI * WHEEL_DIAMETER_CM);

@@ -210,8 +210,8 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void encoderDriveINNew(double left_in, double right_in, double speed, double timeoutS) {
 
-        int leftTarget = (int) (Math.ceil(89 * left_in * 1.5));
-        int rightTarget = (int) (Math.ceil(89 * right_in * 1.5));
+        int leftTarget = (int) (Math.ceil(89 * left_in * 2/3));
+        int rightTarget = (int) (Math.ceil(89 * right_in * 2/3));
 
         setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(100);
