@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Main.Hardware.Subcomponents.Servo;
@@ -9,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
  * Created by adityamavalankar on 12/1/18.
  */
 
+@Disabled
 @TeleOp(name = "Find Servo Position", group = "Debug")
 public class ServoPosition extends ExtendedOpMode {
 

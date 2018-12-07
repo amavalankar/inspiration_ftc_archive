@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -9,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
  * Created by adityamavalankar on 12/2/18.
  */
 
+@Disabled
 @TeleOp(name = "Test Individual Motor", group = "Debug")
 public class testIndividualMotor extends ExtendedOpMode {
 

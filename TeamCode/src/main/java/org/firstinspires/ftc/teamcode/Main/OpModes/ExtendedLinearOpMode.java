@@ -33,7 +33,6 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public Orientation angles;
 
     /**
-     *
      * @param leftTarget
      * @param rightTarget
      */
@@ -81,12 +80,11 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void encoderTurn(double speed, int angle) {
 
-        if(robot.encoderTurnAngle == angle) {
+        if (robot.encoderTurnAngle == angle) {
             idle();
             telemetry.addLine("Turn Complete!");
             telemetry.update();
-        }
-        else {
+        } else {
             int targetAngle = (angle - robot.encoderTurnAngle);
 
             sleep(10);
@@ -116,21 +114,20 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         sleep(200);
 
-        distance = ((constants.ENCODERS_PER_DEGREE*tgAngle)/constants.TICKS_PER_IN);
+        distance = ((constants.ENCODERS_PER_DEGREE * tgAngle) / constants.TICKS_PER_IN);
 
 
         telemetry.addLine("Target Positions Calculated");
         telemetry.update();
         sleep(500);
 
-        if (angle > 0){
+        if (angle > 0) {
             rightDistance = -distance;
             leftDistance = distance;
 
 
             encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
-        }
-        else if (angle < 0){
+        } else if (angle < 0) {
             leftDistance = -distance;
             rightDistance = distance;
 
@@ -145,14 +142,15 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
      * Then, we see the expected time the motors should run at using the { timeSec() } function
      * Then, we set the target position, set motors to move at desired speed, until we hit the correct position
      * Then, we set speed to zero
+     *
      * @param left_cm
      * @param speed
      */
     public void encoderDriveCM(double left_cm, double right_cm, double speed, double timeoutS) {
 
 
-        int left_distanceEnc = (int)(constants.TICKS_PER_CM * left_cm);
-        int right_distanceEnc = (int)(constants.TICKS_PER_CM * right_cm);
+        int left_distanceEnc = (int) (constants.TICKS_PER_CM * left_cm);
+        int right_distanceEnc = (int) (constants.TICKS_PER_CM * right_cm);
 
         setTargetPosition(left_distanceEnc, right_distanceEnc);
         setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -160,7 +158,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && robot.leftFront.isBusy() && (runtime.seconds() < timeoutS) && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while (this.opModeIsActive() && robot.leftFront.isBusy() && (runtime.seconds() < timeoutS) && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (cm)", left_cm);
             telemetry.addData("Target Distance Right (cm)", right_cm);
@@ -178,8 +176,8 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 //        int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
 //        int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
 
-        int left_distanceEnc = (int)(89 * left_in);
-        int right_distanceEnc = (int)(89 * right_in);
+        int left_distanceEnc = (int) (89 * left_in);
+        int right_distanceEnc = (int) (89 * right_in);
 
         setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(100);
@@ -189,7 +187,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (in)", left_in);
             telemetry.addData("Target Distance Right (in)", right_in);
@@ -203,6 +201,38 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         sleep(250);
 
     }
+
+    public void encoderDriveINNew(double left_in, double right_in, double speed, double timeoutS) {
+
+        int leftTarget = (int) (Math.ceil(89 * left_in * 1.5));
+        int rightTarget = (int) (Math.ceil(89 * right_in * 1.5));
+
+        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        sleep(100);
+        setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+        setTargetPosition(leftTarget, rightTarget);
+        telemetry.addData("posleft", leftTarget);
+
+        setPower(Math.abs(speed));
+        runtime.reset();
+
+        while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            telemetry.addLine("Robot in Encoder Drive");
+            telemetry.addData("Target Distance Left (in)", left_in);
+            telemetry.addData("Target Distance Right (in)", right_in);
+            telemetry.update();
+            //just one more test...
+        }
+
+
+        setPower(0);
+
+        setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        sleep(250);
+
+
+    }
+
 
     public void encoderDriveMotor(DcMotor inputMotor, double in, double speed, double timeoutS) {
 

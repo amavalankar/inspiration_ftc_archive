@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode.Main.OpModes.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
+import org.firstinspires.ftc .teamcode.Main.OpModes.ExtendedOpMode;
 
-@TeleOp(name = "Avocado TeleOp Practice", group = "Avocado")
+@TeleOp(name = "Avocado TeleOp", group = "Avocado")
 public class AvocadoPracticeTeleOp extends ExtendedOpMode {
 
 

@@ -14,7 +14,6 @@ public class DistanceSensorTest extends ExtendedOpMode {
 
     }
 
-
     @Override
     public void loop() {
 
