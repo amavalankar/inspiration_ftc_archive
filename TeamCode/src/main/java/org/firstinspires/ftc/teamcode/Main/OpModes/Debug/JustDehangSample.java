@@ -41,7 +41,7 @@ public class JustDehangSample extends ExtendedLinearOpMode {
 //        }
 
         //come down, but still not unhooked
-        moveActuator(-6);
+        moveActuator(6);
         sleep(1500);
 
 

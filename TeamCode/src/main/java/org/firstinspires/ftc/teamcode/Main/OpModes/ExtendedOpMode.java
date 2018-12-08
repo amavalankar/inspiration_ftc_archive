@@ -31,10 +31,10 @@ public abstract class ExtendedOpMode extends OpMode {
      */
     public void drive(double leftJoystick, double rightJoystick) {
 
-        robot.leftBack.setPower(leftJoystick);
-        robot.leftFront.setPower(leftJoystick);
-        robot.rightFront.setPower(rightJoystick);
-        robot.rightBack.setPower(rightJoystick);
+        robot.leftBack.setPower(-leftJoystick);
+        robot.leftFront.setPower(-leftJoystick);
+        robot.rightFront.setPower(-rightJoystick);
+        robot.rightBack.setPower(-rightJoystick);
 
     }
 

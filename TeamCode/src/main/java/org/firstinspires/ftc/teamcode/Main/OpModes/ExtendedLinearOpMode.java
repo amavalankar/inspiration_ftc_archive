@@ -272,7 +272,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         //robot.liftSlides.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(100);
         robot.liftSlides.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        int targetPosition = (robot.liftSlides.getCurrentPosition() + (int)(constants.LIFT_TICKS_PER_IN*in));
+        int targetPosition = (robot.liftSlides.getCurrentPosition() + (int)(constants.LIFT_TICKS_PER_IN*in * 2/3));
         robot.liftSlides.setTargetPosition(targetPosition);
         sleep(100);
 
