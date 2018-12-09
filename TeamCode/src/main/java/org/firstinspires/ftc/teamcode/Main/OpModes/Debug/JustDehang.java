@@ -28,11 +28,11 @@ public class JustDehang extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         // Dehang
-        moveActuator(6);
+        moveActuator(-4.5);
         sleep(1500);
         // Unhook
         resetEncoderAngle();
-        encoderDriveINNew(-5, -5, 0.3, 3);
+        encoderDriveINNew(-5, -5, 0.25, 3);
         sleep(100);
 
 

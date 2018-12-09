@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Just Dehang Sample")
+@Autonomous(name = "Just Sample")
 public class JustSample extends ExtendedLinearOpMode {
 
     @Override
@@ -35,8 +35,37 @@ public class JustSample extends ExtendedLinearOpMode {
 
         telemetry.addData("Current Orientation is", robot.getSamplingOrder());
         telemetry.update();
-        
-        while (!opModeIsActive()){
+
+        switch (robot.getSamplingOrder()) {
+
+            case LEFT:
+
+                encoderTurn(0.5, 90);
+                encoderDriveIN(-20, -20, 0.5, 5);
+                break;
+
+            case CENTER:
+
+                encoderDriveIN(5, 5, 0.5, 5);
+                encoderTurn(0.5, 90);
+                encoderDriveIN(-20, -20, 0.5, 5);
+                break;
+
+            case RIGHT:
+
+                encoderDriveIN(10, 10, 0.5, 5);
+                encoderTurn(0.5, 90);
+                encoderDriveIN(-20, -20, 0.5, 5);
+                break;
+
+            case UNKNOWN:
+
+                telemetry.addLine("Hah too bad for you, the robot can't find ANYTHING.");
+                break;
+
+        }
+
+        while (!opModeIsActive()) {
             robot.disableVision();
         }
     }
