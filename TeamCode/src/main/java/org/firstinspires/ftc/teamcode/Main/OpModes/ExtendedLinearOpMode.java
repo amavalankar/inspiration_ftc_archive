@@ -4,6 +4,7 @@ import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -340,6 +341,21 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
             return Math.abs(timeSec * constants.ENC_DRIVE_TIME_MULTIPLIER);
         }
+    }
+
+    public void wallAlign (DistanceSensor inputSensor, double speed, double distance) {
+        runtime.reset();
+        double kP = 0.4;
+
+        double error = (inputSensor.getDistance(DistanceUnit.INCH) - distance);
+
+        while(opModeIsActive() && (Math.abs(error) > 1.7) && (runtime.seconds() < 10)); {
+            error = ((inputSensor.getDistance(DistanceUnit.INCH) - distance));
+            if(error > 0) {
+                speed = Range.clip(error * kP, -1 , 1);
+            }
+        }
+
     }
 
     public void wallAlign(double speed, double distance) {
