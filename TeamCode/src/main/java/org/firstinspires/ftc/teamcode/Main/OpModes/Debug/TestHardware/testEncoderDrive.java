@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;

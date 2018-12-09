@@ -110,7 +110,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
-    private void doEncoderTurn(double speed, int angle) {
+    public void doEncoderTurn(double speed, int angle) {
 
         int tgAngle = Math.abs(angle);
         double distance;

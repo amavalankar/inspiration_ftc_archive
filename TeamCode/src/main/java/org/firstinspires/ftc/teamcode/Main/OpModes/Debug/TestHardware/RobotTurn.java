@@ -1,18 +1,21 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Encoder Drive GR 1:1", group = "Avocado")
-public class EncoderDrive11GearRatio extends ExtendedLinearOpMode {
+/**
+ * Created by adityamavalankar on 12/2/18.
+ */
 
+@Autonomous(name = "Test Robot Turn", group = "Debug")
+public class RobotTurn extends ExtendedLinearOpMode {
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException {
 
-        // Initialize
         setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
@@ -28,10 +31,10 @@ public class EncoderDrive11GearRatio extends ExtendedLinearOpMode {
         waitForStart();
         resetEncoderAngle();
 
-        // Methods
-        encoderDriveIN(12, 12, 0.5, 10);
+        sleep(1500);
+
+        encoderTurn(0.25, 90);
+
 
     }
 }
-
-

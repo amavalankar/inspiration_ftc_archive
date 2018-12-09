@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Just Sample")
-public class JustSample extends ExtendedLinearOpMode {
+@Autonomous(name = "Avocado Common Auto")
+public class AutonomousCommon extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -20,6 +20,7 @@ public class JustSample extends ExtendedLinearOpMode {
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision(CameraCropAngle.LEFT);
+        robot.markerDepositer = hardwareMap.servo.get("markerDepositer");
         robot.enableVision();
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
@@ -28,6 +29,15 @@ public class JustSample extends ExtendedLinearOpMode {
 
         waitForStart();
         resetEncoderAngle();
+
+        // Dehang
+        moveActuator(-6);
+        sleep(1500);
+        // Unhook
+        resetEncoderAngle();
+        encoderDriveINNew(-5, -5, 0.25, 3);
+        sleep(100);
+        moveActuator(2);
 
         //save sampling order of minerals to this variable
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
@@ -42,7 +52,8 @@ public class JustSample extends ExtendedLinearOpMode {
 
                 telemetry.addLine("LEFT GOLD.");
                 telemetry.update();
-                encoderTurn(0.5, -90);
+                encoderDriveIN(-2, 2, 0.5, 5);
+                encoderTurn(0.5, -93);
                 encoderDriveIN(20, 20, 0.5, 5);
                 break;
 
@@ -80,5 +91,10 @@ public class JustSample extends ExtendedLinearOpMode {
         encoderDriveINNew(-12, -12, 0.25, 4);
 
         encoderTurn(0.25, -180);
+
+        /**
+         * END OF AUTONOMOUS COMMON AHHHH
+         */
     }
+
 }
