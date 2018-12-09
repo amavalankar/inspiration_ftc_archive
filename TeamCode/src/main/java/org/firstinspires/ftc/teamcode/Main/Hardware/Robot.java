@@ -93,10 +93,10 @@ public class Robot {
         rightFront = ahwmap.dcMotor.get(constants.RIGHT_FRONT_NAME);
         rightBack = ahwmap.dcMotor.get(constants.RIGHT_BACK_NAME);
 
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -307,7 +307,7 @@ public class Robot {
     }
 
     /**
-     * This function reads the sampling twenty times, and returns the most commin value.
+     * This function reads the sampling twenty times, and returns the most common value.
      * @return The order that was most read when the sampling was read many times.
      */
     public SamplingOrderDetector.GoldLocation getSamplingOrderSmart() {

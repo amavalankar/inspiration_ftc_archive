@@ -31,11 +31,13 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
 
 
         //come down, but still not unhooked
-        moveActuator(6);
+        /*
+        moveActuator(4.5);
         sleep(1500);
+        */
         //drive backwards to unhook
         resetEncoderAngle();
-        encoderDriveINNew(-5, -5, 0.3, 3);
+        encoderDriveINNew(-4, -4, 0.3, 3);
         sleep(100);
 
 
@@ -64,21 +66,21 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
         sleep(250);
 
         //turn to face gold
-        encoderTurn(0.25, 90);
+        encoderTurn(0.25, -80);
 
         //drive forward to push gold off
-        encoderDriveINNew(20, 20, 0.35, 4);
+        encoderDriveINNew(-20, -20, 0.35, 4);
 
 
 
 
         //drive backwards to be behind mineral
-        encoderDriveINNew(-9, -9, 0.35, 4);
+        encoderDriveINNew(9, 9, 0.35, 4);
 
 
 
         //turn to face wall
-        encoderTurn(0.175, -90);
+        encoderTurn(0.175, -80);
         //align so that we are at the center mineral
         if (goldLocation == SamplingOrderDetector.GoldLocation.LEFT) {
             encoderDriveINNew(-6, -6, 0.35, 2);
@@ -87,7 +89,7 @@ public class BlueCommonAuto extends ExtendedLinearOpMode {
             encoderDriveINNew(4, 4, 0.35, 6);
 
         }
-
+        robot.disableVision();
 
     }
 

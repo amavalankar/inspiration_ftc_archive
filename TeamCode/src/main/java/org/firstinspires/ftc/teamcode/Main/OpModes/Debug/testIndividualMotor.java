@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
  * Created by adityamavalankar on 12/2/18.
  */
 
-@Disabled
+//@Disabled
 @TeleOp(name = "Test Individual Motor", group = "Debug")
 public class testIndividualMotor extends ExtendedOpMode {
 

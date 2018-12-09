@@ -281,7 +281,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         while(opModeIsActive() && robot.liftSlides.isBusy()) {
 
         }
-
+        telemetry.addLine("Target position reached");
         robot.liftSlides.setPower(0);
         robot.liftSlides.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         sleep(250);

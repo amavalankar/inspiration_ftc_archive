@@ -1,21 +1,19 @@
 package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
+import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-/**
- * Created by adityamavalankar on 12/2/18.
- */
-
-@Autonomous(name = "Test Robot Turn", group = "Debug")
-public class RobotTurn extends ExtendedLinearOpMode {
+@Autonomous(name = "Just Dehang Sample")
+public class JustSample extends ExtendedLinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
 
+        // initiate
         setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
@@ -31,10 +29,15 @@ public class RobotTurn extends ExtendedLinearOpMode {
         waitForStart();
         resetEncoderAngle();
 
-        sleep(1500);
+        //save sampling order of minerals to this variable
+        SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
+        sleep(400);
 
-        encoderTurn(1, 90);
-
-
+        telemetry.addData("Current Orientation is", robot.getSamplingOrder());
+        telemetry.update();
+        
+        while (!opModeIsActive()){
+            robot.disableVision();
+        }
     }
 }

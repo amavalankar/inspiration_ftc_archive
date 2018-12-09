@@ -85,7 +85,7 @@ public class Constants {
 
     public final double ON_GROUND_DISTANCE_CM = 2;
 
-    public final double ROBOT_WIDTH_IN = 17.5;
+    public final double ROBOT_WIDTH_IN = 17;
     public final double ROBOT_CIRCUMFERENCE = (ROBOT_WIDTH_IN * Math.PI);
 
     public final double ENCODERS_PER_360 = (ROBOT_CIRCUMFERENCE*TICKS_PER_IN);

@@ -37,7 +37,7 @@ public class AutonomousDriveBlueCrater extends ExtendedLinearOpMode {
 
         while(robot.wallAlignFront.getDistance(DistanceUnit.INCH) < 120) {
 
-
+            encoderDriveCM(-1, -1, 1, 3);
 
         }
 
