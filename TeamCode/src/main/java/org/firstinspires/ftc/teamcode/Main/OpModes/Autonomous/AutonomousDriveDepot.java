@@ -31,10 +31,28 @@ public class AutonomousDriveDepot extends ExtendedLinearOpMode {
 
         SamplingOrderDetector.GoldLocation goldLocation = SamplingOrderDetector.GoldLocation.CENTER;
 
+
         waitForStart();
         resetEncoderAngle();
 
-        encoderTurn(0.25, -90);
+        goldLocation = robot.getSamplingOrder();
+        sleep(400);
+
+        // Dehang
+        moveActuator(-6, 6.15);
+        sleep(750);
+        // Unhook
+        resetEncoderAngle();
+        encoderDriveINNew(-5, -5, 0.25, 3);
+        sleep(100);
+        moveActuator(2, 2.5);
+
+        //save sampling order of minerals to this variable
+        goldLocation = robot.getSamplingOrder();
+        sleep(400);
+
+        telemetry.addData("Current Orientation is", goldLocation);
+        telemetry.update();
 
         switch (goldLocation) {
             case LEFT:

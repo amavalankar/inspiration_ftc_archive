@@ -53,7 +53,7 @@ public class AutonomousDriveCrater extends ExtendedLinearOpMode {
 
                 telemetry.addLine("LEFT GOLD.");
                 telemetry.update();
-                encoderTurn(0.5, -90);
+                encoderTurn(0.5, -108);
                 encoderDriveIN(20, 20, 0.5, 5);
                 break;
 

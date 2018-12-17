@@ -15,7 +15,9 @@ public class AvocadoTeleOp extends ExtendedOpMode {
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
         robot.initHanger();
-
+        robot.markerDepositer = hardwareMap.servo.get("markerDepositer");
+        sleep(50);
+        robot.markerDepositer.setPosition(0.2);
 
     }
 

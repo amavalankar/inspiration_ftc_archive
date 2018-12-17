@@ -281,7 +281,45 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         while(opModeIsActive() && robot.liftSlides.isBusy()) {
 
+            telemetry.addData("Current Position", robot.liftSlides.getCurrentPosition());
+            telemetry.addData("Target Position", targetPosition);
+            telemetry.update();
+
         }
+        telemetry.addLine("Target position reached");
+        robot.liftSlides.setPower(0);
+        robot.liftSlides.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        sleep(250);
+
+    }
+
+    public void moveActuator(double in, double timeoutS) {
+        //robot.liftSlides.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        sleep(100);
+        robot.liftSlides.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        int targetPosition = (robot.liftSlides.getCurrentPosition() + (int)(constants.LIFT_TICKS_PER_IN*in * 2/3));
+        robot.liftSlides.setTargetPosition(targetPosition);
+        sleep(100);
+
+        robot.liftSlides.setPower(Math.abs(1));
+
+        runtime.reset();
+        while(opModeIsActive() && robot.liftSlides.isBusy() && (runtime.seconds() < timeoutS)) {
+
+            telemetry.addData("Current Position", robot.liftSlides.getCurrentPosition());
+            telemetry.addData("Target Position", targetPosition);
+            telemetry.addData("Current Time", runtime.seconds());
+            telemetry.addData("Target Time", runtime.seconds());
+            telemetry.update();
+
+        }
+
+        if (runtime.seconds() > timeoutS) {
+            telemetry.addData("Actuator Timed Out!", runtime.seconds());
+            telemetry.update();
+        }
+
+
         telemetry.addLine("Target position reached");
         robot.liftSlides.setPower(0);
         robot.liftSlides.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

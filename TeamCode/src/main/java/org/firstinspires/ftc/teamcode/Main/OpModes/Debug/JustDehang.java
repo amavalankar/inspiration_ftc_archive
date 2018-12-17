@@ -28,13 +28,18 @@ public class JustDehang extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         // Dehang
-        moveActuator(-6);
+        moveActuator(-4, 6);
+        //for some reason life is falling apart my life is just falling apart why does this always happen
+        // to me oh my god they did surgery on a grape
+
+        //intially, the thing was working properly, but due to some unknown reason, it is not working, it hits the top and
+        //doesn't stop.'
         sleep(1500);
         // Unhook
         resetEncoderAngle();
-        encoderDriveINNew(-5, -5, 0.25, 3);
+        //encoderDriveINNew(-5, -5, 0.25, 3);
         sleep(100);
-        moveActuator(4);
+        moveActuator(4, 2);
 
 
 

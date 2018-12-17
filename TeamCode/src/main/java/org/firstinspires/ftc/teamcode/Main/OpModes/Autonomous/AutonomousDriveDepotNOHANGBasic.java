@@ -7,8 +7,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Avocado Depot Drive BASIC")
-public class AutonomousDriveDepotBasic extends ExtendedLinearOpMode {
+@Autonomous(name = "Avocado Depot Drive DO HANG BASIC")
+public class AutonomousDriveDepotNOHANGBasic extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -35,18 +35,27 @@ public class AutonomousDriveDepotBasic extends ExtendedLinearOpMode {
         goldLocation = robot.getSamplingOrder();
         sleep(400);
 
+//        // Dehang
+//        moveActuator(-6);
+//        sleep(500);
+//        // Unhook
+//        resetEncoderAngle();
+//        encoderDriveINNew(-5, -5, 0.25, 3);
+//        sleep(100);
+//        moveActuator(2);
+
         // Dehang
-        moveActuator(-6);
-        sleep(500);
+        moveActuator(-6, 6.15);
+        sleep(750);
         // Unhook
         resetEncoderAngle();
         encoderDriveINNew(-5, -5, 0.25, 3);
         sleep(100);
-        moveActuator(2);
+        moveActuator(2, 2.5);
 
         //save sampling order of minerals to this variable
-//        goldLocation = robot.getSamplingOrder();
-//        sleep(400);
+        goldLocation = robot.getSamplingOrder();
+        sleep(400);
 
         telemetry.addData("Current Orientation is", goldLocation);
         telemetry.update();
@@ -57,7 +66,7 @@ public class AutonomousDriveDepotBasic extends ExtendedLinearOpMode {
 
                 telemetry.addLine("LEFT GOLD.");
                 telemetry.update();
-                encoderTurn(0.5, -90);
+                encoderTurn(0.5, -110);
                 encoderDriveIN(20, 20, 0.5, 5);
                 encoderTurn(0.3, -120);
                 encoderDriveINNew(10, 10, 0.25, 4);
