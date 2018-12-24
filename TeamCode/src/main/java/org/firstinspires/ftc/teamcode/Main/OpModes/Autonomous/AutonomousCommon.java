@@ -24,7 +24,7 @@ public class AutonomousCommon extends ExtendedLinearOpMode {
         robot.enableVision();
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
-        telemetry.addLine("Initialization done ... Ready to start!");
+        telemetry.addLine("Initialization tdone ... Ready to start!");
         telemetry.update();
 
         waitForStart();
