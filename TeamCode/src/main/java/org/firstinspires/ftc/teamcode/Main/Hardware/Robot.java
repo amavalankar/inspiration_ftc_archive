@@ -117,6 +117,10 @@ public class Robot {
         rightLockServo = ahwmap.servo.get(constants.RIGHT_LOCK_SERVO_NAME);
     }
 
+    public void initServo(){
+        dumperServo = ahwmap.servo.get(constants.DUMPER_SERVO_NAME);
+    }
+
     /**
      * If you want to "zero" out the relative encoder drive, call this function. This could be ideal when you align your robot
      * and you want that value to be the "zero" value. It is by default called by the {initDrivetrain()} function

@@ -36,6 +36,7 @@ public class Constants {
     public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
     public final String RIGHT_LOCK_SERVO_NAME = "rightLockServo";
     public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
+    public final String DUMPER_SERVO_NAME = "dumperServo";
 
     //names for servos
     public final String LEFT_MINERAL_NAME = "leftMineral";

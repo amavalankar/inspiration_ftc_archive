@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
 
 @TeleOp(name = "Avocado Secondary TeleOp", group = "Avocado")
-public class AvocadoSecondaryTeleOp extends ExtendedOpMode {
-
+public class AvocadoThirdTeleOp extends ExtendedOpMode {
+//Created by Shruti on 12/26/2018 in order to test whether the dumper servo and locking servos will work
 
     @Override
     public void init() {
@@ -16,6 +16,8 @@ public class AvocadoSecondaryTeleOp extends ExtendedOpMode {
         robot.initDrivetrain();
         robot.initTiltingMechanism();
         robot.initHanger();
+        robot.initServo();
+        robot.initServoLock();
     }
 
     @Override
@@ -29,5 +31,6 @@ public class AvocadoSecondaryTeleOp extends ExtendedOpMode {
         hang(gamepad2.dpad_up, gamepad2.dpad_down);
         strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
         lockServos(gamepad1.x, gamepad1.y);
+        dumperServo(gamepad2.x, gamepad2.y);
     }
 }
