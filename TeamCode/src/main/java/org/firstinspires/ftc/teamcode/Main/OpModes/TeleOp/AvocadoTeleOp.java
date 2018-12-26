@@ -23,7 +23,6 @@ public class AvocadoTeleOp extends ExtendedOpMode {
 
     @Override
     public void loop() {
-
         // Run TeleOP methods
         drive(gamepad1.left_stick_y, gamepad1.right_stick_y);
         hang(gamepad2.dpad_up, gamepad2.dpad_down);

@@ -156,6 +156,17 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
+    public void dumperServo(boolean d2_x, boolean d2_y){
+
+        if(d2_x){
+            robot.dumperServo.setPosition(1);
+        }
+        if (d2_y){
+            robot.dumperServo.setPosition(0);
+        }
+        //Open and closing dumper
+    }
+
     /**
      * This is a void taken from {LinearOpMode} to have a sleep function for x milliseconds
      * To learn more about it, refer to the original JavaDoc in the original {LinearOpMode} class made by FIRST

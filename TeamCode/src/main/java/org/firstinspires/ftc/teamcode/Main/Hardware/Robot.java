@@ -57,6 +57,7 @@ public class Robot {
     public Servo depositerDump;
     public Servo leftLockServo;
     public Servo rightLockServo;
+    public Servo dumperServo;
     public DistanceSensor groundDistance;
 
     public DcMotor mineralShooter;
