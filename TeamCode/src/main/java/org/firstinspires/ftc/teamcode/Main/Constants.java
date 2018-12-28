@@ -24,7 +24,6 @@ public class Constants {
     public final String EXTENSION_NAME = "extension";
     public final String TILT_MOTOR_NAME = "tiltMotor";
 
-
     //names for the sensors
     public final String GYRO_NAME = "imu";
     public final String WEBCAM_FRONT_NAME = "webcamFront";
@@ -34,9 +33,6 @@ public class Constants {
     public final String LEFT_DISTANCE_NAME = "leftLineDist";
     public final String GROUND_DISTANCE_SENSOR_NAME = "groundDistance";
     public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
-    public final String RIGHT_LOCK_SERVO_NAME = "rightLockServo";
-    public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
-    public final String DUMPER_SERVO_NAME = "dumperServo";
 
     //names for servos
     public final String LEFT_MINERAL_NAME = "leftMineral";
@@ -46,6 +42,9 @@ public class Constants {
     public final String DEPOSITER_DUMP_NAME = "depositerDump";
     public final String INTAKE_LIFTER_NAME = "intakeLifter";
     public final String MARKER_DEPOSITER_NAME = "markerDepositer";
+    public final String RIGHT_LOCK_SERVO_NAME = "rightLockServo";
+    public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
+    public final String DUMPER_SERVO_NAME = "dumperServo";
 
     //Vuforia license key, DO NOT TOUCH!
     public final String VUFORIA_KEY = "AffveYv/////AAAAGQ5VbB9zQUgjlHWrneVac2MnNgfMDlq6EwI3tyURgRK6C" +
