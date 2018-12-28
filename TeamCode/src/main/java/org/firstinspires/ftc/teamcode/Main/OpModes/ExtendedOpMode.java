@@ -159,7 +159,7 @@ public abstract class ExtendedOpMode extends OpMode {
     public void dumperServo(boolean d2_x, boolean d2_y){
 
         if(d2_x){
-            robot.dumperServo.setPosition(1);
+            robot.dumperServo.setPosition(0.5);
         }
         if (d2_y){
             robot.dumperServo.setPosition(0);

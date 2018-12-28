@@ -115,10 +115,13 @@ public class Robot {
 
         leftLockServo = ahwmap.servo.get(constants.LEFT_LOCK_SERVO_NAME);
         rightLockServo = ahwmap.servo.get(constants.RIGHT_LOCK_SERVO_NAME);
+        leftLockServo.setPosition(0.25);
+        rightLockServo.setPosition(0.25);
     }
 
     public void initServo(){
         dumperServo = ahwmap.servo.get(constants.DUMPER_SERVO_NAME);
+        dumperServo.setPosition(0);
     }
 
     /**
