@@ -94,7 +94,7 @@ public abstract class DogeCVDetector extends OpenCVPipeline{
             return rgba;
         }
         if(crop){
-            workingMat = new Mat(workingMat.clone(),croppedRect);
+            workingMat = new Mat(workingMat.clone(), croppedRect);
         }
 
         Imgproc.resize(workingMat, workingMat,adjustedSize); // Downscale

@@ -24,6 +24,8 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.opencv.core.CvType.CV_8UC1;
+
 /**
  * Created by Victo on 9/10/2018.
  */
@@ -59,11 +61,14 @@ public class SamplingOrderDetector extends DogeCVDetector {
     public boolean positionCamRight = false;
 
     // Create the mats used
-    private Mat workingMat  = new Mat();
-    private Mat displayMat  = new Mat();
+
+    private Mat origin = new Mat();
+    private Mat workingMat;
+    private Mat displayMat;
     private Mat yellowMask  = new Mat();
     private Mat whiteMask   = new Mat();
     private Mat hiarchy     = new Mat();
+    public Rect roi = new Rect(0, 400, 640, 80);
 
     public SamplingOrderDetector() {
         super();
@@ -73,10 +78,11 @@ public class SamplingOrderDetector extends DogeCVDetector {
     @Override
     public Mat process(Mat input) {
 
-        // Copy input mat to working/display mats
-        input.copyTo(displayMat);
-        input.copyTo(workingMat);
+        input.copyTo(origin);
         input.release();
+
+        workingMat = new Mat(origin.clone(), roi);
+        displayMat = new Mat(origin.clone(), roi);
 
         // Generate Masks
         yellowFilter.process(workingMat.clone(), yellowMask);
