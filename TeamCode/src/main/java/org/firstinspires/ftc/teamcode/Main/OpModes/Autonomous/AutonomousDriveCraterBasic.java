@@ -23,6 +23,7 @@ public class AutonomousDriveCraterBasic extends ExtendedLinearOpMode {
         robot.markerDepositer = hardwareMap.servo.get("markerDepositer");
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
+
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 

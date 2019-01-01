@@ -10,6 +10,7 @@ import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
  * Created by adityamavalankar on 12/2/18.
  */
 
+@Disabled
 @Autonomous(name = "Test Robot Turn", group = "Debug")
 public class RobotTurn extends ExtendedLinearOpMode {
 

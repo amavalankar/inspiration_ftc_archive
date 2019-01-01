@@ -17,7 +17,7 @@ public class AvocadoThirdTeleOp extends ExtendedOpMode {
         robot.initTiltingMechanism();
         robot.initHanger();
         robot.initServo();
-        robot.initServoLock();
+        // robot.initServoLock(); // Colin hates servos, especially those that lock
     }
 
     @Override
