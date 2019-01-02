@@ -300,6 +300,7 @@ public class Robot {
         return order;
     }
 
+
     public SamplingOrderDetector.GoldLocation getLastOrder() {
 
         SamplingOrderDetector.GoldLocation lastOrder;

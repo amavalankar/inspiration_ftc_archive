@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Just Sample")
-public class JustSample extends ExtendedLinearOpMode {
+@Autonomous(name = "Just Vision")
+public class JustVision extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -30,36 +30,15 @@ public class JustSample extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         //save sampling order of minerals to this variable
+
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
         sleep(400);
 
-        telemetry.addData("Current Orientation is", robot.getSamplingOrder());
-        telemetry.update();
-
-        switch (robot.getSamplingOrder()) {
-
-            case LEFT:
-
-                leftSample();
-
-            case CENTER:
-
-                centerSample();
-
-            case RIGHT:
-
-                rightSample();
-
-            case UNKNOWN:
-
-                rightSample();
-
+        while (opModeIsActive()) {
+            telemetry.addData("Current Orientation is", robot.getSamplingOrder());
+            telemetry.update();
         }
 
         robot.disableVision();
-
-        encoderDriveINNew(-12, -12, 0.25, 4);
-
-        encoderTurn(0.25, -180);
     }
 }

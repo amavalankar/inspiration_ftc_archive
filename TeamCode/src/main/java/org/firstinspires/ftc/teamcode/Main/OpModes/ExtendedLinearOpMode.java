@@ -647,6 +647,26 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         else{
             return 0;
         }
+
+
+    }
+
+    public void leftSample() {
+
+
+
+    }
+
+    public void centerSample() {
+
+
+
+    }
+
+    public void rightSample() {
+
+
+
     }
 
 }

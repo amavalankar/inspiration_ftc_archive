@@ -38,6 +38,8 @@ public class SamplingOrderDetector extends DogeCVDetector {
         RIGHT
     }
 
+
+
     // Which area scoring method to use
     public DogeCV.AreaScoringMethod areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA;
 
@@ -59,11 +61,14 @@ public class SamplingOrderDetector extends DogeCVDetector {
     public boolean positionCamRight = false;
 
     // Create the mats used
-    private Mat workingMat  = new Mat();
-    private Mat displayMat  = new Mat();
+    private Mat origin = new Mat();
+    private Mat workingMat;
+    private Mat displayMat;
     private Mat yellowMask  = new Mat();
-    private Mat whiteMask   = new Mat();
+
     private Mat hiarchy     = new Mat();
+    public Rect roi = new Rect(0, 300, 640, 180);
+
 
     public SamplingOrderDetector() {
         super();
@@ -74,27 +79,25 @@ public class SamplingOrderDetector extends DogeCVDetector {
     public Mat process(Mat input) {
 
         // Copy input mat to working/display mats
-        input.copyTo(displayMat);
-        input.copyTo(workingMat);
+        input.copyTo(origin);
         input.release();
+
+        workingMat = new Mat(origin.clone(), roi);
+        displayMat = new Mat(origin.clone(), roi);
 
         // Generate Masks
         yellowFilter.process(workingMat.clone(), yellowMask);
-        whiteFilter.process(workingMat.clone(), whiteMask);
+
 
 
         // Blur and find the countours in the masks
         List<MatOfPoint> contoursYellow = new ArrayList<>();
         List<MatOfPoint> contoursWhite = new ArrayList<>();
 
-        Imgproc.blur(whiteMask,whiteMask,new Size(2,2));
         Imgproc.blur(yellowMask,yellowMask,new Size(2,2));
 
         Imgproc.findContours(yellowMask, contoursYellow, hiarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
         Imgproc.drawContours(displayMat,contoursYellow,-1,new Scalar(230,70,70),2);
-
-        Imgproc.findContours(whiteMask, contoursWhite, hiarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
-        Imgproc.drawContours(displayMat,contoursWhite,-1,new Scalar(230,70,70),2);
 
 
         // Prepare to find best yellow (gold) results
@@ -135,57 +138,7 @@ public class SamplingOrderDetector extends DogeCVDetector {
             }
         }
 
-        // Prepare to find best white (silver) results
-        List<Rect>   choosenWhiteRect  = new ArrayList<>(2);
-        List<Double> chosenWhiteScore  = new ArrayList<>(2);
-        chosenWhiteScore.add(0, Double.MAX_VALUE);
-        chosenWhiteScore.add(1, Double.MAX_VALUE);
-        choosenWhiteRect.add(0, null);
-        choosenWhiteRect.add(1, null);
 
-
-        for(MatOfPoint c : contoursWhite){
-            MatOfPoint2f contour2f = new MatOfPoint2f(c.toArray());
-
-            //Processing on mMOP2f1 which is in type MatOfPoint2f
-            double approxDistance = Imgproc.arcLength(contour2f, true) * 0.02;
-            Imgproc.approxPolyDP(contour2f, approxCurve, approxDistance, true);
-
-            //Convert back to MatOfPoint
-            MatOfPoint points = new MatOfPoint(approxCurve.toArray());
-
-            // Get bounding rect of contour
-            Rect rect = Imgproc.boundingRect(points);
-
-            double diffrenceScore = calculateScore(points);
-
-            double area = Imgproc.contourArea(c);
-            double x = rect.x;
-            double y = rect.y;
-            double w = rect.width;
-            double h = rect.height;
-            Point centerPoint = new Point(x + ( w/2), y + (h/2));
-            if( area > 1000){
-                Imgproc.circle(displayMat,centerPoint,3,new Scalar(0,255,255),3);
-                Imgproc.putText(displayMat,"Area: " + area,centerPoint,0,0.5,new Scalar(0,255,255));
-                Imgproc.putText(displayMat,"Diff: " + diffrenceScore,new Point(centerPoint.x, centerPoint.y + 20),0,0.5,new Scalar(0,255,255));
-            }
-
-            boolean good = true;
-            if(diffrenceScore < maxDifference && area > 1000){
-
-                if(diffrenceScore < chosenWhiteScore.get(0)){
-                    choosenWhiteRect.set(0,rect);
-                    chosenWhiteScore.set(0,diffrenceScore);
-                }
-                else if(diffrenceScore < chosenWhiteScore.get(1) && diffrenceScore > chosenWhiteScore.get(0)){
-                    choosenWhiteRect.set(1,rect);
-                    chosenWhiteScore.set(1, diffrenceScore);
-                }
-            }
-
-
-        }
 
         //Draw found gold element
         if(chosenYellowRect != null){
@@ -203,104 +156,31 @@ public class SamplingOrderDetector extends DogeCVDetector {
                     2);
 
         }
-        //Draw found white elements
-        for(int i=0;i<choosenWhiteRect.size();i++){
-            Rect rect = choosenWhiteRect.get(i);
-            if(rect != null){
-                double score = chosenWhiteScore.get(i);
-                Imgproc.rectangle(displayMat,
-                        new Point(rect.x, rect.y),
-                        new Point(rect.x + rect.width, rect.y + rect.height),
-                        new Scalar(255, 255, 255), 2);
-                Imgproc.putText(displayMat,
-                        "Silver: " + String.format("Score %.2f ", score) ,
-                        new Point(rect.x - 5, rect.y - 15),
-                        Core.FONT_HERSHEY_PLAIN,
-                        1.3,
-                        new Scalar(255, 255, 255),
-                        2);
-            }
 
-
-        }
 
         // If enough elements are found, compute gold position
-        if(choosenWhiteRect.get(0) != null && choosenWhiteRect.get(1) != null  && chosenYellowRect != null){
+        if(chosenYellowRect != null){
             int leftCount = 0;
-            for(int i=0;i<choosenWhiteRect.size();i++){
-                Rect rect = choosenWhiteRect.get(i);
-                if(chosenYellowRect.x > rect.x){
-                    leftCount++;
-                }
-            }
-            if(leftCount == 0){
+
+            if(chosenYellowRect.x < 320) {
+
                 currentOrder = SamplingOrderDetector.GoldLocation.LEFT;
-            }
 
-            if(leftCount == 1){
+            } else if(chosenYellowRect.x > 320) {
+
                 currentOrder = SamplingOrderDetector.GoldLocation.CENTER;
+
+            } else {
+
+                currentOrder = SamplingOrderDetector.GoldLocation.RIGHT;
+
             }
 
-            if(leftCount >= 2){
-                currentOrder = SamplingOrderDetector.GoldLocation.RIGHT;
-            }
-            isFound = true;
+
             lastOrder = currentOrder;
 
-        } else if (positionCamRight || positionCamLeft) {
-
-            if(choosenWhiteRect.get(0) != null && (choosenWhiteRect.get(1) != null || chosenYellowRect != null)) {
-
-                if (chosenYellowRect == null) {
-                    if(positionCamLeft) {
-                        currentOrder = GoldLocation.RIGHT;
-                    }
-
-                    else if(positionCamRight) {
-                        currentOrder = GoldLocation.LEFT;
-                    }
-                }
-
-                else if (chosenYellowRect != null) {
-
-                    if (positionCamLeft) {
-
-                        Rect rect = choosenWhiteRect.get(0);
-                        if (chosenYellowRect.x > rect.x) {
-                            currentOrder = GoldLocation.CENTER;
-                        }
-                        else if (chosenYellowRect.x < rect.x) {
-                            currentOrder = GoldLocation.LEFT;
-                        }
-
-                    }
-
-                    else if (positionCamRight) {
-
-                        Rect rect = choosenWhiteRect.get(0);
-                        if (chosenYellowRect.x > rect.x) {
-                            currentOrder = GoldLocation.RIGHT;
-                        }
-                        else if (chosenYellowRect.x < rect.x) {
-                            currentOrder = GoldLocation.CENTER;
-                        }
-                    }
-
-
-                }
-
-            }
-
-            else {
-                currentOrder = SamplingOrderDetector.GoldLocation.UNKNOWN;
-                isFound = false;
-            }
         }
 
-        else {
-            currentOrder = SamplingOrderDetector.GoldLocation.UNKNOWN;
-            isFound = false;
-        }
 
         //Display Debug Information
         Imgproc.putText(displayMat,"Gold Position: " + currentOrder.toString(),new Point(10,getAdjustedSize().height - 30),0,1, new Scalar(255,255,0),1);
