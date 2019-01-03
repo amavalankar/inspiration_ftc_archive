@@ -85,7 +85,41 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
+    public void doEncoderTurn(double speed, int angle) {
+
+        int tgAngle = Math.abs(angle);
+        double distance;
+        double leftDistance;
+        double rightDistance;
+
+        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        distance = ((constants.ENCODERS_PER_DEGREE * tgAngle) / constants.TICKS_PER_IN);
+
+
+        telemetry.addLine("Target Positions Calculated");
+        telemetry.update();
+
+
+        if (angle > 0) {
+            rightDistance = -distance;
+            leftDistance = distance;
+
+
+            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
+        } else if (angle < 0) {
+            leftDistance = -distance;
+            rightDistance = distance;
+
+
+            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
+        }
+
+    }
+
     public void encoderTurn(double speed, int angle) {
+
+        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         if (robot.encoderTurnAngle == angle) {
             idle();
@@ -106,42 +140,13 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         }
 
-        sleep(250);
-
-    }
-
-    public void doEncoderTurn(double speed, int angle) {
-
-        int tgAngle = Math.abs(angle);
-        double distance;
-        double leftDistance;
-        double rightDistance;
-
         setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        sleep(200);
+//        sleep(50);
 
-        distance = ((constants.ENCODERS_PER_DEGREE * tgAngle) / constants.TICKS_PER_IN);
-
-
-        telemetry.addLine("Target Positions Calculated");
-        telemetry.update();
-        sleep(500);
-
-        if (angle > 0) {
-            rightDistance = -distance;
-            leftDistance = distance;
-
-
-            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
-        } else if (angle < 0) {
-            leftDistance = -distance;
-            rightDistance = distance;
-
-
-            encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
-        }
     }
+
+
 
     /**
      * We first convert the inputted distance (in cm) to encoder ticks with the constants.TICKS_PER_CM constant, while

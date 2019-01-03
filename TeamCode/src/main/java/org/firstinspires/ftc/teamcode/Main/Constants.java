@@ -85,10 +85,14 @@ public class Constants {
 
     public final double ON_GROUND_DISTANCE_CM = 2;
 
+    /* Weird constant that accounts for the correction in ticks that I performed to make the robot run correctly.
+    This is a very bad fix and should be addressed by someone.
+     */
+    public final double TICK_CHANGE_CONSTANT = 2.08178438662;
     public final double ROBOT_WIDTH_IN = 13.5;
     public final double ROBOT_CIRCUMFERENCE = (ROBOT_WIDTH_IN * Math.PI);
 
-    public final double ENCODERS_PER_360 = (ROBOT_CIRCUMFERENCE*TICKS_PER_IN);
+    public final double ENCODERS_PER_360 = (ROBOT_CIRCUMFERENCE*(TICKS_PER_IN*TICK_CHANGE_CONSTANT));
     public final double ENCODERS_PER_DEGREE = (ENCODERS_PER_360/360);
 
     // figure this out at the lab - horizontal position on the tape relative to the lander.

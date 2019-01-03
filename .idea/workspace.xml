@@ -6,15 +6,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6be31d41-5dd6-4ae3-8818-4ddf0cd4767f" name="Default" comment="">
+    <list default="true" id="b1666d11-45e6-473a-ab90-64aa850836bf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/SamplingOrderDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/SamplingOrderDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehang.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive11GearRatio.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive11GearRatio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,17 +37,7 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ftc_app" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
@@ -51,8 +46,39 @@
       <file leaf-file-name="ExtendedLinearOpMode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="266">
+              <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+              <folding>
+                <element signature="e#2472#2473#0" expanded="true" />
+                <element signature="e#2514#2515#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Robot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1425">
+              <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtendedOpMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -60,64 +86,8 @@
       <file leaf-file-name="AutonomousCommon.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.common.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.common.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#656#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#128#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JustDehang.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehang.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AvocadoThirdTeleOp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncoderDrive11GearRatio.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive11GearRatio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="422">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -125,82 +95,30 @@
       <file leaf-file-name="JustVision.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustVision.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="420">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RobotTurn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/RobotTurn.java">
+      <file leaf-file-name="AvocadoThirdTeleOp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="255">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>r</find>
-      <find>robot.</find>
-      <find>constants</find>
-      <find>telemetry</find>
-      <find>setPower</find>
-      <find>tilting</find>
-      <find>bottomRightMotor.setPower</find>
-      <find>bottomLeftMotor.</find>
-      <find>dehang</find>
-      <find>motors</find>
-      <find>motors()</find>
-      <find>extension</find>
-      <find>leftline</find>
-      <find>getDistance</find>
-      <find>test</find>
-      <find>color senssors</find>
-      <find>forward</find>
-      <find>reverse</find>
-      <find>liftslides</find>
-      <find>hanger</find>
-      <find>working</find>
-      <find>workingmat</find>
-      <find>size</find>
-      <find>goldlocation</find>
-      <find>GoldLocation</find>
-      <find>Gold</find>
-      <find>sampli</find>
-      <find>.x</find>
-      <find>unknown</find>
-      <find>setpower</find>
+      <find>encoderTurn</find>
     </findStrings>
-    <replaceStrings>
-      <replace>constants.COUNTS_PER</replace>
-      <replace>constants.TICKS_PER</replace>
-      <replace>TICKS_PER_CM</replace>
-      <replace>robot.bottomRightMotor.setPower</replace>
-      <replace>robot.bottomLeftMotor.</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="CVcropping" />
-      </map>
-    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -5116,57 +5034,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorREV2mDistance.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Avocado/OpModes/AvocadoOpMode.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Avocado/Hardware/Robot.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Avocado/OpModes/AvocadoLinearOpMode.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Avocado/OpModes/Autonomous/Autonomous_Avocado.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/PracticeRobotTeleOp.java" />
-        <option value="$PROJECT_DIR$/build.common.gradle" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/SalsaOpMode.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/TeleOp/AvocadoTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/Autonomous/SalsaBlueCrater.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/Hardware/Robot.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/Autonomous/AvocadoBlueCrater.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/Autonomous/test.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/Constants.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/SalsaLinearOpMode.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/Autonomous/AvocadoBlueCraterSmallbot.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/TeleOp/AvocadoPracticeTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Salsa/OpModes/Autonomous/AutonomousDriveBlueCrater.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Old/OpModes/PracticeRobotTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/testEncoderDrive.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/DistanceSensorTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoPracticeTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/ServoPosition.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/testEncoderDrive.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/EncoderDrive11GearRatio.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveBlueCrater.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/DistanceSensorTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/RobotTurn.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/testIndividualMotor.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehangSample.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/BlueCommonAuto.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/EncoderDrive4872GearRatio.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoSecondaryTeleOp.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive4872GearRatio.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/RobotTurn.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/DistanceSensorTest.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/testIndividualMotor.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveCraterBasic.java" />
-        <option value="$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/DogeCVDetector.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Robot.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustSample.java" />
-        <option value="$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/SamplingOrderDetector.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive11GearRatio.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustVision.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehang.java" />
       </list>
     </option>
   </component>
@@ -5174,14 +5045,12 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -5205,14 +5074,23 @@
               <item name="TeamCode" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="teamcode" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Avocado" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ftc_app" type="1abcf292:AndroidViewProjectNode" />
               <item name="TeamCode" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="teamcode" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Avocado" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ftc_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="TeamCode" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="teamcode" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
               <item name="Autonomous" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -5220,214 +5098,26 @@
               <item name="TeamCode" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="teamcode" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Avocado" type="462c0819:PsiDirectoryNode" />
-              <item name="Robot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="TeamCode" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="teamcode" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Avocado" type="462c0819:PsiDirectoryNode" />
-              <item name="TeleOP" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
+              <item name="Debug" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="ftc_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="ftc_app" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="ftc_app" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="codeStyles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Hardware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
-              <item name="Autonomous" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
-              <item name="Debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
-              <item name="Debug" type="462c0819:PsiDirectoryNode" />
-              <item name="TestHardware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="OpModes" type="462c0819:PsiDirectoryNode" />
-              <item name="TeleOp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Vision" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ftc_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ftc_app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="TeamCode" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="teamcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Old" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.project.structure.last.selected" value="TeamCode" />
+    <property name="android.project.structure.last.selected" value="openCV3.4.1" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546033483140" />
     <property name="device.picker.selection" value="15.1.1.113:5555" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.1.3" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1542562193190" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.firstinspires.ftc.teamcode.Main.OpModes.TeleOp" />
-      <recent name="org.firstinspires.ftc.teamcode.Avocado" />
-      <recent name="org.firstinspires.ftc.teamcode.Salsa.Hardware" />
-      <recent name="org.firstinspires.ftc.teamcode.Salsa.OpModes" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="android.studio.gradle" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1546478669592" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -5441,7 +5131,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.TeamCode">
+  <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -5459,7 +5149,6 @@
       <patterns />
       <method>
         <option name="Make" enabled="false" />
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
@@ -5512,120 +5201,21 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
-      <option name="DEPLOY" value="true" />
-      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
-      </Profilers>
-      <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.firstinspires.ftc.teamcode.Salsa.OpModes.Autonomous.test" />
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="TeamCode" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.firstinspires.ftc.teamcode.Salsa.OpModes.Autonomous.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="TeamCode" />
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -5640,7 +5230,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" />
       <option name="WORKING_DIRECTORY" />
-      <module name="" />
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -5667,7 +5256,7 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -5687,171 +5276,42 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
     </configuration>
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
     </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <list>
-      <item itemvalue="Android App.TeamCode" />
-      <item itemvalue="Application.test" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.test" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6be31d41-5dd6-4ae3-8818-4ddf0cd4767f" name="Default" comment="" />
-      <created>1537732596678</created>
+      <changelist id="b1666d11-45e6-473a-ab90-64aa850836bf" name="Default" comment="" />
+      <created>1546478655984</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1537732596678</updated>
+      <updated>1546478655984</updated>
     </task>
-    <task id="LOCAL-00001" summary="Fixed gradle errors: missing dependency &quot;com.android.tools.build:aapt2:3.2.0-4818971&quot;">
-      <created>1539570324882</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1539570324882</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added 3 commented work-in-progress methods. WARNINGS: a. I have not coordinated with mechanical engineers on the exact layout of hardware, so certain objects may be missing or declared under the wrong class | b. certain variables used in the methods are not defined and need to be replaced with real values.">
-      <created>1542164608998</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1542164608998</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Restructured the Avocado folder - hardware will now be stored in separate files under the Hardware folder. Also created an TeleOP, Autonomous folder and a Vision folder for work-in-progress/standalone vision files.">
-      <created>1542166096920</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1542166096920</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Changed the name of the OpMode">
-      <created>1542169136699</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1542169136699</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Imported needed libraries into Autonomous, added comments to Robot.java, fixed lift binary method.">
-      <created>1542591541862</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1542591541862</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Updated Robot.java to include Encoder Drive. Copied Constants.java from Aditya.">
-      <created>1542657131339</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1542657131339</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Updated HardwareMap names, reversed motor directions, added strafing to SalsaOpMode">
-      <created>1543114380005</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1543114380005</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Fixed basic logic errors in the LinearOpMode and fixed conflicting OpMode names.">
-      <created>1543548824368</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1543548824368</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added new autonomous file for the second part of autonomous (after sampling) and fixed a HardwareMap error (omitted collector names).">
-      <created>1543643629416</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1543643629416</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Updated drive to include team marker deposit and initialized hardware map.">
-      <created>1543646825955</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1543646825955</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Troubleshooting the encoders.">
-      <created>1543726005309</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1543726005309</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added distance sensor test file.">
-      <created>1543810583652</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1543810583653</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added two autonomous debug programs: JustDehang, JustDehangSample.">
-      <created>1543972746894</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1543972746894</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added two new encoder drive test programs, one of which uses the reciprocal of the gear ratio to account for the new gearbox.">
-      <created>1544160409632</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1544160409633</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Fixed minor issues such as names and gear ratio - does not use reciprocal, uses actual gear ratio. Encoder drive overshoots a little bit.">
-      <created>1544162454901</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1544162454901</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Debugging on TeleOp and Autonomous.">
-      <created>1544237988476</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1544237988476</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Last minute fix autonomous scramble: I don't even know">
-      <created>1544316583912</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1544316583912</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Disabled and cleaned up some files and added cropping functionality to DogeCV detector file">
-      <created>1546311368659</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1546311368659</updated>
-    </task>
-    <task id="LOCAL-00019" summary="FINISHED COMPUTER VISION WORK - added region of interest (crop) to the development branch and changed the sampling method to rely on the gold mineral only. If the gold mineral is in the left of the frame the position is left, but if it is in the right, the position is in the center. If it is not in the frame, the position is on the right.">
-      <created>1546410457566</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1546410457566</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -5860,26 +5320,26 @@
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Logcat" order="8" />
-      <window_info id="Captures" order="5" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26466382" />
-      <window_info anchor="bottom" id="Build" order="10" visible="true" weight="0.29551122" />
-      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Logcat" order="7" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32917705" />
+      <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -5892,391 +5352,96 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed gradle stuff" />
-    <MESSAGE value="Fixed gradle errors: missing dependency &quot;com.android.tools.build:aapt2:3.2.0-4818971&quot;" />
-    <MESSAGE value="Moved old files to old" />
-    <MESSAGE value="Worked on adding hardware so that instanciating new hardware would not require modification of everything!" />
-    <MESSAGE value="Added 3 commented work-in-progress methods. WARNINGS: a. I have not coordinated with mechanical engineers on the exact layout of hardware, so certain objects may be missing or declared under the wrong class | b. certain variables used in the methods are not defined and need to be replaced with real values." />
-    <MESSAGE value="Restructured the Avocado folder - hardware will now be stored in separate files under the Hardware folder. Also created an TeleOP, Autonomous folder and a Vision folder for work-in-progress/standalone vision files." />
-    <MESSAGE value="Changed the name of the OpMode" />
-    <MESSAGE value="Imported needed libraries into Autonomous, added comments to Robot.java, fixed lift binary method." />
-    <MESSAGE value="Updated Robot.java to include Encoder Drive. Copied Constants.java from Aditya." />
-    <MESSAGE value="Updated HardwareMap names, reversed motor directions, added strafing to SalsaOpMode" />
-    <MESSAGE value="Added hang() method to SalsaLinearOpMode and made a functional practice TeleOp file." />
-    <MESSAGE value="Added hang() method to SalsaLinearOpMode and made a functional practice TeleOp file. Aditya forgot to push, so I copied over his updated Constants file, Autonomous files, Robot file, and SalsaLinearOpMode.java." />
-    <MESSAGE value="Made a new autonomous for the small robot - added an alignment to the Salsa OpMode - created a constant for relative horizontal position based on the lander and other obstacles in the field to avoid random magic numbers - split the initSensors method into two methods for color and distance sensor initiation, though I kept the initSensors() method (it runs all the methods for sensor initiation)." />
-    <MESSAGE value="Fixed basic logic errors in the LinearOpMode and fixed conflicting OpMode names." />
-    <MESSAGE value="Added new autonomous file for the second part of autonomous (after sampling) and fixed a HardwareMap error (omitted collector names)." />
-    <MESSAGE value="Updated drive to include team marker deposit and initialized hardware map." />
-    <MESSAGE value="Troubleshooting the encoders." />
-    <MESSAGE value="Added distance sensor test file." />
-    <MESSAGE value="Added two autonomous debug programs: JustDehang, JustDehangSample." />
-    <MESSAGE value="Added two new encoder drive test programs, one of which uses the reciprocal of the gear ratio to account for the new gearbox." />
-    <MESSAGE value="Fixed minor issues such as names and gear ratio - does not use reciprocal, uses actual gear ratio. Encoder drive overshoots a little bit." />
-    <MESSAGE value="Debugging on TeleOp and Autonomous." />
-    <MESSAGE value="Last minute fix autonomous scramble: I don't even know" />
-    <MESSAGE value="Disabled and cleaned up some files and added cropping functionality to DogeCV detector file" />
-    <MESSAGE value="FINISHED COMPUTER VISION WORK - added region of interest (crop) to the development branch and changed the sampling method to rely on the gold mineral only. If the gold mineral is in the left of the frame the position is left, but if it is in the right, the position is in the center. If it is not in the frame, the position is on the right." />
-    <option name="LAST_COMMIT_MESSAGE" value="FINISHED COMPUTER VISION WORK - added region of interest (crop) to the development branch and changed the sampling method to rely on the gold mineral only. If the gold mineral is in the left of the frame the position is left, but if it is in the right, the position is in the center. If it is not in the frame, the position is on the right." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/RobotTurn.java" />
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/EncoderDrive4872GearRatio.java" />
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Subcomponents/Servo.java">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Subcomponents/RangeSensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Subcomponents/Motor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Subcomponents/CRServo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveCraterNOHANGBasic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/DogeCV.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/GoldAlignDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/RobotCore-release-sources.jar!/com/qualcomm/robotcore/eventloop/opmode/OpMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Old/OpModes/PracticeRobotTeleOp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoSecondaryTeleOp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive4872GearRatio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/DistanceSensorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/ServoPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/testEncoderDrive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/testIndividualMotor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Vision/CameraCropAngle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveDepot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveDepotNOHANGBasic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveCrater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/Dogeforia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/HoughSilverDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary3/src/main/java/org/opencv/core/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary3/src/main/java/org/opencv/core/Mat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousDriveCraterBasic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary3/src/main/java/org/opencv/core/Size.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Old/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/DogeCVDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        <state relative-caret-position="930">
+          <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary3/src/main/java/org/opencv/imgproc/Imgproc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35805">
-          <caret line="2406" column="23" selection-start-line="2406" selection-start-column="23" selection-end-line="2406" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openCVLibrary3/src/main/java/org/opencv/core/Rect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ftc_app/.idea/codeStyles/Project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DogeCV/src/main/java/com/disnodeteam/dogecv/detectors/roverrukus/SamplingOrderDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2955">
-          <caret line="219" column="7" selection-start-line="219" selection-start-column="7" selection-end-line="219" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/PushbotAutoDriveByEncoder_Linear.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="164" column="20" selection-start-line="164" selection-start-column="20" selection-end-line="164" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoTeleOp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Robot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="302" selection-start-line="302" selection-end-line="302" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3080#3081#0" expanded="true" />
-            <element signature="e#3110#3111#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+        <state relative-caret-position="1425">
+          <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="106" column="42" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/RobotTurn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="120">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/TestHardware/EncoderDrive11GearRatio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustVision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustDehang.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.common.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#656#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#128#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="435">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedOpMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/TeleOp/AvocadoThirdTeleOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/ExtendedLinearOpMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="e#2472#2473#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/Hardware/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Debug/JustVision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Main/OpModes/Autonomous/AutonomousCommon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
         </state>
       </provider>
     </entry>

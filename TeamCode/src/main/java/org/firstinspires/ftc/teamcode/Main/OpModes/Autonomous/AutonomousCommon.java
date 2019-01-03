@@ -35,43 +35,43 @@ public class AutonomousCommon extends ExtendedLinearOpMode {
 
         // Unhook
         resetEncoderAngle();
-        encoderTurn(0.25, 90);
-        sleep(100);
-        encoderDriveIN(12, 12, 0.25, 5);
-        sleep(100);
+        doEncoderTurn(0.25, 90);
+        encoderDriveIN(4, 4, 0.25, 5);
+
 
         // Turn to sample
-        encoderTurn(0.25, 90);
-        moveActuator(2);
+        doEncoderTurn(-0.25, 90);
 
         //save sampling order of minerals to this variable
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
         sleep(400);
 
-        telemetry.addData("Current Orientation is", robot.getSamplingOrder());
-        telemetry.update();
-
-        switch (robot.getSamplingOrder()) {
-
-            case LEFT:
-
-                leftSample();
-
-            case CENTER:
-
-                centerSample();
-
-            case RIGHT:
-
-                rightSample();
-
-            case UNKNOWN:
-
-                telemetry.addLine("Hah too bad for you, the robot can't find ANYTHING.");
-                telemetry.update();
-                rightSample();
-
+        while (opModeIsActive()) {
+            telemetry.addData("Current Orientation is", robot.getSamplingOrder());
+            telemetry.update();
         }
+
+//        switch (robot.getSamplingOrder()) {
+//
+//            case LEFT:
+//
+//                leftSample();
+//
+//            case CENTER:
+//
+//                centerSample();
+//
+//            case RIGHT:
+//
+//                rightSample();
+//
+//            case UNKNOWN:
+//
+//                telemetry.addLine("Hah too bad for you, the robot can't find ANYTHING.");
+//                telemetry.update();
+//                rightSample();
+//
+//        }
 
         robot.disableVision();
 

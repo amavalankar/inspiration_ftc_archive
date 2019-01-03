@@ -18,7 +18,6 @@ public class AvocadoThirdTeleOp extends ExtendedOpMode {
         robot.initHanger();
         robot.initServo();
 
-
     }
 
     @Override
