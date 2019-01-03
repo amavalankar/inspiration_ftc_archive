@@ -159,7 +159,7 @@ public class SamplingOrderDetector extends DogeCVDetector {
 
 
         // If enough elements are found, compute gold position
-        if(chosenYellowRect != null){
+        if(chosenYellowRect != null) {
             int leftCount = 0;
 
             if(chosenYellowRect.x < 320) {
@@ -170,14 +170,13 @@ public class SamplingOrderDetector extends DogeCVDetector {
 
                 currentOrder = SamplingOrderDetector.GoldLocation.CENTER;
 
-            } else {
-
-                currentOrder = SamplingOrderDetector.GoldLocation.RIGHT;
-
             }
 
-
             lastOrder = currentOrder;
+
+        } else if (chosenYellowRect == null) {
+
+            currentOrder = SamplingOrderDetector.GoldLocation.RIGHT;
 
         }
 

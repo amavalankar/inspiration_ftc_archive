@@ -178,37 +178,6 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
-    public void encoderDriveIN(double left_in, double right_in, double speed, double timeoutS) {
-
-//        int left_distanceEnc = (int)(constants.TICKS_PER_IN * left_in);
-//        int right_distanceEnc = (int)(constants.TICKS_PER_IN * right_in);
-
-        int left_distanceEnc = (int) (89 * left_in);
-        int right_distanceEnc = (int) (89 * right_in);
-
-        setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        sleep(100);
-        setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
-        setTargetPosition(left_distanceEnc, right_distanceEnc);
-
-        setPower(Math.abs(speed));
-        runtime.reset();
-
-        while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
-            telemetry.addLine("Robot in Encoder Drive");
-            telemetry.addData("Target Distance Left (in)", left_in);
-            telemetry.addData("Target Distance Right (in)", right_in);
-            telemetry.update();
-            //just one more test...
-        }
-
-        setPower(0);
-
-        setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(250);
-
-    }
-
     public void encoderDriveINNew(double left_in, double right_in, double speed, double timeoutS) {
 
         int leftTarget = (int) (Math.ceil(89 * left_in * 2/3));
@@ -666,6 +635,46 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public void rightSample() {
 
 
+
+    }
+
+    public void encoderDriveIN(double left_in, double right_in, double speed, double timeoutS) {
+
+        int left_distanceEnc = (int) (constants.TICKS_PER_IN * left_in);
+        int right_distanceEnc = (int) (constants.TICKS_PER_IN * right_in);
+
+        // Ensure that the opmode is still active
+
+        if (opModeIsActive()) {
+
+            // Determine new target position, and pass to motor controller
+            setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            sleep(100);
+
+            setTargetPosition(left_distanceEnc, right_distanceEnc);
+            setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+            // reset the timeout time and start motion.
+            runtime.reset();
+            setPower(Math.abs(speed));
+
+            while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+
+                telemetry.addLine("Robot in Encoder Drive");
+                telemetry.addData("Target Distance Left (in)", left_in);
+                telemetry.addData("Target Distance Right (in)", right_in);
+                telemetry.addData("TickLeft", left_distanceEnc);
+                telemetry.addData("TickRight", right_distanceEnc);
+                telemetry.update();
+                //just one more test...
+            }
+
+            setPower(0);
+
+            setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            sleep(250);
+
+        }
 
     }
 

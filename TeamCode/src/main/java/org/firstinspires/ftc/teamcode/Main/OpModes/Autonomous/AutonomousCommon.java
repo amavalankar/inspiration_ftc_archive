@@ -20,7 +20,6 @@ public class AutonomousCommon extends ExtendedLinearOpMode {
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision(CameraCropAngle.LEFT);
-        robot.markerDepositer = hardwareMap.servo.get("markerDepositer");
         robot.enableVision();
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
@@ -31,12 +30,18 @@ public class AutonomousCommon extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         // Dehang
-        moveActuator(-6);
-        sleep(1500);
+        moveActuator(6, 6);
+        sleep(300);
+
         // Unhook
         resetEncoderAngle();
-        encoderDriveINNew(-5, -5, 0.25, 3);
+        encoderTurn(0.25, 90);
         sleep(100);
+        encoderDriveIN(12, 12, 0.25, 5);
+        sleep(100);
+
+        // Turn to sample
+        encoderTurn(0.25, 90);
         moveActuator(2);
 
         //save sampling order of minerals to this variable
@@ -50,47 +55,25 @@ public class AutonomousCommon extends ExtendedLinearOpMode {
 
             case LEFT:
 
-                telemetry.addLine("LEFT GOLD.");
-                telemetry.update();
-                encoderDriveIN(-2, 2, 0.5, 5);
-                encoderTurn(0.5, -93);
-                encoderDriveIN(20, 20, 0.5, 5);
-                break;
+                leftSample();
 
             case CENTER:
 
-                telemetry.addLine("CENTER GOLD.");
-                telemetry.update();
-                encoderDriveIN(4, 4, 0.5, 5);
-                encoderTurn(0.5, -90);
-                encoderDriveIN(20, 20, 0.5, 5);
-                break;
+                centerSample();
 
             case RIGHT:
 
-                telemetry.addLine("RIGHT GOLD");
-                telemetry.update();
-                encoderDriveIN(11, 11, 0.5, 5);
-                encoderTurn(0.5, -90);
-                encoderDriveIN(20, 20, 0.5, 5);
-                break;
+                rightSample();
 
             case UNKNOWN:
 
                 telemetry.addLine("Hah too bad for you, the robot can't find ANYTHING.");
                 telemetry.update();
-                encoderDriveIN(4, 4, 0.5, 5);
-                encoderTurn(0.5, -90);
-                encoderDriveIN(20, 20, 0.5, 5);
-                break;
+                rightSample();
 
         }
 
         robot.disableVision();
-
-        encoderDriveINNew(-12, -12, 0.25, 4);
-
-        encoderTurn(0.25, -180);
 
         /**
          * END OF AUTONOMOUS COMMON AHHHH

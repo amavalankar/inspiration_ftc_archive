@@ -78,6 +78,14 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
+    public void setPower(double left_power, double right_power) {
+        robot.leftFront.setPower(left_power);
+        robot.leftBack.setPower(left_power);
+        robot.rightFront.setPower(right_power);
+        robot.rightBack.setPower(right_power);
+
+    }
+
     /**
      * 
      * @param gp2_leftY

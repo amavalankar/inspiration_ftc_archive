@@ -61,7 +61,7 @@ public class Constants {
     public final double TURN_THRESHOLD = 2.5;
 
     //constant numbers meant for autonomous with encoders
-    public final double TICKS_PER_ROTATION = 1120;
+    public final double TICKS_PER_ROTATION = 538;
 
     public final double LIFT_GEAR_DIAMETER_IN = 1.5;
     public final double LIFT_GEAR_CIRCUMFERENCE_IN = LIFT_GEAR_DIAMETER_IN * Math.PI;

@@ -29,7 +29,7 @@ public class EncoderDrive11GearRatio extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         // Methods
-        encoderDriveIN(12, 12, 0.5, 10);
+        encoderDriveIN(24, 24, 0.25, 10);
 
     }
 }
