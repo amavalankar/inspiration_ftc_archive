@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
@@ -8,6 +9,7 @@ import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
+@Disabled
 @Autonomous(name = "Distance Sensor Test")
 public class DistanceSensorTest extends ExtendedLinearOpMode {
 

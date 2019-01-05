@@ -2,11 +2,13 @@ package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
+@Disabled
 @Autonomous(name = "Just Vision")
 public class JustVision extends ExtendedLinearOpMode {
 

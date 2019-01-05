@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedOpMode;
 
-@TeleOp(name = "Avocado Third TeleOp", group = "Avocado")
-public class AvocadoThirdTeleOp extends ExtendedOpMode {
+@TeleOp(name = "TeleOp Scrimmage 01-05-19", group = "Avocado")
+public class TeleOpMain extends ExtendedOpMode {
 //Created by Shruti on 12/26/2018 in order to test whether the dumper servo and locking servos will work
 
     @Override

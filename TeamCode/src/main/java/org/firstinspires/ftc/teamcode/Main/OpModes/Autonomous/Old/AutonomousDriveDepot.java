@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous.Old;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;

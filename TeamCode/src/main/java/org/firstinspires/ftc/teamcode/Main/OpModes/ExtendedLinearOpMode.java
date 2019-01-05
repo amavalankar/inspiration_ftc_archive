@@ -39,6 +39,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     public Orientation angles;
 
+
     /**
      * @param leftTarget
      * @param rightTarget
@@ -48,6 +49,14 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         robot.rightFront.setTargetPosition(robot.rightFront.getCurrentPosition() + rightTarget);
         robot.leftBack.setTargetPosition(robot.leftBack.getCurrentPosition() + leftTarget);
         robot.rightBack.setTargetPosition(robot.rightBack.getCurrentPosition() + rightTarget);
+
+    }
+
+    public void setTargetPositionStrafe(int leftTarget, int rightTarget) {
+        robot.leftFront.setTargetPosition(robot.leftFront.getCurrentPosition() + leftTarget);
+        robot.rightBack.setTargetPosition(robot.rightFront.getCurrentPosition() + leftTarget);
+        robot.leftBack.setTargetPosition(robot.leftBack.getCurrentPosition() + rightTarget);
+        robot.rightFront.setTargetPosition(robot.rightBack.getCurrentPosition() + rightTarget);
     }
 
     public void setTargetPositionReset(int leftTarget, int rightTarget) {
@@ -140,12 +149,53 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         }
 
+
+
+
         setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 //        sleep(50);
 
     }
 
+    public void encoderStrafe(double units, double speed) {
+
+        int left_distanceEnc = (int) (constants.TICKS_PER_IN * -units);
+        int right_distanceEnc = (int) (constants.TICKS_PER_IN * units);
+
+        // Ensure that the opmode is still active
+
+        if (opModeIsActive()) {
+
+            // Determine new target position, and pass to motor controller
+            setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            setTargetPositionStrafe(left_distanceEnc, right_distanceEnc);
+            setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+            // reset the timeout time and start motion.
+            runtime.reset();
+            setPower(Math.abs(speed));
+
+            while (this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+
+                telemetry.addLine("Robot in Encoder Drive");
+                telemetry.addData("Target Distance Left (in)", units);
+                telemetry.addData("Target Distance Right (in)", units);
+                telemetry.addData("TickLeft", left_distanceEnc);
+                telemetry.addData("TickRight", right_distanceEnc);
+                telemetry.update();
+                //just one more test...
+            }
+
+            setPower(0);
+
+            setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        }
+
+
+    }
 
 
     /**
@@ -180,6 +230,18 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         setPower(0);
 
         setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+    }
+
+    public void tiltMarker(double seconds, double power) {
+
+        runtime.reset();
+        while (this.opModeIsActive() && (runtime.seconds() < seconds)) {
+
+            robot.tiltMotor.setPower(power);
+
+        }
+        robot.tiltMotor.setPower(0);
 
     }
 
@@ -627,19 +689,25 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void leftSample() {
 
-
+        encoderStrafe(-10, 1);
+        encoderDriveIN(-12, -12, 1, 5);
+        encoderDriveIN(11, 11, 1, 5);
 
     }
 
     public void centerSample() {
 
-
+        encoderStrafe(10, 0.25);
+        encoderDriveIN(-12, -12, 0.25, 5);
+        encoderDriveIN(11, 12, 0.25, 5);
 
     }
 
     public void rightSample() {
 
-
+        encoderStrafe(30, 0.25);
+        encoderDriveIN(-12, -12, 0.25, 5);
+        encoderDriveIN(11, 11, 0.25, 5);
 
     }
 
@@ -663,7 +731,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             runtime.reset();
             setPower(Math.abs(speed));
 
-            while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            while ((this.opModeIsActive() && runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
 
                 telemetry.addLine("Robot in Encoder Drive");
                 telemetry.addData("Target Distance Left (in)", left_in);

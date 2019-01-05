@@ -67,7 +67,7 @@ public class SamplingOrderDetector extends DogeCVDetector {
     private Mat yellowMask  = new Mat();
 
     private Mat hiarchy     = new Mat();
-    public Rect roi = new Rect(0, 300, 640, 180);
+    public Rect roi = new Rect(0, 330, 640, 150);
 
 
     public SamplingOrderDetector() {

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -6,16 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-/**
- * Created by adityamavalankar on 12/2/18.
- */
-
 @Disabled
-@Autonomous(name = "Test Robot Turn", group = "Debug")
-public class RobotTurn extends ExtendedLinearOpMode {
+@Autonomous(name = "Tilt Test")
+public class Tilt extends ExtendedLinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
 
         setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
@@ -23,20 +19,20 @@ public class RobotTurn extends ExtendedLinearOpMode {
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision(CameraCropAngle.LEFT);
+        robot.initServo();
         robot.enableVision();
+        robot.initTiltingMechanism(); // oh and noah set something on fire
         // Telemetry confirms successful initialization. It's delayed to let everything load
         sleep(3000);
-        telemetry.addLine("Initialization done ... Ready to start!");
+        telemetry.addLine("Initialization tdone ... Ready to start!");
         telemetry.update();
 
+        tiltMarker(1, -0.5);
+        tiltMarker(1, 0.5);
+
         waitForStart();
-        resetEncoderAngle();
 
-        sleep(1500);
-
-        doEncoderTurn(0.25, 10);
-        sleep(1000);
-        doEncoderTurn(0.25, 5);
 
     }
+
 }

@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
+@Disabled
 @Autonomous(name = "Encoder Drive GR 1:1", group = "Avocado")
 public class EncoderDrive11GearRatio extends ExtendedLinearOpMode {
 

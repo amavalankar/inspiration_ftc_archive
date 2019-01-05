@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.TestHardware;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -6,16 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-/**
- * Created by adityamavalankar on 12/2/18.
- */
-
 @Disabled
-@Autonomous(name = "Test Robot Turn", group = "Debug")
-public class RobotTurn extends ExtendedLinearOpMode {
+@Autonomous(name = "Turn Until Blue")
+public class ColorSensorTest extends ExtendedLinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
 
         setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
@@ -30,13 +26,18 @@ public class RobotTurn extends ExtendedLinearOpMode {
         telemetry.update();
 
         waitForStart();
-        resetEncoderAngle();
 
-        sleep(1500);
+        while (opModeIsActive() && !(robot.rightLine.blue() > robot.rightLine.green())) {
 
-        doEncoderTurn(0.25, 10);
-        sleep(1000);
-        doEncoderTurn(0.25, 5);
+//            telemetry.addData("Blue", robot.rightLine.blue());
+//            telemetry.addData("Red", robot.rightLine.red());
+//            telemetry.addData("Green", robot.rightLine.green());
+//            telemetry.update();
+            doEncoderTurn(0.25, 10);
+
+        }
+
 
     }
+
 }

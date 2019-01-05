@@ -1,12 +1,14 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous.Old;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
+@Disabled
 @Autonomous(name = "Avocado Depot Drive DO HANG BASIC")
 public class AutonomousDriveDepotNOHANGBasic extends ExtendedLinearOpMode {
 

@@ -13,7 +13,7 @@ public abstract class ExtendedOpMode extends OpMode {
 
     /**
      * This is a modified version of the {OpMode} class, with all of the functions
-     * meant for TeleOp, without having extra work to make them, and the remote-controlled OpMode
+     * meant for TeleOpMain, without having extra work to make them, and the remote-controlled OpMode
      * to both work
      */
 
