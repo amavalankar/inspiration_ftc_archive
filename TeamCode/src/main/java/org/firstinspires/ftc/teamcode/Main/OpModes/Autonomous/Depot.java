@@ -32,7 +32,7 @@ public class Depot extends ExtendedLinearOpMode {
         resetEncoderAngle();
 
         // Dehang
-        moveActuator(5, 6);
+        moveActuator(5, 4);
 
         // Unhook
         encoderStrafe(-13, 0.25);
