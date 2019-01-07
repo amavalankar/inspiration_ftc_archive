@@ -58,8 +58,6 @@ public class Depot extends ExtendedLinearOpMode {
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
-                encoderDriveIN(90, 90, 1, 5);
-
                 break;
 
             case CENTER:
@@ -75,8 +73,6 @@ public class Depot extends ExtendedLinearOpMode {
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
-                encoderDriveIN(90, 90, 1, 5);
-
                 break;
 
             case RIGHT:
@@ -91,8 +87,6 @@ public class Depot extends ExtendedLinearOpMode {
                 encoderDriveIN(-50, -50, 0.5, 5);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
-
-                encoderDriveIN(90, 90, 1, 5);
 
                 break;
 
