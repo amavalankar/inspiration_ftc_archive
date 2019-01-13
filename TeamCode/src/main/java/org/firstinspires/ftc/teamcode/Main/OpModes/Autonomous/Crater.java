@@ -35,7 +35,7 @@ public class Crater extends ExtendedLinearOpMode {
         moveActuator(5, 4);
 
         // Unhook
-        encoderStrafeOffset(-13, 0.25, 0, 0.5);
+        encoderStrafeOffset(-20, 1, 0, 0.6);
         doEncoderTurn(0.25, 10);
 
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
@@ -43,58 +43,85 @@ public class Crater extends ExtendedLinearOpMode {
         telemetry.addData("Current position is", robot.getSamplingOrder());
         telemetry.update();
 
-
         switch (goldLocation) {
 
             case LEFT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
 
+                // Drive into wall and turn
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(20, 20, 1, 5);
                 doEncoderTurn(1, 135);
-                encoderStrafeOffset(10, 1, 0, 0.5);
-                encoderDriveIN(-17, -17, 1, 10);
 
+                // Strafe closer to wall
+                encoderStrafeOffset(40, 1, 0, 0.6);
+
+                // Drive towards depot and drop marker
+                encoderDriveIN(-30, -30, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
-                encoderDriveIN(90, 90, 1, 10);
+
+                // Drive into crater: drivetrain commits seppuku
+                encoderTurn(1, -10);
+                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
             case CENTER:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 centerSample();
+
+                // Drive into wall and turn
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(40, 40, 1, 5);
                 doEncoderTurn(1, 135);
-                encoderStrafeOffset(10, 1, 0, 0.5);
-                encoderDriveIN(-17, -17, 1, 10);
+
+                // Strafe closer to wall
+                encoderStrafeOffset(40, 1, 0, 0.6);
+
+                // Drive towards depot and drop marker
+                encoderDriveIN(-30, -30, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
-//                encoderDriveIN(90, 90, 1, 10);
+
+                // Drive into crater: drivetrain commits seppuku
+                encoderTurn(1, -10);
+                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
             case RIGHT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 rightSample();
+
+                // Drive into wall and turn
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(60, 60, 1, 5);
                 doEncoderTurn(1, 135);
-                encoderStrafeOffset(10, 1, 0, 0.5);
 
-                encoderDriveIN(-17, -17, 1, 10);
+                // Strafe closer to wall
+                encoderStrafeOffset(40, 1, 0, 0.6);
+
+                // Drive towards depot and drop marker
+                encoderDriveIN(-30, -30, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
-//                encoderDriveIN(90, 90, 1, 10);
+
+                // Correct angle and drive into crater: drivetrain commits seppuku
+                encoderTurn(1, -10);
+                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
         }
+
 
         robot.disableVision();
 

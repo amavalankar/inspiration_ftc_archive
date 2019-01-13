@@ -114,7 +114,7 @@ public abstract class ExtendedOpMode extends OpMode {
             robot.rightFront.setPower(1);
             robot.rightBack.setPower(-1);
 
-        } else if (up) {
+        } else if (down) {
 
             robot.leftFront.setPower(-speed);
             robot.leftBack.setPower(-speed);
@@ -122,7 +122,7 @@ public abstract class ExtendedOpMode extends OpMode {
             robot.rightBack.setPower(-speed);
 
 
-        } else if (down) {
+        } else if (up) {
 
             robot.leftFront.setPower(speed);
             robot.leftBack.setPower(speed);

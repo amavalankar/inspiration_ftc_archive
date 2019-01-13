@@ -219,7 +219,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             setTargetPositionStrafe(left_distanceEnc, right_distanceEnc);
-            setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            setMotorRunMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
@@ -738,7 +738,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void leftSample() {
 
-        encoderStrafeOffset(-10, 1, 0, 0.5);
+        encoderStrafeOffset(-10, 1, 0, 0.6);
         encoderDriveIN(-12, -12, 1, 5);
         encoderDriveIN(11, 11, 1, 5);
 
@@ -746,7 +746,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void centerSample() {
 
-        encoderStrafe(10, 0.25);
+        encoderStrafeOffset(20, 1, 0, 0.6);
         encoderDriveIN(-12, -12, 0.25, 5);
         encoderDriveIN(11, 12, 0.25, 5);
 
@@ -754,7 +754,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void rightSample() {
 
-        encoderStrafe(30, 0.25);
+        encoderStrafeOffset(50, 1, 0, 0.6);
         encoderDriveIN(-12, -12, 0.25, 5);
         encoderDriveIN(11, 11, 0.25, 5);
 
