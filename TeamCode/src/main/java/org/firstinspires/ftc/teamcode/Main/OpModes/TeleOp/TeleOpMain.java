@@ -30,7 +30,7 @@ public class TeleOpMain extends ExtendedOpMode {
         tilt(gamepad2.right_stick_y);
         hang(gamepad2.dpad_up, gamepad2.dpad_down);
         strafe(gamepad1.dpad_left, gamepad1.dpad_right, gamepad1.dpad_up, gamepad1.dpad_down, 0.5);
-        lockServos(gamepad1.x, gamepad1.y);
+//      lockServos(gamepad1.x, gamepad1.y);  // <-- This line of code tries to reference hardware that can't be accessed.
         dumperServo(gamepad2.x, gamepad2.y);
     }
 }

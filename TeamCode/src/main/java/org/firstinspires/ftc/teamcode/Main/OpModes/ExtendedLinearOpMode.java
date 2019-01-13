@@ -86,6 +86,14 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
+    public void setPowerStrafe(double power1, double power2) {
+        robot.leftFront.setPower(power2);
+        robot.leftBack.setPower(power1);
+        robot.rightFront.setPower(power1);
+        robot.rightBack.setPower(power2);
+
+    }
+
     public void setPower(double left_power, double right_power) {
         robot.leftFront.setPower(left_power);
         robot.leftBack.setPower(left_power);
@@ -175,7 +183,48 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
             // reset the timeout time and start motion.
             runtime.reset();
+            // setPowerStrafe(Math.abs(speed), Math.abs(speed));
             setPower(Math.abs(speed));
+
+            while (this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+
+                telemetry.addLine("Robot in Encoder Drive");
+                telemetry.addData("Target Distance Left (in)", units);
+                telemetry.addData("Target Distance Right (in)", units);
+                telemetry.addData("TickLeft", left_distanceEnc);
+                telemetry.addData("TickRight", right_distanceEnc);
+                telemetry.update();
+                //just one more test...
+            }
+
+            setPower(0);
+
+            setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        }
+
+
+    }
+
+    public void encoderStrafeOffset(double units, double speed, double offset1, double offset2) {
+
+        int left_distanceEnc = (int) (constants.TICKS_PER_IN * -units);
+        int right_distanceEnc = (int) (constants.TICKS_PER_IN * units);
+
+        // Ensure that the opmode is still active
+
+        if (opModeIsActive()) {
+
+            // Determine new target position, and pass to motor controller
+            setMotorRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            setTargetPositionStrafe(left_distanceEnc, right_distanceEnc);
+            setMotorRunMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+            // reset the timeout time and start motion.
+            runtime.reset();
+            // setPowerStrafe(Math.abs(speed), Math.abs(speed));
+            setPowerStrafe(Math.abs(speed-offset1), Math.abs(speed-offset2));
 
             while (this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
 
@@ -689,7 +738,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void leftSample() {
 
-        encoderStrafe(-10, 1);
+        encoderStrafeOffset(-10, 1, 0, 0.5);
         encoderDriveIN(-12, -12, 1, 5);
         encoderDriveIN(11, 11, 1, 5);
 

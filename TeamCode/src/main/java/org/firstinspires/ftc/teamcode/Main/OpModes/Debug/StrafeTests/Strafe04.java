@@ -1,20 +1,19 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Debug;
+package org.firstinspires.ftc.teamcode.Main.OpModes.Debug.StrafeTests;
 
-import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
-@Autonomous(name = "Just Vision")
-public class JustVision extends ExtendedLinearOpMode {
+@Autonomous(name = "Strafe -0.4 Offset", group = "Avocado")
+public class Strafe04 extends ExtendedLinearOpMode {
+
 
     @Override
     public void runOpMode() {
 
-        // initiate
+        // Initialize
         setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
@@ -30,16 +29,11 @@ public class JustVision extends ExtendedLinearOpMode {
         waitForStart();
         resetEncoderAngle();
 
-        //save sampling order of minerals to this variable
+        // Methods
+        encoderStrafeOffset(30, 1, 0, 0.4);
+        encoderStrafeOffset(-30, 1, 0, 0.4);
 
-        SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
-        sleep(400);
-
-        while (opModeIsActive()) {
-            telemetry.addData("Current Orientation is", robot.getSamplingOrder());
-            telemetry.update();
-        }
-
-        robot.disableVision();
     }
 }
+
+
