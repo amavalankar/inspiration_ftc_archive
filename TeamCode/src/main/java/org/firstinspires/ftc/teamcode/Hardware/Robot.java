@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.Hardware;
+package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
@@ -14,11 +14,11 @@ import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.Main.Constants;
+import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
+import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 import java.util.Locale;
 

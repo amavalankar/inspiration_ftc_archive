@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes;
+package org.firstinspires.ftc.teamcode.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.Main.Constants;
-import org.firstinspires.ftc.teamcode.Main.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 /**
  * Created by adityamavalankar on 11/19/18.
@@ -13,7 +13,7 @@ public abstract class ExtendedOpMode extends OpMode {
 
     /**
      * This is a modified version of the {OpMode} class, with all of the functions
-     * meant for TeleOpMain, without having extra work to make them, and the remote-controlled OpMode
+     * meant for LeagueMeetTwoTeleOp, without having extra work to make them, and the remote-controlled OpMode
      * to both work
      */
 

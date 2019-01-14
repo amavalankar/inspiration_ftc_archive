@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.Vision;
+package org.firstinspires.ftc.teamcode.Vision;
 
 /**
  * Created by adityamavalankar on 11/12/18.
@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 
-import org.firstinspires.ftc.teamcode.Main.Constants;
+import org.firstinspires.ftc.teamcode.Constants;
 
 public class SamplingDetector {
 

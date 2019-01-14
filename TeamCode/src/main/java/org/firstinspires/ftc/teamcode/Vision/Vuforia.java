@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Main.Vision;
+package org.firstinspires.ftc.teamcode.Vision;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -9,8 +9,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer.CameraDirection;
-import org.firstinspires.ftc.teamcode.Main.Constants;
-import org.firstinspires.ftc.teamcode.Main.Hardware.Robot;
+import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
 /**
  * Created by adityamavalankar on 11/4/18.

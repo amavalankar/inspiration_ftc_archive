@@ -1,13 +1,13 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.OpModes.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc .teamcode.Main.OpModes.ExtendedOpMode;
+import org.firstinspires.ftc.teamcode.OpModes.ExtendedOpMode;
 
 @Disabled
-@TeleOp(name = "Avocado TeleOpMain", group = "Avocado")
-public class AvocadoTeleOp extends ExtendedOpMode {
+@TeleOp(name = "League Meet One TeleOp", group = "Old")
+public class LeagueMeetOneTeleOp extends ExtendedOpMode {
 
 
     @Override

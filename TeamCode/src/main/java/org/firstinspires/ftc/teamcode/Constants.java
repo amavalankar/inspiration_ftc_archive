@@ -1,6 +1,6 @@
-package org.firstinspires.ftc.teamcode.Main;
+package org.firstinspires.ftc.teamcode;
 
-import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
+import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
  * Created by adityamavalankar on 11/4/18.
