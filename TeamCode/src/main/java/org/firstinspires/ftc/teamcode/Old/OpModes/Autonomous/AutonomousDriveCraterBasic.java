@@ -1,16 +1,15 @@
-package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous.Old;
+package org.firstinspires.ftc.teamcode.Old.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
 @Disabled
-@Autonomous(name = "Avocado Crater Drive")
-public class AutonomousDriveCrater extends ExtendedLinearOpMode {
+@Autonomous(name = "Avocado Crater Drive DO HANG BASIC")
+public class AutonomousDriveCraterBasic extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -28,17 +27,20 @@ public class AutonomousDriveCrater extends ExtendedLinearOpMode {
         sleep(3000);
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
+
+
         waitForStart();
         resetEncoderAngle();
 
         // Dehang
-        moveActuator(-6);
-        sleep(1500);
+        moveActuator(-6, 6.7);
+        sleep(750);
         // Unhook
         resetEncoderAngle();
-        encoderDriveINNew(-5, -5, 0.25, 3);
+        encoderDriveINNew(5, 5, 0.25, 3);
         sleep(100);
-        moveActuator(2);
+        moveActuator(2, 2.5);
+        encoderDriveINNew(-8,-8,0.25,3);
 
         //save sampling order of minerals to this variable
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
@@ -53,7 +55,8 @@ public class AutonomousDriveCrater extends ExtendedLinearOpMode {
 
                 telemetry.addLine("LEFT GOLD.");
                 telemetry.update();
-                encoderTurn(0.5, -108);
+                encoderDriveIN(-1, -1, 0.5, 5);
+                encoderTurn(0.5, -110);
                 encoderDriveIN(20, 20, 0.5, 5);
                 break;
 
@@ -70,7 +73,7 @@ public class AutonomousDriveCrater extends ExtendedLinearOpMode {
 
                 telemetry.addLine("RIGHT GOLD");
                 telemetry.update();
-                encoderDriveIN(11, 11, 0.5, 5);
+                encoderDriveIN(14, 14, 0.5, 5);
                 encoderTurn(0.5, -90);
                 encoderDriveIN(20, 20, 0.5, 5);
                 break;
@@ -88,40 +91,13 @@ public class AutonomousDriveCrater extends ExtendedLinearOpMode {
 
         robot.disableVision();
 
-        encoderDriveINNew(-12, -12, 0.25, 4);
-
-        encoderTurn(0.25, -180);
+        encoderDriveINNew(10, 10, 0.25, 4);
 
         /**
          * END OF AUTONOMOUS COMMON AHHHH
          */
 
-        setPower(0.25);
-        while((robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 20) && opModeIsActive()) {
-        }
-        setPower(0);
-
-        encoderTurn(0.3, -35);
-        sleep(200);
-
-        setPower(0.25);
-        while((robot.wallAlignFront.getDistance(DistanceUnit.INCH) > 18)&& opModeIsActive()) {
-        }
-        setPower(0);
-
-        encoderTurn(0.4, -10);
-
         robot.markerDepositer.setPosition(0);
-        sleep(1500);
 
-        encoderTurn(0.4, -40);
-
-        encoderDriveINNew(-30, -30, 0.3, 4);
-
-        robot.markerDepositer.setPosition(0.2);
-
-        encoderTurn(0.4, 95);
-
-        encoderDriveINNew(60, 60, 0.5, 8);
     }
 }
