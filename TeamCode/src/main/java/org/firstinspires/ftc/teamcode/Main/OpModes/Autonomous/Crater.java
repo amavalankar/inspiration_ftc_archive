@@ -21,12 +21,9 @@ public class Crater extends ExtendedLinearOpMode {
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision(CameraCropAngle.LEFT);
         robot.initServo();
-        robot.enableVision();
+         robot.enableVision();
         robot.initTiltingMechanism();
-        // Telemetry confirms successful initialization. It's delayed to let everything load
-        sleep(3000);
-        telemetry.addLine("Initialization done ... Ready to start!");
-        telemetry.update();
+
 
         waitForStart();
         resetEncoderAngle();
@@ -60,7 +57,7 @@ public class Crater extends ExtendedLinearOpMode {
                 encoderStrafeOffset(40, 1, 0, 0.6);
 
                 // Drive towards depot and drop marker
-                encoderDriveIN(-30, -30, 1, 10);
+                encoderDriveIN(-25, -25, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
@@ -85,7 +82,7 @@ public class Crater extends ExtendedLinearOpMode {
                 encoderStrafeOffset(40, 1, 0, 0.6);
 
                 // Drive towards depot and drop marker
-                encoderDriveIN(-30, -30, 1, 10);
+                encoderDriveIN(-25, -25, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
@@ -110,7 +107,7 @@ public class Crater extends ExtendedLinearOpMode {
                 encoderStrafeOffset(40, 1, 0, 0.6);
 
                 // Drive towards depot and drop marker
-                encoderDriveIN(-30, -30, 1, 10);
+                encoderDriveIN(-25, -25, 1, 10);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 

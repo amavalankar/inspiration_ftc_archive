@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode.Main.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.util.ElapsedTime;
-
 import org.firstinspires.ftc.teamcode.Main.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Main.Vision.CameraCropAngle;
 
@@ -35,7 +33,7 @@ public class Depot extends ExtendedLinearOpMode {
         moveActuator(5, 4);
 
         // Unhook
-        encoderStrafe(-13, 0.25);
+        encoderStrafeOffset(-20, 1, 0, 0.6);
         doEncoderTurn(0.25, 10);
 
         SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
@@ -49,12 +47,11 @@ public class Depot extends ExtendedLinearOpMode {
 
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
-                encoderDriveIN(4, 4, 0.5, 3);
 
-                encoderStrafe(-50, 1);
+                encoderStrafeOffset(-50, 1, 0, 0.6);
                 doEncoderTurn(0.5, 45);
 
-                encoderDriveIN(-50, -50, 0.5, 5);
+                encoderDriveIN(-26, -26, 0.5, 5);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
@@ -64,12 +61,11 @@ public class Depot extends ExtendedLinearOpMode {
 
                 encoderDriveIN(-12, -12, 1, 3);
                 centerSample();
-                encoderDriveIN(4, 4, 0.5, 3);
 
-                encoderStrafe(-70, 1);
+                encoderStrafeOffset(-70, 1, 0, 0.6);
                 doEncoderTurn(0.5, 45);
 
-                encoderDriveIN(-50, -50, 0.5, 5);
+                encoderDriveIN(-26, -26, 0.5, 5);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
@@ -79,19 +75,17 @@ public class Depot extends ExtendedLinearOpMode {
 
                 encoderDriveIN(-12, -12, 1, 3);
                 rightSample();
-                encoderDriveIN(4, 4, 0.5, 3);
 
-                encoderStrafe(-90, 1);
+                encoderStrafeOffset(-90, 1, 0, 0.6);
                 doEncoderTurn(0.5, 45);
 
-                encoderDriveIN(-50, -50, 0.5, 5);
+                encoderDriveIN(-26, -26, 0.5, 5);
                 tiltMarker(1, -0.5);
                 tiltMarker(1, 0.5);
 
                 break;
 
         }
-
 
         robot.disableVision();
 
