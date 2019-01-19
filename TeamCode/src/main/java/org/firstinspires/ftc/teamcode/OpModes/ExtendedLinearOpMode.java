@@ -60,10 +60,6 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         robot.rightBack.setTargetPosition(rightTarget);
     }
 
-    public void setHardwareMap(HardwareMap ahwmap) {
-        robot.setHardwareMap(ahwmap);
-    }
-
     protected void resetEncoderAngle() {
         robot.encoderTurnAngle = 0;
     }

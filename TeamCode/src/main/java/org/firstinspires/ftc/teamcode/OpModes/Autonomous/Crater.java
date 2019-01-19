@@ -12,14 +12,13 @@ public class Crater extends ExtendedLinearOpMode {
     public void runOpMode() {
 
         // initiate
-        setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
         robot.initColorSensors();
         robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
         robot.initVision(CameraCropAngle.LEFT);
         robot.initServo();
-         robot.enableVision();
+        robot.enableVision();
         robot.initTiltingMechanism();
 
 
