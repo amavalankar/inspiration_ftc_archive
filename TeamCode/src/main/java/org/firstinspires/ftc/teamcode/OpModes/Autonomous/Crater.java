@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
  *
- * Overture 2018:
+ * CRATER SIDE:
  * A wise man named Colin once said, "Scratch once, scratch forever..."
  *
  * This autonomous program not only attempts to scratch the side walls,
@@ -29,14 +29,18 @@ public class Crater extends ExtendedLinearOpMode {
 
         /* --Initialization-- */
 
+        // Mechanisms
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
-        robot.initColorSensors();
-        robot.liftSlides = hardwareMap.dcMotor.get(constants.LIFT_SLIDES_NAME);
-        robot.initVision(CameraCropAngle.LEFT);
         robot.initServo();
-        robot.enableVision();
+        robot.initHanger();
         robot.initTiltingMechanism();
+
+        // Sensors
+        robot.initColorSensors();
+        robot.initVision(CameraCropAngle.LEFT);
+        robot.enableVision();
+
         // Telemetry confirms successful initialization.
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
@@ -102,7 +106,7 @@ public class Crater extends ExtendedLinearOpMode {
         }
 
 
-        // --Drop Marker-- \\
+        // --Drop Marker + Crater-- \\
 
         // Turn towards depot and strafe towards the wall
         doEncoderTurn(1, 135);
