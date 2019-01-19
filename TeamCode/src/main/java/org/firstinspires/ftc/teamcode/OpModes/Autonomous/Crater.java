@@ -5,13 +5,30 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
+/**
+ *
+ * Overture 2018:
+ * A wise man named Colin once said, "Scratch once, scratch forever..."
+ *
+ * This autonomous program not only attempts to scratch the side walls,
+ * but also aims to gain as many points as possible by
+ * DEHANGING, SAMPLING, DROPPING OFF THE TEAM MARKER, AND PARTIALLY PARKING.
+ *
+ * This file inherits ExtendedLinearOpMode, from which it obtains all the movement functions.
+ * ExtendedLinearOpMode is a child class of LinearOpMode. ExtendedLinearOpMode creates objects
+ * of classes such as Robot and Constants.
+ *
+ */
+
+
 @Autonomous(name = "Crater")
 public class Crater extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
 
-        // initiate
+        /* --Initialization-- */
+
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
         robot.initColorSensors();
@@ -20,22 +37,29 @@ public class Crater extends ExtendedLinearOpMode {
         robot.initServo();
         robot.enableVision();
         robot.initTiltingMechanism();
-
+        // Telemetry confirms successful initialization.
+        telemetry.addLine("Initialization done ... Ready to start!");
+        telemetry.update();
 
         waitForStart();
+
+
+        // --Dehang + Unhook-- \\
+
         resetEncoderAngle();
-
-        // Dehang
         moveActuator(5, 4);
-
-        // Unhook
         encoderStrafeOffset(-20, 1, 0, 0.6);
         doEncoderTurn(0.25, 10);
 
-        SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
 
+        // --Vision-- \\
+
+        SamplingOrderDetector.GoldLocation goldLocation = robot.getSamplingOrder();
         telemetry.addData("Current position is", robot.getSamplingOrder());
         telemetry.update();
+
+
+        // --Sample + Drive to Wall-- \\
 
         switch (goldLocation) {
 
@@ -45,22 +69,9 @@ public class Crater extends ExtendedLinearOpMode {
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
 
-                // Drive into wall and turn
+                // Turn from sampling position and drive into wall
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(20, 20, 1, 5);
-                doEncoderTurn(1, 135);
-
-                // Strafe closer to wall
-                encoderStrafeOffset(40, 1, 0, 0.6);
-
-                // Drive towards depot and drop marker
-                encoderDriveIN(-25, -25, 1, 10);
-                tiltMarker(1, -0.5);
-                tiltMarker(1, 0.5);
-
-                // Drive into crater: drivetrain commits seppuku
-                encoderTurn(1, -10);
-                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
@@ -73,19 +84,6 @@ public class Crater extends ExtendedLinearOpMode {
                 // Drive into wall and turn
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(40, 40, 1, 5);
-                doEncoderTurn(1, 135);
-
-                // Strafe closer to wall
-                encoderStrafeOffset(40, 1, 0, 0.6);
-
-                // Drive towards depot and drop marker
-                encoderDriveIN(-25, -25, 1, 10);
-                tiltMarker(1, -0.5);
-                tiltMarker(1, 0.5);
-
-                // Drive into crater: drivetrain commits seppuku
-                encoderTurn(1, -10);
-                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
@@ -98,30 +96,30 @@ public class Crater extends ExtendedLinearOpMode {
                 // Drive into wall and turn
                 doEncoderTurn(0.5, 90);
                 encoderDriveIN(60, 60, 1, 5);
-                doEncoderTurn(1, 135);
-
-                // Strafe closer to wall
-                encoderStrafeOffset(40, 1, 0, 0.6);
-
-                // Drive towards depot and drop marker
-                encoderDriveIN(-25, -25, 1, 10);
-                tiltMarker(1, -0.5);
-                tiltMarker(1, 0.5);
-
-                // Correct angle and drive into crater: drivetrain commits seppuku
-                encoderTurn(1, -10);
-                encoderDriveIN(70, 70, 0.5, 10);
 
                 break;
 
         }
 
 
+        // --Drop Marker-- \\
+
+        // Turn towards depot and strafe towards the wall
+        doEncoderTurn(1, 135);
+        encoderStrafeOffset(40, 1, 0, 0.6);
+
+        // Drive towards depot and drop marker while rolling against the wall
+        encoderDriveIN(-25, -25, 1, 10);
+        tiltMarker(1, -0.5);
+        tiltMarker(1, 0.5);
+
+        // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
+        encoderTurn(1, -10);
+        encoderDriveIN(70, 70, 0.5, 10);
+
         robot.disableVision();
 
-        /**
-         * END OF AUTONOMOUS COMMON AHHHH
-         */
+
     }
 
 }
