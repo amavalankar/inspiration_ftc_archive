@@ -12,7 +12,6 @@ public class Depot extends ExtendedLinearOpMode {
     public void runOpMode() {
 
         // initiate
-        setHardwareMap(hardwareMap);
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
         robot.initColorSensors();
