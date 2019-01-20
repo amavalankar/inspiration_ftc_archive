@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
 
+import android.os.Build;
+
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
@@ -45,8 +47,19 @@ public class Crater extends ExtendedLinearOpMode {
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 
-        waitForStart();
+        //waitForStart();
 
+        if (robot.PHONE_MANUFACTURER.equals("Motorola")) {
+
+            while (!opModeIsActive() && !isStopRequested()) {
+                telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
+                telemetry.update();
+            }
+
+        }
+        else {
+            waitForStart();
+        }
 
         // --Dehang + Unhook-- \\
 

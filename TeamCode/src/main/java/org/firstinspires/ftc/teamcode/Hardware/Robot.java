@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
+import android.os.Build;
+
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
@@ -74,6 +76,8 @@ public class Robot {
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
     Telemetry telemetry;
 
+    public String PHONE_MANUFACTURER;
+
 
     /**
      * This is an essential part to the code. You MUST, MUST, MUST! call this line in the running OpMode, or else it will not work
@@ -81,6 +85,8 @@ public class Robot {
      */
     public void setHardwareMap(HardwareMap hwMap) {
         ahwmap = hwMap;
+
+        PHONE_MANUFACTURER = getManufacturer();
     }
 
     /**
@@ -357,6 +363,16 @@ public class Robot {
         }
 
         return finalOrder;
+    }
+
+    /**
+     *
+     */
+    public String getManufacturer() {
+
+        String manufacturer = Build.MANUFACTURER;
+
+        return manufacturer;
     }
 
     /**
