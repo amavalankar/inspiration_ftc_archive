@@ -4,9 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedOpMode;
 
-@TeleOp(name = "League Meet Two TeleOp", group = "Final")
-public class LeagueMeetTwoTeleOp extends ExtendedOpMode {
-//Created by Shruti on 12/26/2018 in order to test whether the dumper servo and locking servos will work
+@TeleOp(name = "League Meet Three TeleOp", group = "Final")
+public class LeagueMeetThreeTeleOp extends ExtendedOpMode {
 
     @Override
     public void init() {

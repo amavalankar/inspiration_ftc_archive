@@ -45,7 +45,25 @@ public class Depot extends ExtendedLinearOpMode {
         telemetry.addLine("Initialization done ... Ready to start!");
         telemetry.update();
 
-        waitForStart();
+        if (robot.PHONE_MANUFACTURER.equals("motorola")) {
+
+            // Due to an error, seemingly unique to motorola phones, we need to constantly send updates between the phone, so we
+            // loop a telemetry message being sent to the RC
+            while (!opModeIsActive() && !isStopRequested() && !robot.startPressed) {
+                telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
+                telemetry.update();
+
+                if(isStopRequested()) {
+                    robot.startPressed = true;
+                }
+            }
+
+        }
+
+        // This is meant for other phones, but if the error persists on other phones , the while loop used above may be universal
+        else {
+            waitForStart();
+        }
 
 
         // --Dehang + Unhook-- \\
@@ -92,6 +110,17 @@ public class Depot extends ExtendedLinearOpMode {
 
                 break;
 
+            case UNKNOWN:
+
+                // Push the mineral off
+                encoderDriveIN(-12, -12, 1, 3);
+                rightSample();
+
+                // Drive into wall and turn
+                doEncoderTurn(0.5, 90);
+                encoderDriveIN(60, 60, 1, 5);
+
+                break;
         }
 
         doEncoderTurn(0.5, 45);

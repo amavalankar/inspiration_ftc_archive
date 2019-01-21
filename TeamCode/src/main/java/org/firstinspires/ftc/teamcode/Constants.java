@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import org.firstinspires.ftc.teamcode.Hardware.RobotVersion;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
@@ -42,9 +43,11 @@ public class Constants {
     public final String DEPOSITER_DUMP_NAME = "depositerDump";
     public final String INTAKE_LIFTER_NAME = "intakeLifter";
     public final String MARKER_DEPOSITER_NAME = "markerDepositer";
-    public final String RIGHT_LOCK_SERVO_NAME = "rightLockServo";
+    public final String RIGHT_LOCK_SERVO_NAME = "rig" +
+            "htLockServo";
     public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
     public final String DUMPER_SERVO_NAME = "dumperServo";
+    public final String INTAKE_SERVO_NAME = "intakeServo";
 
     //Vuforia license key, DO NOT TOUCH!
     public final String VUFORIA_KEY = "AffveYv/////AAAAGQ5VbB9zQUgjlHWrneVac2MnNgfMDlq6EwI3tyURgRK6C" +
@@ -102,5 +105,7 @@ public class Constants {
     public final double LEFT_LOCK_SERVO_OPEN_POS = 0;
     public final double RIGHT_LOCK_SERVO_CLOSED_POS = 0;
     public final double RIGHT_LOCK_SERVO_OPEN_POS = 0;
+
+    public final RobotVersion ROBOT_VERSION = RobotVersion.BLUE_BOI_NEW_INTAKE;
 
 }

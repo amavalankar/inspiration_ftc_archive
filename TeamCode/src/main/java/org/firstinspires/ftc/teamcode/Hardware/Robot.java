@@ -61,6 +61,7 @@ public class Robot {
     public Servo rightLockServo;
     public Servo dumperServo;
     public DistanceSensor groundDistance;
+    public CRServo intakeServo;
 
     public DcMotor mineralShooter;
     public DcMotor craterSlides;
@@ -77,6 +78,7 @@ public class Robot {
     Telemetry telemetry;
 
     public String PHONE_MANUFACTURER;
+    public boolean startPressed = false;
 
 
     /**
@@ -127,7 +129,7 @@ public class Robot {
 
     public void initServo(){
         dumperServo = ahwmap.servo.get(constants.DUMPER_SERVO_NAME);
-        dumperServo.setPosition(0);
+        dumperServo.setPosition(0.4);
     }
 
     /**
@@ -145,7 +147,17 @@ public class Robot {
 
         extension = ahwmap.dcMotor.get(constants.EXTENSION_NAME);
         tiltMotor = ahwmap.dcMotor.get(constants.TILT_MOTOR_NAME);
-        collector = ahwmap.dcMotor.get(constants.COLLECTOR_NAME);
+
+        switch (constants.ROBOT_VERSION) {
+
+            case BLUE_BOI:
+                collector = ahwmap.dcMotor.get(constants.COLLECTOR_NAME);
+                break;
+
+            case BLUE_BOI_NEW_INTAKE:
+                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+                break;
+        }
 
     }
 
@@ -382,6 +394,9 @@ public class Robot {
     public final void sleep(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
+            telemetry.addLine("In Sleep");
+            telemetry.update();
+
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

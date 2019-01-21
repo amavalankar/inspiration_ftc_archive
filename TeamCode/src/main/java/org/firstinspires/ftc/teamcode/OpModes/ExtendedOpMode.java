@@ -22,7 +22,7 @@ public abstract class ExtendedOpMode extends OpMode {
      */
     public Robot robot = new Robot();
 
-    public Constants constants;
+    public Constants constants = new Constants();
 
     /**
      *
@@ -65,17 +65,38 @@ public abstract class ExtendedOpMode extends OpMode {
      * @param left_bumper
      */
     public void collect(boolean right_bumper, boolean left_bumper) {
-        if (right_bumper) {
-            robot.collector.setPower(1);
-        }
-        
-        else if (left_bumper) {
-            robot.collector.setPower(-1);
-        } else {
 
-            robot.collector.setPower(0);
+        switch (constants.ROBOT_VERSION) {
 
+            case BLUE_BOI:
+                if (right_bumper) {
+                    robot.collector.setPower(1);
+                }
+
+                else if (left_bumper) {
+                    robot.collector.setPower(-1);
+                } else {
+
+                    robot.collector.setPower(0);
+
+                }
+                break;
+
+            case BLUE_BOI_NEW_INTAKE:
+                if (right_bumper) {
+                    robot.intakeServo.setPower(1);
+                }
+
+                else if (left_bumper) {
+                    robot.intakeServo.setPower(-1);
+                } else {
+
+                    robot.intakeServo.setPower(0);
+
+                }
+                break;
         }
+
     }
 
     public void setPower(double left_power, double right_power) {
@@ -167,10 +188,10 @@ public abstract class ExtendedOpMode extends OpMode {
     public void dumperServo(boolean d2_x, boolean d2_y){
 
         if(d2_x){
-            robot.dumperServo.setPosition(0.5);
+            robot.dumperServo.setPosition(0.4);
         }
         if (d2_y){
-            robot.dumperServo.setPosition(0);
+            robot.dumperServo.setPosition(0.9);
         }
         //Open and closing dumper
     }
@@ -184,6 +205,9 @@ public abstract class ExtendedOpMode extends OpMode {
     public final void sleep(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
+            telemetry.addLine("In Sleep");
+            telemetry.update();
+
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
