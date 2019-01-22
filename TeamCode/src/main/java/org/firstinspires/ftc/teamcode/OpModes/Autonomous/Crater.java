@@ -44,25 +44,34 @@ public class Crater extends ExtendedLinearOpMode {
         robot.enableVision();
 
 
-        if (robot.PHONE_MANUFACTURER.equals("motorola")) {
+        while (!opModeIsActive() && !isStopRequested() && !robot.startPressed) {
+            telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
+            telemetry.update();
 
-            // Due to an error, seemingly unique to motorola phones, we need to constantly send updates between the phone, so we
-            // loop a telemetry message being sent to the RC
-            while (!opModeIsActive() && !isStopRequested() && !robot.startPressed) {
-                telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
-                telemetry.update();
-
-                if(isStopRequested()) {
-                    robot.startPressed = true;
-                }
+            if(isStopRequested()) {
+                robot.startPressed = true;
             }
-
         }
 
-        // This is meant for other phones, but if the error persists on other phones , the while loop used above may be universal
-        else {
-            waitForStart();
-        }
+//        if (robot.PHONE_MANUFACTURER.equals("motorola")) {
+//
+//            // Due to an error, seemingly unique to motorola phones, we need to constantly send updates between the phone, so we
+//            // loop a telemetry message being sent to the RC
+//            while (!opModeIsActive() && !isStopRequested() && !robot.startPressed) {
+//                telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
+//                telemetry.update();
+//
+//                if(isStopRequested()) {
+//                    robot.startPressed = true;
+//                }
+//            }
+//
+//        }
+//
+//        // This is meant for other phones, but if the error persists on other phones , the while loop used above may be universal
+//        else {
+//            waitForStart();
+//        }
 
         // --Dehang + Unhook-- \\
 
