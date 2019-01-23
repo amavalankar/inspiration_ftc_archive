@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
+import android.content.res.Configuration;
 import android.os.Build;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
@@ -400,6 +401,26 @@ public class Robot {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    /**
+     * A boolean that returns whether or not the app is currently landscape
+     * @return landscape
+     */
+    public boolean isLandscape() {
+        boolean landscape;
+
+        int orientation = ahwmap.appContext.getResources().getConfiguration().orientation;
+
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+            landscape = false;
+        } else {
+            
+            landscape = true;
+        }
+
+        return landscape;
     }
 
     public void composeTelemetry() {

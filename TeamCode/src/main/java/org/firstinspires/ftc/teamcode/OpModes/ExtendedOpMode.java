@@ -66,35 +66,47 @@ public abstract class ExtendedOpMode extends OpMode {
      */
     public void collect(boolean right_bumper, boolean left_bumper) {
 
-        switch (constants.ROBOT_VERSION) {
+//        switch (constants.ROBOT_VERSION) {
+//
+//            case BLUE_BOI:
+//                if (right_bumper) {
+//                    robot.collector.setPower(1);
+//                }
+//
+//                else if (left_bumper) {
+//                    robot.collector.setPower(-1);
+//                } else {
+//
+//                    robot.collector.setPower(0);
+//
+//                }
+//                break;
+//
+//            case BLUE_BOI_NEW_INTAKE:
+//                if (right_bumper) {
+//                    robot.intakeServo.setPower(1);
+//                }
+//
+//                else if (left_bumper) {
+//                    robot.intakeServo.setPower(-1);
+//                } else {
+//
+//                    robot.intakeServo.setPower(0);
+//
+//                }
+//                break;
+//        }
 
-            case BLUE_BOI:
-                if (right_bumper) {
-                    robot.collector.setPower(1);
-                }
+        if (right_bumper) {
+            robot.intakeServo.setPower(1);
+        }
 
-                else if (left_bumper) {
-                    robot.collector.setPower(-1);
-                } else {
+        else if (left_bumper) {
+            robot.intakeServo.setPower(-1);
+        } else {
 
-                    robot.collector.setPower(0);
+            robot.intakeServo.setPower(0);
 
-                }
-                break;
-
-            case BLUE_BOI_NEW_INTAKE:
-                if (right_bumper) {
-                    robot.intakeServo.setPower(1);
-                }
-
-                else if (left_bumper) {
-                    robot.intakeServo.setPower(-1);
-                } else {
-
-                    robot.intakeServo.setPower(0);
-
-                }
-                break;
         }
 
     }

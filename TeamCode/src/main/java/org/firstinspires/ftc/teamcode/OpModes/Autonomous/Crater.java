@@ -45,7 +45,7 @@ public class Crater extends ExtendedLinearOpMode {
 
 
         while (!opModeIsActive() && !isStopRequested() && !robot.startPressed) {
-            telemetry.addLine("(Motorola) Initialization done ... Ready to start!");
+            telemetry.addLine("(Fix) Initialization done ... Ready to start!");
             telemetry.update();
 
             if(isStopRequested()) {
@@ -99,8 +99,8 @@ public class Crater extends ExtendedLinearOpMode {
                 leftSample();
 
                 // Turn from sampling position and drive into wall
-                doEncoderTurn(0.5, 90);
-                encoderDriveIN(20, 20, 1, 5);
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-20, -20, 1, 5);
 
                 break;
 
@@ -111,8 +111,8 @@ public class Crater extends ExtendedLinearOpMode {
                 centerSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, 90);
-                encoderDriveIN(40, 40, 1, 5);
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-40, -40, 1, 5);
 
                 break;
 
@@ -123,8 +123,8 @@ public class Crater extends ExtendedLinearOpMode {
                 rightSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, 90);
-                encoderDriveIN(60, 60, 1, 5);
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-60, -60, 1, 5);
 
                 break;
 
@@ -135,8 +135,8 @@ public class Crater extends ExtendedLinearOpMode {
                 rightSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, 90);
-                encoderDriveIN(60, 60, 1, 5);
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-60, -60, 1, 5);
 
                 break;
         }
@@ -145,17 +145,18 @@ public class Crater extends ExtendedLinearOpMode {
         // --Drop Marker + Crater-- \\
 
         // Turn towards depot and strafe towards the wall
-        doEncoderTurn(1, 135);
+        doEncoderTurn(1, -45);
         encoderStrafeOffset(40, 1, 0, 0.6);
 
         // Drive towards depot and drop marker while rolling against the wall
         encoderDriveIN(-25, -25, 1, 10);
-        tiltMarker(1, -0.5);
-        tiltMarker(1, 0.5);
+        tiltMarker(1.2, -0.8);
+        sleep(450);
+        tiltMarker(2, 0.8);
 
         // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
-        encoderTurn(1, -10);
-        encoderDriveIN(70, 70, 0.5, 10);
+        doEncoderTurn(0.7, -5);
+        encoderDriveIN(70, 70, 0.7, 5);
 
         robot.disableVision();
 
