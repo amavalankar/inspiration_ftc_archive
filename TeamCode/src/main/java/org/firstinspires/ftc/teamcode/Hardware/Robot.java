@@ -416,7 +416,7 @@ public class Robot {
 
             landscape = false;
         } else {
-            
+
             landscape = true;
         }
 
