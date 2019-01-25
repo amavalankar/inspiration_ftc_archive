@@ -378,6 +378,20 @@ public class Robot {
         return finalOrder;
     }
 
+    public String returnPhoneOrientation() {
+
+        String status = null;
+
+        if (isLandscape()) {
+            status = "RC is Landscape";
+        }
+        else {
+            status = "WARNING: RC is Portrait";
+        }
+
+        return status;
+    }
+
     /**
      *
      */
