@@ -39,7 +39,6 @@ public class Crater extends ExtendedLinearOpMode {
         robot.initTiltingMechanism();
 
         // Sensors
-        robot.initColorSensors();
         robot.initVision(CameraCropAngle.LEFT);
         robot.enableVision();
 
