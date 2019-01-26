@@ -1,4 +1,6 @@
-package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomous.Debug;
+
+import android.os.Build;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -7,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
  *
- * DEPOT SIDE:
+ * CRATER SIDE:
  * A wise man named Colin once said, "Scratch once, scratch forever..."
  *
  * This autonomous program not only attempts to scratch the side walls,
@@ -21,8 +23,8 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  */
 
 
-@Autonomous(name = "Depot")
-public class Depot extends ExtendedLinearOpMode {
+@Autonomous(name = "LeagueMeetOneAuto")
+public class LeagueMeetOneAuto extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -32,12 +34,9 @@ public class Depot extends ExtendedLinearOpMode {
         // Mechanisms
         robot.setHardwareMap(hardwareMap);
         robot.initDrivetrain();
-        robot.initServo();
         robot.initHanger();
-        robot.initTiltingMechanism();
 
         // Sensors
-        robot.initColorSensors();
         robot.initVision(CameraCropAngle.LEFT);
         robot.enableVision();
 
@@ -55,12 +54,11 @@ public class Depot extends ExtendedLinearOpMode {
         }
 
 
-
         // --Dehang + Unhook-- \\
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 1, 0, 0.6);
+        encoderStrafeOffset(-20, 0.9, 0, 0.6);
         doEncoderTurn(0.25, 10);
 
 
@@ -77,26 +75,37 @@ public class Depot extends ExtendedLinearOpMode {
 
             case LEFT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6);
+
+                // Turn from sampling position and drive into wall
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-20, -20, 1, 5);
 
                 break;
 
             case CENTER:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 centerSample();
-                encoderStrafeOffset(-70, 1, 0, 0.6);
 
+                // Drive into wall and turn
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-40, -40, 1, 5);
 
                 break;
 
             case RIGHT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 rightSample();
-                encoderStrafeOffset(-90, 1, 0, 0.6);
+
+                // Drive into wall and turn
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-60, -60, 1, 5);
 
                 break;
 
@@ -107,18 +116,32 @@ public class Depot extends ExtendedLinearOpMode {
                 rightSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, 90);
-                encoderDriveIN(60, 60, 1, 5);
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-60, -60, 1, 5);
 
                 break;
         }
 
-        doEncoderTurn(0.5, 45);
-        encoderDriveIN(-26, -26, 0.5, 5);
-        tiltMarker(1, -0.5);
-        tiltMarker(1, 0.5);
 
+        // --Drop Marker + Crater-- \\
+
+        // Turn towards depot and strafe towards the wall
+        doEncoderTurn(1, -45);
+        encoderStrafeOffset(40, 1, 0, 0.6);
+
+        // Drive towards depot and drop marker while rolling against the wall
+        encoderDriveIN(-25, -25, 0.7, 10);
+        //tiltMarker(1.2, -0.8);
+        sleep(450);
+        //tiltMarker(2, 0.8);
+
+        // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
+        doEncoderTurn(0.7, -5);
+        encoderDriveIN(70, 70, 0.7, 5);
+
+        encoderDriveIN(100, 100, 0.3, 12);
         robot.disableVision();
+
 
     }
 
