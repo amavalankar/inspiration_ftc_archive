@@ -69,6 +69,8 @@ public class Depot extends ExtendedLinearOpMode {
         telemetry.addData("Current position is", robot.getSamplingOrder());
         telemetry.update();
 
+        sleep(100);
+        robot.disableVision();
 
         // --Sample + Drive to Wall-- \\
 
@@ -117,7 +119,6 @@ public class Depot extends ExtendedLinearOpMode {
         tiltMarker(1, -0.5);
         tiltMarker(1, 0.5);
 
-        robot.disableVision();
 
     }
 
