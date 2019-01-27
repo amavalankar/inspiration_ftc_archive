@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
@@ -20,7 +22,7 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  *
  */
 
-
+@Disabled
 @Autonomous(name = "Depot")
 public class Depot extends ExtendedLinearOpMode {
 
