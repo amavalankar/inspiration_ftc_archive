@@ -68,6 +68,9 @@ public class LeagueMeetOneAuto extends ExtendedLinearOpMode {
         telemetry.addData("Current position is", robot.getSamplingOrder());
         telemetry.update();
 
+        robot.disableVision();
+
+
 
         // --Sample + Drive to Wall-- \\
 
@@ -140,7 +143,6 @@ public class LeagueMeetOneAuto extends ExtendedLinearOpMode {
         encoderDriveIN(70, 70, 0.7, 5);
 
         encoderDriveIN(100, 100, 0.3, 12);
-        robot.disableVision();
 
 
     }

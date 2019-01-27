@@ -122,6 +122,12 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             encoderDriveIN(leftDistance, rightDistance, speed, 5.5);
         }
 
+        else {
+
+            encoderDriveIN(0, 0, speed, 5.5);
+
+        }
+
     }
 
     public void encoderTurn(double speed, int angle) {
@@ -176,7 +182,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             // setPowerStrafe(Math.abs(speed), Math.abs(speed));
             setPower(Math.abs(speed));
 
-            while (this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            while (opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
 
                 telemetry.addLine("Robot in Encoder Drive");
                 telemetry.addData("Target Distance Left (in)", units);
@@ -216,7 +222,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             // setPowerStrafe(Math.abs(speed), Math.abs(speed));
             setPowerStrafe(Math.abs(speed-offset1), Math.abs(speed-offset2));
 
-            while (this.opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            while (opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
 
                 telemetry.addLine("Robot in Encoder Drive");
                 telemetry.addData("Target Distance Left (in)", units);
@@ -259,7 +265,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while (this.opModeIsActive() && robot.leftFront.isBusy() && (runtime.seconds() < timeoutS) && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while (opModeIsActive() && robot.leftFront.isBusy() && (runtime.seconds() < timeoutS) && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (cm)", left_cm);
             telemetry.addData("Target Distance Right (cm)", right_cm);
@@ -275,7 +281,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public void tiltMarker(double seconds, double power) {
 
         runtime.reset();
-        while (this.opModeIsActive() && (runtime.seconds() < seconds)) {
+        while (opModeIsActive() && (runtime.seconds() < seconds)) {
 
             robot.tiltMotor.setPower(power);
 
@@ -298,7 +304,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         setPower(Math.abs(speed));
         runtime.reset();
 
-        while (this.opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+        while (opModeIsActive() && (runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
             telemetry.addLine("Robot in Encoder Drive");
             telemetry.addData("Target Distance Left (in)", left_in);
             telemetry.addData("Target Distance Right (in)", right_in);
@@ -328,7 +334,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
         motorToRun.setPower(Math.abs(speed));
         runtime.reset();
 
-        while(this.opModeIsActive() && (runtime.seconds() < timeoutS) && motorToRun.isBusy()) {
+        while(opModeIsActive() && (runtime.seconds() < timeoutS) && motorToRun.isBusy()) {
             telemetry.addLine("Motor in Encoder Drive");
             telemetry.addData("Target Distance (in)", in);
             telemetry.update();
@@ -596,7 +602,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public void deHang() {
         robot.liftSlides.setPower(1 * constants.LIFT_MOTOR_LOWER_CONSTANT);
 
-        while(!onGround()) {
+        while(!onGround() && opModeIsActive()) {
             idle();
         }
         sleep(250);
@@ -620,12 +626,12 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public void alignTape() {
 
         // Aligns with tape
-        while(!(robot.leftLine.blue() > robot.leftLine.red() + robot.leftLine.green())) {
+        while(!(robot.leftLine.blue() > robot.leftLine.red() + robot.leftLine.green()) && opModeIsActive()) {
             // robot.leftFront.setPower(0.2);
             telemetry.addLine("No");
             telemetry.update();
         }
-        while(!(robot.rightLine.blue() > robot.rightLine.red() + robot.rightLine.green())) {
+        while(!(robot.rightLine.blue() > robot.rightLine.red() + robot.rightLine.green()) && opModeIsActive()) {
             // robot.rightFront.setPower(0.2);
             telemetry.addLine("No2");
             telemetry.update();
@@ -677,7 +683,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             rightSpeed = 0.0;
             onTarget = true;
         }
-        else{
+        else {
 
             steer = getSteer(error, PCoeff);
             rightSpeed = speed * steer;
@@ -702,9 +708,9 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
         robotError = targetAngle - angles.firstAngle;
 
-        while(robotError > 180) robotError -= 360;
+        while(opModeIsActive() && robotError > 180) robotError -= 360;
 
-        while(robotError <= -180) robotError += 360;
+        while(opModeIsActive() && robotError <= -180) robotError += 360;
 
         telemetry.addData("Robot Error","%5.2f",robotError);
         telemetry.update();
@@ -770,7 +776,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             runtime.reset();
             setPower(Math.abs(speed));
 
-            while ((this.opModeIsActive() && runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            while ((opModeIsActive() && runtime.seconds() < timeoutS) && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
 
                 telemetry.addLine("Robot in Encoder Drive");
                 telemetry.addData("Target Distance Left (in)", left_in);

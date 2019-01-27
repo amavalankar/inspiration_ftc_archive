@@ -70,6 +70,9 @@ public class Crater extends ExtendedLinearOpMode {
         telemetry.addData("Current position is", robot.getSamplingOrder());
         telemetry.update();
 
+        sleep(100);
+        robot.disableVision();
+        //Disable vision earlier because it should
 
         // --Sample + Drive to Wall-- \\
 
@@ -141,7 +144,6 @@ public class Crater extends ExtendedLinearOpMode {
         doEncoderTurn(0.7, -5);
         encoderDriveIN(70, 70, 0.7, 5);
 
-        robot.disableVision();
 
 
     }
