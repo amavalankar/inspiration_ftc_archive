@@ -8,6 +8,10 @@ import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
+ * January 26, 2019
+ * FINAL PROGRAM FOR LEAGUE MEET THREE
+ * STATUS: WORKING CONSISTENTLY :)
+ *
  *
  * CRATER SIDE:
  * A wise man named Colin once said, "Scratch once, scratch forever..."
