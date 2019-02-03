@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Constant.Archive;
 
 import org.firstinspires.ftc.teamcode.Hardware.RobotVersion;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  * Created by adityamavalankar on 11/4/18.
  */
 
-public class Constants {
+public class ConstantsLeagueMeetThree {
 
     /**
      * The constants program is meant to make things consistent throughout our programs, without much fiddling with the code.
@@ -106,6 +106,6 @@ public class Constants {
     public final double RIGHT_LOCK_SERVO_CLOSED_POS = 0;
     public final double RIGHT_LOCK_SERVO_OPEN_POS = 0;
 
-    public final RobotVersion ROBOT_VERSION = RobotVersion.BLUE_BOI_NEW_INTAKE;
+    public final RobotVersion ROBOT_VERSION = RobotVersion.BLUE_BOI_NEW_DRIVE_MOTORS;
 
 }

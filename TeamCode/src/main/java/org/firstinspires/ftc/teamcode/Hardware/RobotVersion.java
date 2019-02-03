@@ -6,5 +6,6 @@ package org.firstinspires.ftc.teamcode.Hardware;
 
 public enum RobotVersion {
     BLUE_BOI,
-    BLUE_BOI_NEW_INTAKE;
+    BLUE_BOI_NEW_INTAKE,
+    BLUE_BOI_NEW_DRIVE_MOTORS;
 }

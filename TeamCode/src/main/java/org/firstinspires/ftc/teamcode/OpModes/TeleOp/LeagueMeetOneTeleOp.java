@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedOpMode;
 
-@Disabled
+//@Disabled
 @TeleOp(name = "League Meet One TeleOp", group = "Old")
 public class LeagueMeetOneTeleOp extends ExtendedOpMode {
 

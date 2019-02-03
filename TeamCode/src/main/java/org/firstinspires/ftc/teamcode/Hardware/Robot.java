@@ -17,7 +17,7 @@ import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.Constant.Constants;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -103,10 +103,34 @@ public class Robot {
         rightFront = ahwmap.dcMotor.get(constants.RIGHT_FRONT_NAME);
         rightBack = ahwmap.dcMotor.get(constants.RIGHT_BACK_NAME);
 
-        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        switch (constants.ROBOT_VERSION) {
+
+            case BLUE_BOI:
+
+                leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+                leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+                rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+                rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+                break;
+
+            case BLUE_BOI_NEW_INTAKE:
+
+                leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+                leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+                rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+                rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+                break;
+
+            case BLUE_BOI_NEW_DRIVE_MOTORS:
+
+                leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+                leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+                rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+                rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+                break;
+
+
+        }
 
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -156,6 +180,14 @@ public class Robot {
                 break;
 
             case BLUE_BOI_NEW_INTAKE:
+                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+                break;
+
+            case BLUE_BOI_NEW_DRIVE_MOTORS:
+                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+                break;
+
+            default:
                 intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
                 break;
         }

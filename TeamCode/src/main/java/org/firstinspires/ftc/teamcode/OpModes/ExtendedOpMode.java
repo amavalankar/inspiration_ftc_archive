@@ -2,8 +2,10 @@ package org.firstinspires.ftc.teamcode.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.Constant.Constants;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
+
+import java.util.IllegalFormatCodePointException;
 
 /**
  * Created by adityamavalankar on 11/19/18.
@@ -133,35 +135,57 @@ public abstract class ExtendedOpMode extends OpMode {
 
     public void strafe(boolean left, boolean right, boolean up, boolean down, double speed) {
         // Move robot in the direction corresponding to the DPad
-        if (left) {
+
+
+        while (gamepad1.dpad_left) {
 
             robot.leftFront.setPower(1);
             robot.leftBack.setPower(-1);
             robot.rightFront.setPower(-1);
             robot.rightBack.setPower(1);
 
-        } else if (right) {
+
+            if (!gamepad1.dpad_left) {
+                break;
+            }
+        }
+
+
+
+        while (gamepad1.dpad_right) {
 
             robot.leftFront.setPower(-1);
             robot.leftBack.setPower(1);
             robot.rightFront.setPower(1);
             robot.rightBack.setPower(-1);
 
-        } else if (down) {
+            if (!gamepad1.dpad_right) {
+                break;
+            }
+        }
+
+        while (gamepad1.dpad_down) {
 
             robot.leftFront.setPower(-speed);
             robot.leftBack.setPower(-speed);
             robot.rightFront.setPower(-speed);
             robot.rightBack.setPower(-speed);
 
+            if (!gamepad1.dpad_down) {
+                break;
+            }
+        }
 
-        } else if (up) {
+        while (gamepad1.dpad_up) {
 
             robot.leftFront.setPower(speed);
             robot.leftBack.setPower(speed);
             robot.rightFront.setPower(speed);
             robot.rightBack.setPower(speed);
 
+            if (!gamepad1.dpad_up) {
+                break;
+            }
         }
 
     }
@@ -217,8 +241,6 @@ public abstract class ExtendedOpMode extends OpMode {
     public final void sleep(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
-            telemetry.addLine("In Sleep");
-            telemetry.update();
 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
