@@ -27,8 +27,8 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  */
 
 
-@Autonomous(name = "Depot")
-public class Depot extends ExtendedLinearOpMode {
+@Autonomous(name = "Depot Classic")
+public class DepotClassic extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {

@@ -2,12 +2,15 @@ package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
+ * January 26, 2019
+ * FINAL PROGRAM FOR LEAGUE MEET THREE
+ * STATUS: WORKING CONSISTENTLY :)
+ *
  *
  * DEPOT SIDE:
  * A wise man named Colin once said, "Scratch once, scratch forever..."
@@ -22,9 +25,9 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  *
  */
 
-@Disabled
-@Autonomous(name = "Depot Basic")
-public class DepotBasic extends ExtendedLinearOpMode {
+
+@Autonomous(name = "Depot Efficient")
+public class DepotEfficient extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -56,12 +59,11 @@ public class DepotBasic extends ExtendedLinearOpMode {
         }
 
 
-
         // --Dehang + Unhook-- \\
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 1, 0, 0.6,4);
+        encoderStrafeOffset(-20, 1, 0, 0.6, 4);
         doEncoderTurn(0.25, 10);
 
 
@@ -73,6 +75,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
         sleep(100);
         robot.disableVision();
+        //Disable vision earlier because it should
 
         // --Sample + Drive to Wall-- \\
 
@@ -80,57 +83,90 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
             case LEFT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
-                leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6, 4);
+                leftSampleNoBack();
 
-                doEncoderTurn(0.5, 45);
-                encoderDriveIN(-31, -31, 0.5, 5);
+                doEncoderTurn(0.6, 35);
+
+                encoderDriveIN(-16, -16, 1, 5);
+
 
                 tiltMarker(1.2, -0.8);
                 sleep(450);
                 tiltMarker(2, 0.8);
 
-                encoderDriveIN(70,70,0.4,7);
+                doEncoderTurn(0.6, 15);
+
+                encoderStrafeOffset(25, 1, 0, 0.6, 2.4);
 
                 break;
 
             case CENTER:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
-                centerSample();
-                doEncoderTurn(0.7, -15);
-                encoderStrafeOffset(-30, 1, 0, 0.6,4);
+                centerSampleNoBack();
 
-                break;
+                encoderDriveIN(-16, -16, 1, 5);
 
-            case RIGHT:
-
-                encoderDriveIN(-12, -12, 1, 3);
-                rightSample();
-                doEncoderTurn(0.7, -30);
-                encoderStrafeOffset(-30, 1, 0, 0.6,4);
-
-                break;
-
-            case UNKNOWN:
-
-                encoderDriveIN(-12, -12, 1, 3);
-                leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6,4);
-
-                doEncoderTurn(0.5, 45);
-                encoderDriveIN(-31, -31, 0.5, 5);
 
                 tiltMarker(1.2, -0.8);
                 sleep(450);
                 tiltMarker(2, 0.8);
 
-                encoderDriveIN(70,70,0.4,7);
+                doEncoderTurn(0.6, 48);
+
+                encoderStrafeOffset(-35, 1, 0, 0.6, 2.4);
+
+
+                break;
+
+            case RIGHT:
+
+                // Push the mineral off
+                encoderDriveIN(-13, -13, 1, 3);
+                rightSampleNoBack();
+
+                doEncoderTurn(0.6, -20);
+
+                encoderDriveIN(-16, -16, 1, 5);
+
+
+                tiltMarker(1.2, -0.8);
+                sleep(450);
+                tiltMarker(2, 0.8);
+
+                doEncoderTurn(0.6, 70);
+
+                encoderStrafeOffset(-45, 1, 0, 0.6, 3.5);
+
+                break;
+
+            case UNKNOWN:
+
+                // Push the mineral off
+                encoderDriveIN(-12, -12, 1, 3);
+                centerSampleNoBack();
+
+                encoderDriveIN(-16, -16, 1, 5);
+
+
+                tiltMarker(1.2, -0.8);
+                sleep(450);
+                tiltMarker(2, 0.8);
+
+                doEncoderTurn(0.6, 48);
+
+                encoderStrafeOffset(-25, 1, 0, 0.6, 2.4);
+
 
                 break;
         }
 
+        // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
+        doEncoderTurn(0.7, 5);
+        encoderDriveIN(74, 74, 0.7, 5);
 
 
 

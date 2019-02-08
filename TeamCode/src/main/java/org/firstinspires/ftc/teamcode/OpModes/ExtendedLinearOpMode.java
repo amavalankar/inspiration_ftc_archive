@@ -741,6 +741,13 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
+    public void leftSampleNoBack() {
+
+        encoderStrafeOffset(-10, 1, 0, 0.6, 2);
+        encoderDriveIN(-18, -18, 0.25, 5);
+
+    }
+
     public void centerSample() {
 
         encoderStrafeOffset(16.5, 1, 0, 0.6, 3);
@@ -749,11 +756,25 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
+    public void centerSampleNoBack() {
+
+        encoderStrafeOffset(16.5, 1, 0, 0.6, 3);
+        encoderDriveIN(-18, -18, 0.25, 5);
+
+    }
+
     public void rightSample() {
 
         encoderStrafeOffset(41.5, 1, 0, 0.6, 4);
         encoderDriveIN(-18, -18, 0.25, 5);
         encoderDriveIN(18, 18, 0.25, 5);
+
+    }
+
+    public void rightSampleNoBack() {
+
+        encoderStrafeOffset(41.5, 1, 0, 0.6, 4);
+        encoderDriveIN(-18, -18, 0.25, 5);
 
     }
 
