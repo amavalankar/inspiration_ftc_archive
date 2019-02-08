@@ -60,7 +60,7 @@ public class LeagueMeetOneAuto extends ExtendedLinearOpMode {
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 0.9, 0, 0.6);
+        encoderStrafeOffset(-20, 0.9, 0, 0.6,4);
         doEncoderTurn(0.25, 10);
 
 
@@ -132,7 +132,7 @@ public class LeagueMeetOneAuto extends ExtendedLinearOpMode {
 
         // Turn towards depot and strafe towards the wall
         doEncoderTurn(1, -45);
-        encoderStrafeOffset(40, 1, 0, 0.6);
+        encoderStrafeOffset(40, 1, 0, 0.6,4);
 
         // Drive towards depot and drop marker while rolling against the wall
         encoderDriveIN(-25, -25, 0.7, 10);

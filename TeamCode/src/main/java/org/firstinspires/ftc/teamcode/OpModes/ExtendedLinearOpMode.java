@@ -201,7 +201,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     }
 
-    public void encoderStrafeOffset(double units, double speed, double offset1, double offset2) {
+    public void encoderStrafeOffset(double units, double speed, double offset1, double offset2, double timeoutS) {
 
         int left_distanceEnc = (int) (constants.TICKS_PER_IN * -units);
         int right_distanceEnc = (int) (constants.TICKS_PER_IN * units);
@@ -221,7 +221,9 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
             // setPowerStrafe(Math.abs(speed), Math.abs(speed));
             setPowerStrafe(Math.abs(speed-offset1), Math.abs(speed-offset2));
 
-            while (opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy()) {
+            runtime.reset();
+
+            while (opModeIsActive() && robot.leftFront.isBusy() && robot.leftBack.isBusy() && robot.rightFront.isBusy() && robot.rightBack.isBusy() && (runtime.seconds() < timeoutS)) {
 
                 telemetry.addLine("Robot in Encoder Drive");
                 telemetry.addData("Target Distance Left (in)", units);
@@ -733,25 +735,25 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void leftSample() {
 
-        encoderStrafeOffset(-10, 1, 0, 0.6);
-        encoderDriveIN(-12, -12, 1, 5);
-        encoderDriveIN(11, 11, 1, 5);
+        encoderStrafeOffset(-10, 1, 0, 0.6, 2);
+        encoderDriveIN(-18, -18, 0.25, 5);
+        encoderDriveIN(18, 18, 0.25, 5);
 
     }
 
     public void centerSample() {
 
-        encoderStrafeOffset(20, 1, 0, 0.6);
-        encoderDriveIN(-12, -12, 0.25, 5);
-        encoderDriveIN(11, 12, 0.25, 5);
+        encoderStrafeOffset(16.5, 1, 0, 0.6, 3);
+        encoderDriveIN(-18, -18, 0.25, 5);
+        encoderDriveIN(18, 18, 0.25, 5);
 
     }
 
     public void rightSample() {
 
-        encoderStrafeOffset(50, 1, 0, 0.6);
-        encoderDriveIN(-12, -12, 0.25, 5);
-        encoderDriveIN(11, 11, 0.25, 5);
+        encoderStrafeOffset(41.5, 1, 0, 0.6, 4);
+        encoderDriveIN(-18, -18, 0.25, 5);
+        encoderDriveIN(18, 18, 0.25, 5);
 
     }
 

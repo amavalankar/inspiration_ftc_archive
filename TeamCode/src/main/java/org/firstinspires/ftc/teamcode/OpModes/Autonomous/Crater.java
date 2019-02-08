@@ -64,7 +64,7 @@ public class Crater extends ExtendedLinearOpMode {
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 1, 0, 0.6);
+        encoderStrafeOffset(-20, 1, 0, 0.6, 4);
         doEncoderTurn(0.25, 10);
 
 
@@ -109,7 +109,7 @@ public class Crater extends ExtendedLinearOpMode {
             case RIGHT:
 
                 // Push the mineral off
-                encoderDriveIN(-12, -12, 1, 3);
+                encoderDriveIN(-15, -15, 1, 3);
                 rightSample();
 
                 // Drive into wall and turn
@@ -121,7 +121,7 @@ public class Crater extends ExtendedLinearOpMode {
             case UNKNOWN:
 
                 // Push the mineral off
-                encoderDriveIN(-12, -12, 1, 3);
+                encoderDriveIN(-15, -15, 1, 3);
                 rightSample();
 
                 // Drive into wall and turn
@@ -136,7 +136,7 @@ public class Crater extends ExtendedLinearOpMode {
 
         // Turn towards depot and strafe towards the wall
         doEncoderTurn(1, -45);
-        encoderStrafeOffset(40, 1, 0, 0.6);
+        encoderStrafeOffset(40, 1, 0, 0.6, 5.5);
 
         // Drive towards depot and drop marker while rolling against the wall
         encoderDriveIN(-33, -33, 1, 10);

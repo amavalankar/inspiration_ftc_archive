@@ -60,7 +60,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 1, 0, 0.6);
+        encoderStrafeOffset(-20, 1, 0, 0.6,4);
         doEncoderTurn(0.25, 10);
 
 
@@ -81,7 +81,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6);
+                encoderStrafeOffset(-50, 1, 0, 0.6, 4);
 
                 doEncoderTurn(0.5, 45);
                 encoderDriveIN(-31, -31, 0.5, 5);
@@ -99,7 +99,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
                 encoderDriveIN(-12, -12, 1, 3);
                 centerSample();
                 doEncoderTurn(0.7, -15);
-                encoderStrafeOffset(-30, 1, 0, 0.6);
+                encoderStrafeOffset(-30, 1, 0, 0.6,4);
 
                 break;
 
@@ -108,7 +108,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
                 encoderDriveIN(-12, -12, 1, 3);
                 rightSample();
                 doEncoderTurn(0.7, -30);
-                encoderStrafeOffset(-30, 1, 0, 0.6);
+                encoderStrafeOffset(-30, 1, 0, 0.6,4);
 
                 break;
 
@@ -116,7 +116,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6);
+                encoderStrafeOffset(-50, 1, 0, 0.6,4);
 
                 doEncoderTurn(0.5, 45);
                 encoderDriveIN(-31, -31, 0.5, 5);
