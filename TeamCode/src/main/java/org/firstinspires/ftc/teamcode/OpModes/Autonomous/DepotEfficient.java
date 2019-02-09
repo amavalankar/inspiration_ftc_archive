@@ -164,8 +164,10 @@ public class DepotEfficient extends ExtendedLinearOpMode {
                 break;
         }
 
+        encoderStrafeOffset(5, 1, 0, 0.6, 1.5);
+
         // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
-        doEncoderTurn(0.7, 5);
+        doEncoderTurn(0.7, 3);
         encoderDriveIN(74, 74, 0.7, 5);
 
 
