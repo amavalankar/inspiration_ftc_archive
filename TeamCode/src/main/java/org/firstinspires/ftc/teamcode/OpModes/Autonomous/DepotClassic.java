@@ -4,6 +4,8 @@ import android.os.Build;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
@@ -26,7 +28,7 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  *
  */
 
-
+//@Disabled
 @Autonomous(name = "Depot Classic")
 public class DepotClassic extends ExtendedLinearOpMode {
 
@@ -65,7 +67,7 @@ public class DepotClassic extends ExtendedLinearOpMode {
         resetEncoderAngle();
         moveActuator(5, 4);
         encoderStrafeOffset(-20, 1, 0, 0.6, 4);
-        doEncoderTurn(0.25, 10);
+        doEncoderTurn(0.25, 5);
 
 
         // --Vision-- \\
@@ -89,7 +91,7 @@ public class DepotClassic extends ExtendedLinearOpMode {
                 leftSample();
 
                 // Turn from sampling position and drive into wall
-                doEncoderTurn(0.5, -93);
+                doEncoderTurn(0.5, -95);
                 encoderDriveIN(-20, -20, 1, 5);
 
                 break;
@@ -101,7 +103,7 @@ public class DepotClassic extends ExtendedLinearOpMode {
                 centerSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, -93);
+                doEncoderTurn(0.5, -95);
                 encoderDriveIN(-40, -40, 1, 5);
 
                 break;
@@ -113,7 +115,7 @@ public class DepotClassic extends ExtendedLinearOpMode {
                 rightSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, -93);
+                doEncoderTurn(0.5, -96);
                 encoderDriveIN(-50, -50, 1, 5);
 
                 break;
@@ -145,7 +147,10 @@ public class DepotClassic extends ExtendedLinearOpMode {
         tiltMarker(2, 0.8);
 
         // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
-        doEncoderTurn(0.7, 5);
+
+        encoderStrafeOffset(5, 1, 0, 0.6, 1.5);
+
+        doEncoderTurn(0.7, 3);
         encoderDriveIN(74, 74, 0.7, 5);
 
 

@@ -64,7 +64,7 @@ public class DepotEfficient extends ExtendedLinearOpMode {
         resetEncoderAngle();
         moveActuator(5, 4);
         encoderStrafeOffset(-20, 1, 0, 0.6, 4);
-        doEncoderTurn(0.25, 10);
+        doEncoderTurn(0.25, 6);
 
 
         // --Vision-- \\
@@ -87,18 +87,15 @@ public class DepotEfficient extends ExtendedLinearOpMode {
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSampleNoBack();
 
-                doEncoderTurn(0.6, 35);
+                doEncoderTurn(0.6, 15);
 
                 encoderDriveIN(-16, -16, 1, 5);
 
+                doEncoderTurn(0.6, 35);
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
+                encoderStrafeOffset(-40, 1, 0, 0.6, 2.9);
 
-                doEncoderTurn(0.6, 15);
-
-                encoderStrafeOffset(25, 1, 0, 0.6, 2.4);
+                encoderDriveIN(6, 6, 1, 5);
 
                 break;
 
@@ -111,13 +108,11 @@ public class DepotEfficient extends ExtendedLinearOpMode {
                 encoderDriveIN(-16, -16, 1, 5);
 
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
-
                 doEncoderTurn(0.6, 48);
 
-                encoderStrafeOffset(-35, 1, 0, 0.6, 2.4);
+                encoderStrafeOffset(-47, 1, 0, 0.6, 3);
+
+                encoderDriveIN(12, 12, 1, 5);
 
 
                 break;
@@ -128,18 +123,15 @@ public class DepotEfficient extends ExtendedLinearOpMode {
                 encoderDriveIN(-13, -13, 1, 3);
                 rightSampleNoBack();
 
-                doEncoderTurn(0.6, -20);
+                doEncoderTurn(0.6, -38);
 
-                encoderDriveIN(-16, -16, 1, 5);
+                encoderDriveIN(-21, -21, 1, 5);
 
+                doEncoderTurn(0.6, 90);
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
+                encoderStrafeOffset(-65, 1, 0, 0.6, 3);
 
-                doEncoderTurn(0.6, 70);
-
-                encoderStrafeOffset(-45, 1, 0, 0.6, 3.5);
+                encoderDriveIN(16, 16, 1, 5);
 
                 break;
 
@@ -147,28 +139,30 @@ public class DepotEfficient extends ExtendedLinearOpMode {
 
                 // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
-                centerSampleNoBack();
+                leftSampleNoBack();
+
+                doEncoderTurn(0.6, 15);
 
                 encoderDriveIN(-16, -16, 1, 5);
 
+                doEncoderTurn(0.6, 35);
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
+                encoderStrafeOffset(-40, 1, 0, 0.6, 2.9);
 
-                doEncoderTurn(0.6, 48);
-
-                encoderStrafeOffset(-25, 1, 0, 0.6, 2.4);
-
+                encoderDriveIN(6, 6, 1, 5);
 
                 break;
         }
 
         encoderStrafeOffset(5, 1, 0, 0.6, 1.5);
 
+        tiltMarker(1.2, -0.8);
+        sleep(450);
+        tiltMarker(2, 0.8);
+
         // Correct angle by turning slightly and drive into crater: drivetrain commits seppuku
         doEncoderTurn(0.7, 3);
-        encoderDriveIN(74, 74, 0.7, 5);
+        encoderDriveIN(87, 87, 0.7, 5);
 
 
 
