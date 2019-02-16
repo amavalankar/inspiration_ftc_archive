@@ -765,15 +765,15 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
 
     public void rightSample() {
 
-        encoderStrafeOffset(41.7, 1, 0, 0.6, 4);
+        encoderStrafeOffset(36, 1, 0, 0.6, 4);
         encoderDriveIN(-18, -18, 0.25, 5);
-        encoderDriveIN(20, 20, 0.25, 5);
+        encoderDriveIN(18, 18, 0.25, 5);
 
     }
 
     public void rightSampleNoBack() {
 
-        encoderStrafeOffset(42.2, 1, 0, 0.6, 4);
+        encoderStrafeOffset(39, 1, 0, 0.6, 4);
         encoderDriveIN(-22, -22, 0.25, 5);
 
     }

@@ -113,7 +113,7 @@ public class Crater extends ExtendedLinearOpMode {
                 rightSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, -90);
+                doEncoderTurn(0.5, -94);
                 encoderDriveIN(-60, -60, 1, 5);
 
                 break;
@@ -139,7 +139,7 @@ public class Crater extends ExtendedLinearOpMode {
         encoderStrafeOffset(40, 1, 0, 0.6, 5.5);
 
         // Drive towards depot and drop marker while rolling against the wall
-        encoderDriveIN(-33, -33, 1, 10);
+        encoderDriveIN(-41, -41, 1, 10);
         tiltMarker(1.2, -0.8);
         sleep(450);
         tiltMarker(2, 0.8);
