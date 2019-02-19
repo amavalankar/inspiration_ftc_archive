@@ -99,15 +99,15 @@ public abstract class ExtendedOpMode extends OpMode {
 //                break;
 //        }
 
-        if (right_bumper) {
-            robot.intakeServo.setPower(1);
+        if (left_bumper) {
+            robot.intakeMotor.setPower(1);
         }
 
-        else if (left_bumper) {
-            robot.intakeServo.setPower(-1);
+        else if (right_bumper) {
+            robot.intakeMotor.setPower(-1);
         } else {
 
-            robot.intakeServo.setPower(0);
+            robot.intakeMotor.setPower(0);
 
         }
 

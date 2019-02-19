@@ -1,19 +1,19 @@
-package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomous.Crater;
+
+import android.os.Build;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedLinearOpMode;
 import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
 
 /**
+ * January 26, 2019
+ * FINAL PROGRAM FOR LEAGUE MEET THREE
+ * STATUS: WORKING CONSISTENTLY :)
  *
- * DEPOT SIDE:
- * A wise man named Colin once said, "Scratch once, scratch forever..."
  *
- * This autonomous program not only attempts to scratch the side walls,
- * but also aims to gain as many points as possible by
+ * CRATER SIDE:
  * DEHANGING, SAMPLING, DROPPING OFF THE TEAM MARKER, AND PARTIALLY PARKING.
  *
  * This file inherits ExtendedLinearOpMode, from which it obtains all the movement functions.
@@ -22,9 +22,9 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  *
  */
 
-@Disabled
-@Autonomous(name = "Depot Basic")
-public class DepotBasic extends ExtendedLinearOpMode {
+
+@Autonomous(name = "Crater Double Sample")
+public class CraterDoubleSample extends ExtendedLinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -56,12 +56,11 @@ public class DepotBasic extends ExtendedLinearOpMode {
         }
 
 
-
         // --Dehang + Unhook-- \\
 
         resetEncoderAngle();
         moveActuator(5, 4);
-        encoderStrafeOffset(-20, 1, 0, 0.6,4);
+        encoderStrafeOffset(-20, 1, 0, 0.6, 4);
         doEncoderTurn(0.25, 10);
 
 
@@ -73,6 +72,7 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
         sleep(100);
         robot.disableVision();
+        //Disable vision earlier because it should
 
         // --Sample + Drive to Wall-- \\
 
@@ -80,56 +80,87 @@ public class DepotBasic extends ExtendedLinearOpMode {
 
             case LEFT:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6, 4);
 
-                doEncoderTurn(0.5, 45);
-                encoderDriveIN(-31, -31, 0.5, 5);
+                // Turn from sampling position and drive into wall
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-20, -20, 1, 5);
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
+                doEncoderTurn(1, 90);
+                encoderDriveIN(60, 60, 0.75, 5);
+                encoderStrafe(-10, 1);
+                doEncoderTurn(1, -90);
+
                 tiltMarker(2, 0.8);
+                encoderDriveIN(-12, -12, 1, 5);
+                doEncoderTurn(1, 90);
 
-                encoderDriveIN(70,70,0.4,7);
+                encoderDriveIN(50, 50, 1, 5);
 
                 break;
 
             case CENTER:
 
+                // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
                 centerSample();
-                doEncoderTurn(0.7, -15);
-                encoderStrafeOffset(-30, 1, 0, 0.6,4);
+
+                // Drive into wall and turn
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-40, -40, 1, 5);
+
+                doEncoderTurn(1, 90);
+                encoderDriveIN(40, 40, 0.75, 5);
+                encoderStrafe(-10, 1);
+                doEncoderTurn(1, -90);
+
+                tiltMarker(2, 0.8);
+                encoderDriveIN(-12, -12, 1, 5);
+                doEncoderTurn(1, 90);
+
+                encoderDriveIN(50, 50, 1, 5);
 
                 break;
 
             case RIGHT:
 
-                encoderDriveIN(-12, -12, 1, 3);
+                // Push the mineral off
+                encoderDriveIN(-15, -15, 1, 3);
                 rightSample();
-                doEncoderTurn(0.7, -30);
-                encoderStrafeOffset(-30, 1, 0, 0.6,4);
+
+                // Drive into wall and turn
+                doEncoderTurn(0.5, -94);
+                encoderDriveIN(-60, -60, 1, 5);
+
+                doEncoderTurn(1, 90);
+                encoderDriveIN(40, 40, 0.75, 5);
+                encoderStrafe(-10, 1);
+                doEncoderTurn(1, -90);
+
+                tiltMarker(2, 0.8);
+                encoderDriveIN(-12, -12, 1, 5);
+                doEncoderTurn(1, 90);
+
+                encoderDriveIN(50, 50, 1, 5);
 
                 break;
 
             case UNKNOWN:
 
-                encoderDriveIN(-12, -12, 1, 3);
-                leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6,4);
+                // Push the mineral off
+                encoderDriveIN(-15, -15, 1, 3);
+                rightSample();
 
-                doEncoderTurn(0.5, 45);
-                encoderDriveIN(-31, -31, 0.5, 5);
+                // Drive into wall and turn
+                doEncoderTurn(0.5, -90);
+                encoderDriveIN(-60, -60, 1, 5);
 
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
-
-                encoderDriveIN(70,70,0.4,7);
 
                 break;
         }
+
 
 
 

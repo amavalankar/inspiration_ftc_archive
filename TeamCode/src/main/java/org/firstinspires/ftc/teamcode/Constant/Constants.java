@@ -48,6 +48,7 @@ public class Constants {
     public final String LEFT_LOCK_SERVO_NAME = "leftLockServo";
     public final String DUMPER_SERVO_NAME = "dumperServo";
     public final String INTAKE_SERVO_NAME = "intakeServo";
+    public final String INTAKE_MOTOR_NAME = "intakeMotor";
 
     //Vuforia license key, DO NOT TOUCH!
     public final String VUFORIA_KEY = "AffveYv/////AAAAGQ5VbB9zQUgjlHWrneVac2MnNgfMDlq6EwI3tyURgRK6C" +

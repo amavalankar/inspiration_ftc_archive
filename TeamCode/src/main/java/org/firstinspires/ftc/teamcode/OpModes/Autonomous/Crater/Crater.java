@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.OpModes.Autonomous;
+package org.firstinspires.ftc.teamcode.OpModes.Autonomous.Crater;
 
 import android.os.Build;
 
@@ -14,10 +14,6 @@ import org.firstinspires.ftc.teamcode.Vision.CameraCropAngle;
  *
  *
  * CRATER SIDE:
- * A wise man named Colin once said, "Scratch once, scratch forever..."
- *
- * This autonomous program not only attempts to scratch the side walls,
- * but also aims to gain as many points as possible by
  * DEHANGING, SAMPLING, DROPPING OFF THE TEAM MARKER, AND PARTIALLY PARKING.
  *
  * This file inherits ExtendedLinearOpMode, from which it obtains all the movement functions.

@@ -184,11 +184,12 @@ public class Robot {
                 break;
 
             case BLUE_BOI_NEW_DRIVE_MOTORS:
-                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+//                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+                intakeMotor = ahwmap.dcMotor.get(constants.INTAKE_MOTOR_NAME);
                 break;
 
             default:
-                intakeServo = ahwmap.crservo.get(constants.INTAKE_SERVO_NAME);
+                intakeMotor = ahwmap.dcMotor.get(constants.INTAKE_MOTOR_NAME);
                 break;
         }
 
