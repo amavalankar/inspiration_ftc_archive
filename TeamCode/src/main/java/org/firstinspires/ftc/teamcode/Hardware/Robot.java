@@ -73,6 +73,8 @@ public class Robot {
     public Servo intakeLifter;
     public Servo markerDepositer;
 
+    public DistanceSensor tilterDistance;
+
     public HardwareMap ahwmap;
     public SamplingOrderDetector detector = new SamplingOrderDetector();
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -225,6 +227,7 @@ public class Robot {
         // Initiates distance sensors
         groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
         wallAlignFront = ahwmap.get(DistanceSensor.class, constants.WALL_ALIGN_FRONT_NAME);
+        tilterDistance = ahwmap.get(DistanceSensor.class, constants.TILTER_DISTANCE_NAME);
 
     }
 

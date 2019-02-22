@@ -34,6 +34,7 @@ public class Constants {
     public final String LEFT_DISTANCE_NAME = "leftLineDist";
     public final String GROUND_DISTANCE_SENSOR_NAME = "groundDistance";
     public final String WALL_ALIGN_FRONT_NAME = "wallAlignFront";
+    public final String TILTER_DISTANCE_NAME = "tilterDistance";
 
     //names for servos
     public final String LEFT_MINERAL_NAME = "leftMineral";

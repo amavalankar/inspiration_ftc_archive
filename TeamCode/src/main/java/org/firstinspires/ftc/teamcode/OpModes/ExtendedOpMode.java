@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Constant.Constants;
 import org.firstinspires.ftc.teamcode.Hardware.Robot;
 
@@ -122,7 +123,7 @@ public abstract class ExtendedOpMode extends OpMode {
     }
 
     /**
-     * 
+     *
      * @param gp2_leftY
      */
     public void extend(double gp2_leftY) {
@@ -221,17 +222,42 @@ public abstract class ExtendedOpMode extends OpMode {
         }
     }
 
-    public void dumperServo(boolean d2_x, boolean d2_y){
+    public void dumperServo(boolean d2_x, boolean d2_y) {
 
-        if(d2_x){
-            robot.dumperServo.setPosition(0.4);
+        int xToggle = 0;
+        if (gamepad2.x) {
+
+            sleep(100);
+            xToggle++;
+
         }
-        if (d2_y){
-            robot.dumperServo.setPosition(0.9);
+
+        if (xToggle % 2 == 0) {
+
+            if (robot.tilterDistance.getDistance(DistanceUnit.CM) < 1) { // BY THE WAY, THIS IS SOME RANDOM ARBITRARY VALUE, PLACE HOLDER TO REPLACE WHEN I GET BACK TO THE LAB
+
+                // set position
+
+            } else {
+
+                // set position
+
+            }
+
         }
-        //Open and closing dumper
+
+        // Original
+        if (xToggle % 2 == 1) {
+
+            if (d2_x) {
+                robot.dumperServo.setPosition(0.4);
+            }
+            if (d2_y) {
+                robot.dumperServo.setPosition(0.9);
+            }
+            //Open and closing dumper
+        }
     }
-
     /**
      * This is a void taken from {LinearOpMode} to have a sleep function for x milliseconds
      * To learn more about it, refer to the original JavaDoc in the original {LinearOpMode} class made by FIRST
