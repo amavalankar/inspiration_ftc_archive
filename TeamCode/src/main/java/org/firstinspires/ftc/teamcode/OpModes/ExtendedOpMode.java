@@ -261,19 +261,26 @@ public abstract class ExtendedOpMode extends OpMode {
                     telemetry.addData("distance sensor reading is", robot.tilterDistance.getDistance(DistanceUnit.INCH));
                     robot.dumperServo.setPosition(0.9);
 
-                    if (d2_x) {
-                        // dump position
-                        robot.dumperServo.setPosition(0.4);
-                    }
-                    if (d2_y) {
-                        // open position
-                        robot.dumperServo.setPosition(0.9);
-                    }
+
                     //Open and closing dumper
 
                 }
 
+            } else if (gamepad2.left_bumper || gamepad2.right_bumper || gamepad2.x) {
+
+                if (d2_x) {
+                    // dump position
+                    robot.dumperServo.setPosition(0.4);
+                }
+                if (d2_y) {
+                    // open position
+                    robot.dumperServo.setPosition(0.9);
+                }
+                if (gamepad2.x) {
+                    robot.dumperServo.setPosition(0.5);
+                }
             }
+
         } else if (constants.ytoggle % 2 == 1) {
 
             // Original
