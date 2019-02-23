@@ -224,40 +224,78 @@ public abstract class ExtendedOpMode extends OpMode {
 
     public void dumperServo(boolean d2_x, boolean d2_y) {
 
-        int xToggle = 0;
-        if (gamepad2.x) {
+        telemetry.addLine("telemetry is working");
 
-            sleep(100);
-            xToggle++;
+        if (gamepad2.y) {
 
-        }
-
-        if (xToggle % 2 == 0) {
-
-            if (robot.tilterDistance.getDistance(DistanceUnit.CM) < 1) { // BY THE WAY, THIS IS SOME RANDOM ARBITRARY VALUE, PLACE HOLDER TO REPLACE WHEN I GET BACK TO THE LAB
-
-                // set position
-
-            } else {
-
-                // set position
-
-            }
+            sleep(200);
+            constants.ytoggle++;
 
         }
 
-        // Original
-        if (xToggle % 2 == 1) {
+        if (constants.ytoggle % 2 == 0) {
 
-            if (d2_x) {
-                robot.dumperServo.setPosition(0.4);
+            if (!(gamepad2.left_bumper || gamepad2.right_bumper || gamepad2.x)) {
+
+
+                telemetry.addLine("toggle = 0");
+                if (robot.tilterDistance.getDistance(DistanceUnit.INCH) >= 2.5) {
+
+                    telemetry.addLine("closed position");
+                    telemetry.addData("distance sensor reading is", robot.tilterDistance.getDistance(DistanceUnit.INCH));
+                    robot.dumperServo.setPosition(0.4);
+
+                    if (d2_x) {
+                        // dump position
+                        robot.dumperServo.setPosition(0.4);
+                    }
+                    if (d2_y) {
+                        // open position
+                        robot.dumperServo.setPosition(0.9);
+                    }
+                    //Open and closing dumper
+
+                } else if (robot.tilterDistance.getDistance(DistanceUnit.INCH) < 2.5) {
+
+                    telemetry.addLine("open position");
+                    telemetry.addData("distance sensor reading is", robot.tilterDistance.getDistance(DistanceUnit.INCH));
+                    robot.dumperServo.setPosition(0.9);
+
+                    if (d2_x) {
+                        // dump position
+                        robot.dumperServo.setPosition(0.4);
+                    }
+                    if (d2_y) {
+                        // open position
+                        robot.dumperServo.setPosition(0.9);
+                    }
+                    //Open and closing dumper
+
+                }
+
             }
-            if (d2_y) {
-                robot.dumperServo.setPosition(0.9);
+        } else if (constants.ytoggle % 2 == 1) {
+
+            // Original
+            if (gamepad2.left_bumper || gamepad2.right_bumper || gamepad2.x) {
+
+                telemetry.addLine("toggle = 1");
+                if (gamepad2.x) {
+                    robot.dumperServo.setPosition(0.5);
+
+                }
+                if (d2_x) {
+                    robot.dumperServo.setPosition(0.4);
+                }
+                if (d2_y) {
+                    robot.dumperServo.setPosition(0.9);
+                }
+                //Open and closing dumper
             }
-            //Open and closing dumper
         }
+
     }
+
     /**
      * This is a void taken from {LinearOpMode} to have a sleep function for x milliseconds
      * To learn more about it, refer to the original JavaDoc in the original {LinearOpMode} class made by FIRST

@@ -225,8 +225,8 @@ public class Robot {
     public void initDistanceSensors() {
 
         // Initiates distance sensors
-        groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
-        wallAlignFront = ahwmap.get(DistanceSensor.class, constants.WALL_ALIGN_FRONT_NAME);
+//        groundDistance = ahwmap.get(DistanceSensor.class, constants.GROUND_DISTANCE_SENSOR_NAME);
+//        wallAlignFront = ahwmap.get(DistanceSensor.class, constants.WALL_ALIGN_FRONT_NAME);
         tilterDistance = ahwmap.get(DistanceSensor.class, constants.TILTER_DISTANCE_NAME);
 
     }

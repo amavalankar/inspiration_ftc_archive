@@ -114,6 +114,7 @@ public class Constants {
     public final double RIGHT_LOCK_SERVO_CLOSED_POS = 0;
     public final double RIGHT_LOCK_SERVO_OPEN_POS = 0;
 
+    public int ytoggle = 0;
     public final RobotVersion ROBOT_VERSION = RobotVersion.BLUE_BOI_NEW_DRIVE_MOTORS;
 
 }
