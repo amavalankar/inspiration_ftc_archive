@@ -105,7 +105,7 @@ public class Crater extends ExtendedLinearOpMode {
             case RIGHT:
 
                 // Push the mineral off
-                encoderDriveIN(-15, -15, 1, 3);
+                encoderDriveIN(-12, -12, 1, 3);
                 rightSample();
 
                 // Drive into wall and turn

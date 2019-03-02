@@ -781,7 +781,7 @@ public abstract class ExtendedLinearOpMode extends LinearOpMode {
     public void encoderDriveIN(double left_in, double right_in, double speed, double timeoutS) {
 
         int left_distanceEnc = (int) (constants.TICKS_PER_IN * left_in);
-        int right_distanceEnc = (int) (constants.TICKS_PER_IN * right_in);
+        int right_distanceEnc =  (int) (constants.TICKS_PER_IN * right_in);
 
         // Ensure that the opmode is still active
 
