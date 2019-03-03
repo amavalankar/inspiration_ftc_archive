@@ -135,17 +135,17 @@ public class DepotEfficient extends ExtendedLinearOpMode {
 
                 // Push the mineral off
                 encoderDriveIN(-12, -12, 1, 3);
-                leftSampleNoBack();
-
-                doEncoderTurn(0.6, 15);
+                centerSampleNoBack();
 
                 encoderDriveIN(-16, -16, 1, 5);
 
-                doEncoderTurn(0.6, 35);
 
-                encoderStrafeOffset(-40, 1, 0, 0.6, 2.9);
+                doEncoderTurn(0.6, 48);
 
-                encoderDriveIN(6, 6, 1, 5);
+                encoderStrafeOffset(-47, 1, 0, 0.6, 3);
+
+                encoderDriveIN(12, 12, 1, 5);
+
 
                 break;
         }

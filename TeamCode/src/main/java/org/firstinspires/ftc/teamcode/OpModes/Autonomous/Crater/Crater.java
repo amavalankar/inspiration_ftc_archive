@@ -61,7 +61,7 @@ public class Crater extends ExtendedLinearOpMode {
         resetEncoderAngle();
         moveActuator(5, 4);
         encoderStrafeOffset(-20, 1, 0, 0.6, 4);
-        doEncoderTurn(0.25, 10);
+        doEncoderTurn(0.25, -5);
 
 
         // --Vision-- \\

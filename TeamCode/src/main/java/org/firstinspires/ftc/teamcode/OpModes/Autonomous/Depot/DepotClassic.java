@@ -119,12 +119,12 @@ public class DepotClassic extends ExtendedLinearOpMode {
             case UNKNOWN:
 
                 // Push the mineral off
-                encoderDriveIN(-13, -13, 1, 3);
-                rightSample();
+                encoderDriveIN(-12, -12, 1, 3);
+                centerSample();
 
                 // Drive into wall and turn
-                doEncoderTurn(0.5, -93);
-                encoderDriveIN(-50, -50, 1, 5);
+                doEncoderTurn(0.5, -95);
+                encoderDriveIN(-40, -40, 1, 5);
 
                 break;
         }

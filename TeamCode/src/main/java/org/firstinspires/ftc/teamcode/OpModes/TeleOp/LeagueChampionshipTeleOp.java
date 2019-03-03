@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.OpModes.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.OpModes.ExtendedOpMode;
 
+@Disabled
 @TeleOp(name = "League Championship TeleOp", group = "Final")
 public class LeagueChampionshipTeleOp extends ExtendedOpMode {
 

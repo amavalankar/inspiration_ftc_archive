@@ -113,17 +113,9 @@ public class DepotBasic extends ExtendedLinearOpMode {
             case UNKNOWN:
 
                 encoderDriveIN(-12, -12, 1, 3);
-                leftSample();
-                encoderStrafeOffset(-50, 1, 0, 0.6,4);
-
-                doEncoderTurn(0.5, 45);
-                encoderDriveIN(-31, -31, 0.5, 5);
-
-                tiltMarker(1.2, -0.8);
-                sleep(450);
-                tiltMarker(2, 0.8);
-
-                encoderDriveIN(70,70,0.4,7);
+                centerSample();
+                doEncoderTurn(0.7, -15);
+                encoderStrafeOffset(-30, 1, 0, 0.6,4);
 
                 break;
         }
