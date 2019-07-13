@@ -243,15 +243,15 @@ public abstract class ExtendedOpMode extends OpMode {
 
                     telemetry.addLine("closed position");
                     telemetry.addData("distance sensor reading is", robot.tilterDistance.getDistance(DistanceUnit.INCH));
-                    robot.dumperServo.setPosition(0.4);
+                    robot.dumperServo.setPosition(0.2);
 
                     if (d2_x) {
                         // dump position
-                        robot.dumperServo.setPosition(0.4);
+                        robot.dumperServo.setPosition(0.2);
                     }
                     if (d2_y) {
                         // open position
-                        robot.dumperServo.setPosition(0.9);
+                        robot.dumperServo.setPosition(0.65);
                     }
                     //Open and closing dumper
 
@@ -259,7 +259,7 @@ public abstract class ExtendedOpMode extends OpMode {
 
                     telemetry.addLine("open position");
                     telemetry.addData("distance sensor reading is", robot.tilterDistance.getDistance(DistanceUnit.INCH));
-                    robot.dumperServo.setPosition(0.9);
+                    robot.dumperServo.setPosition(0.65);
 
 
                     //Open and closing dumper
@@ -270,11 +270,11 @@ public abstract class ExtendedOpMode extends OpMode {
 
                 if (d2_x) {
                     // dump position
-                    robot.dumperServo.setPosition(0.4);
+                    robot.dumperServo.setPosition(0.2);
                 }
                 if (d2_y) {
                     // open position
-                    robot.dumperServo.setPosition(0.9);
+                    robot.dumperServo.setPosition(0.65);
                 }
                 if (gamepad2.x) {
                     robot.dumperServo.setPosition(0.5);
@@ -292,10 +292,10 @@ public abstract class ExtendedOpMode extends OpMode {
 
                 }
                 if (d2_x) {
-                    robot.dumperServo.setPosition(0.4);
+                    robot.dumperServo.setPosition(0.2);
                 }
                 if (d2_y) {
-                    robot.dumperServo.setPosition(0.9);
+                    robot.dumperServo.setPosition(0.65);
                 }
                 //Open and closing dumper
             }
