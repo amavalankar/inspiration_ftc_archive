@@ -3,7 +3,7 @@
 Here is the code for Team Salsa
 - The goal for this code is to be as object-oriented as possible, so that it can adapt to new situations
 
-For _**any**_ questions, please contact me! (I'm is Aditya, btw)
+For _**any**_ questions, please contact me!
 
 > Remember to use Google to your advantage, it probably has the answer to your question somewhere!
 
